@@ -1,4 +1,4 @@
-baseurl = "https://stats4good.github.io/veraz/"
+baseurl = "veraz/"
 title = "Veraz"
 theme = "hugo-universal-theme"
 languageCode = "pt-br"
