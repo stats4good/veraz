@@ -225,14 +225,14 @@ ul.list-style-none {
     background: url(https://www.toptal.com/designers/subtlepatterns/patterns/subtle_zebra_3d.png);
   }
   body.boxed #all {
-  position: relative;
-  background: #fff;
+    position: relative;
+    background: #fff;
     width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  -webkit-box-shadow: 0 0 5px #cccccc;
-  box-shadow: 0 0 5px #cccccc;
-}
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 5px #cccccc;
+    box-shadow: 0 0 5px #cccccc;
+  }
 }
 #top {
   background: #555555;
@@ -315,7 +315,7 @@ ul.list-style-none {
 .navbar ul.nav > li.active > a,
 .navbar ul.nav > li.open > a {
   text-decoration: none !important;
-  border-top: solid 5px #3f734b;
+  border-top: solid 5px #20616d;
 }
 @media (max-width: 768px) {
   .navbar ul.nav > li.active > a,
@@ -327,18 +327,18 @@ ul.list-style-none {
   }
 }
 .navbar.navbar-light ul.nav > li.active > a {
-  border-top: solid 5px #3f734b;
+  border-top: solid 5px #20616d;
   background: #fff !important;
   color: #555555 !important;
 }
 .navbar.navbar-light ul.nav > li.active > a:hover {
-  border-top: solid 5px #3f734b;
+  border-top: solid 5px #20616d;
 }
 .navbar.navbar-light ul.nav > li > a:hover,
 .navbar.navbar-light ul.nav > li.open > a:hover,
 .navbar.navbar-light ul.nav > li > a:focus,
 .navbar.navbar-light ul.nav > li.open > a:focus {
-  border-top: solid 5px #6aae7a;
+  border-top: solid 5px #38a7bb;
   background: #fff !important;
   color: #555555 !important;
 }
@@ -364,7 +364,7 @@ ul.list-style-none {
   left: 0;
 }
 .navbar ul.dropdown-menu li a:hover {
-  color: #6aae7a;
+  color: #38a7bb;
   text-decoration: none;
   background: none;
   left: 2px;
@@ -416,7 +416,7 @@ ul.list-style-none {
   transition: all 0.2s ease-out;
 }
 .navbar .yamm-content ul li a:hover {
-  color: #6aae7a;
+  color: #38a7bb;
   text-decoration: none;
   padding-left: 2px;
 }
@@ -449,12 +449,12 @@ ul.list-style-none {
 .navbar .btn-default:focus,
 .navbar .btn-default.navbar-toggle:focus {
   background-color: #fff;
-  border-color: #6aae7a;
-  color: #6aae7a;
+  border-color: #38a7bb;
+  color: #38a7bb;
 }
 .navbar #search {
   clear: both;
-  border-top: solid 1px #6aae7a;
+  border-top: solid 1px #38a7bb;
   text-align: right;
 }
 .navbar #search form {
@@ -513,7 +513,7 @@ body.boxed .navbar-affixed-top.affix {
 /* buttons  */
 .btn {
   font-weight: 700;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 6px 12px;
@@ -738,7 +738,8 @@ fieldset[disabled] .btn-template-primary.active {
   background-size: cover;
 }
 #intro .item {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: 'Share Tech Mono', monospace;
   height: 100%;
 }
 #intro .item h1 {
@@ -936,7 +937,8 @@ fieldset[disabled] .btn-template-primary.active {
   letter-spacing: 0.08em;
 }
 .panel.sidebar-menu ul.nav.category-menu li a {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: 'Share Tech Mono', monospace;
 }
 .panel.sidebar-menu ul.nav ul {
   list-style: none;
@@ -1072,7 +1074,8 @@ fieldset[disabled] .btn-template-primary.active {
   margin: 30px 10px 10px -71px;
   color: #fff;
   background-color: #6aae7a;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: 'Share Tech Mono', monospace;
 }
 .ribbon .theribbon:before,
 .ribbon .theribbon:after {
@@ -2190,7 +2193,7 @@ fieldset[disabled] .btn-template-primary.active {
   font-size: 12px;
 }
 #blog-post .comment .reply {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 #blog-post .comment.last {
   margin-bottom: 0;
@@ -2342,7 +2345,7 @@ fieldset[disabled] .btn-template-primary.active {
   color: #555555;
   text-align: center;
   text-decoration: none;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 #productMain .sizes a.active,
 #productMain .sizes a:hover {
@@ -2648,7 +2651,8 @@ fieldset[disabled] .btn-template-primary.active {
 /* Original Boostrap template overwrite */
 /* breadcrumbs */
 .breadcrumb {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: 'Share Tech Mono', monospace;
   text-transform: uppercase;
   background-color: none;
   letter-spacing: 0.08em;
@@ -3149,7 +3153,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 /* scaffolding */
 body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555555;
@@ -3228,7 +3233,8 @@ hr {
 }
 /* labels */
 .label {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+  font-family: "Open Sans", sans-serif;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -3258,7 +3264,7 @@ label {
   padding-top: 20px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 .pager li {
   display: inline;
@@ -3286,7 +3292,7 @@ label {
 /* pagination */
 .pagination {
   margin: 20px 0;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   border-radius: 0;
 }
 .pagination > li > a,
@@ -3361,7 +3367,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 900;
   line-height: 1.1;
   color: #333333;

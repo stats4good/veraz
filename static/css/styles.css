@@ -16,7 +16,8 @@
   margin: 0 auto;
 }
 #head .title {
-  font-family: Alice, Georgia, serif;
+  /* font-family: Alice, Georgia, serif; */
+  font-family: 'Share Tech Mono', monospace;
   font-size: 49px;
   font-size: 3.0625rem;
 }

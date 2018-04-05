@@ -28,11 +28,6 @@ paginate = 15
     url  = "/veraz/blog/"
     weight = 2
 
-[[menu.main]]
-    name = "Contato"
-    url  = "/veraz/contact/"
-    weight = 3
-
 # Top bar social links menu
 
 [[menu.topbar]]
