@@ -1,4 +1,4 @@
-baseurl = "https://stats4good.github.io/veraz/"
+baseurl = "veraz"
 title = "Veraz"
 theme = "hugo-universal-theme"
 languageCode = "pt-br"
@@ -98,13 +98,13 @@ paginate = 15
     # For more informtion take a look at the README.
 
 [params.features]
-    enable = true
+    enable = false
     # All features are defined in their own files. You can find example items
     # at 'exampleSite/data/features'.
     # For more informtion take a look at the README.
 
 [params.testimonials]
-    enable = true
+    enable = false
     # All testimonials are defined in their own files. You can find example items
     # at 'exampleSite/data/testimonials'.
     # For more informtion take a look at the README.
