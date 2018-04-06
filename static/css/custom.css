@@ -24,9 +24,5 @@
 
 #post-content table th {
     font-size: 12px;
-    text-align: center;
-}
-
-p #caption {
-  size: 70%;
+    text-align: left;
 }
