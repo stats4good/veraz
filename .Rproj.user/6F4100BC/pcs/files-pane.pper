@@ -2,7 +2,11 @@
     "path" : "~/Documents/S4G/veraz/static/css",
     "sortOrder" : [
         {
-            "ascending" : true,
+            "ascending" : false,
+            "columnIndex" : 4
+        },
+        {
+            "ascending" : false,
             "columnIndex" : 2
         }
     ]

@@ -3,60 +3,60 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stats4good.github.io/veraz/blog/2018/03/template/</loc>
+    <loc>/veraz/blog/2018/03/template/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/blog/</loc>
-    <lastmod>2018-03-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/categoria-1/</loc>
+    <loc>/veraz/blog/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/categoria-2/</loc>
+    <loc>/veraz/categories/categoria-1/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/</loc>
+    <loc>/veraz/categories/categoria-2/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/tag-1/</loc>
+    <loc>/veraz/categories/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/tag-2/</loc>
+    <loc>/veraz/tags/tag-1/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/tag-3/</loc>
+    <loc>/veraz/tags/tag-2/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/</loc>
+    <loc>/veraz/tags/tag-3/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/</loc>
+    <loc>/veraz/tags/</loc>
+    <lastmod>2018-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/</loc>
     <lastmod>2018-03-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
