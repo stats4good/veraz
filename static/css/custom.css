@@ -9,8 +9,6 @@
   min-height: 60px;
 }
 
-/* estilizando tabelas */
-
 #post-content table th {
     background: #6aae7a;
     /* background: #c21f25; */
@@ -27,20 +25,4 @@
 #post-content table th {
     font-size: 12px;
     text-align: left;
-}
-
-/* Git hub e envelope - hover */
-
-i.fa.fa-2x.fa-github.fa:hover {
-    color:#a8ffbd;
-}
-
-i.fa.fa-2x.fa-envelope.fa:hover {
-    color:#a8ffbd;
-}
-
-/* nav bar - hover */
-
-.navbar-default .navbar-nav > li > a:hover {
-    color: #6aae7a!important;
 }
