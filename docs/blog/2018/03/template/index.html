@@ -161,6 +161,7 @@
 <script src="/veraz/rmarkdown-libs/jquery/jquery.min.js"></script>
 <link href="/veraz/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="/veraz/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<script src="/veraz/rmarkdown-libs/pymjs/pym.v1.min.js"></script>
 <link href="/veraz/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="/veraz/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="/veraz/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
@@ -249,6 +250,9 @@ Esta é uma palavra em <strong><em>negrito e itálico</em></strong></p>
 </table>
 <p>Para tabelas mais elegantes veja <a href="https://rstudio.github.io/DT/">este link</a></p>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[[1,2,3,4],[12,15,60,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[0,1]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>Plots:</p>
 <p>Base</p>

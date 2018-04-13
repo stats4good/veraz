@@ -16,6 +16,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```{r pacotes}
 library(ggplot2)
 library(knitr)
+library(magrittr)
 ```
 
 ## Título Seção
@@ -91,7 +92,7 @@ knitr::kable(dados)
 Para tabelas mais elegantes veja [este link](https://rstudio.github.io/DT/)
 
 ```{r exemplo DT, results = "asis"}
-DT::datatable(dados, rownames = F)
+DT::datatable(dados, rownames = F) %>% widgetframe::frameableWidget()
 ```
 
 Plots:  
