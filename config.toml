@@ -10,7 +10,7 @@ defaultContentLanguage = "pt"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-107006863-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-canonifyURLs = true
+canonifyURLs = false
 # Define the number of posts per page
 paginate = 15
 
