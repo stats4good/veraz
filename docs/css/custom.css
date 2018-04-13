@@ -26,3 +26,17 @@
     font-size: 12px;
     text-align: left;
 }
+
+i.fa.fa-2x.fa-github.fa:hover {
+    color:#a8ffbd;
+}
+
+i.fa.fa-2x.fa-envelope.fa:hover {
+    color:#a8ffbd;
+}
+
+/* nav bar - hover */
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #6aae7a!important;
+}
