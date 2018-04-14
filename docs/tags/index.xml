@@ -47,32 +47,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Tag 1</title>
-      <link>https://stats4good.github.io/veraz/tags/tag-1/</link>
-      <pubDate>Sat, 17 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://stats4good.github.io/veraz/tags/tag-1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tag 2</title>
-      <link>https://stats4good.github.io/veraz/tags/tag-2/</link>
-      <pubDate>Sat, 17 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://stats4good.github.io/veraz/tags/tag-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tag 3</title>
-      <link>https://stats4good.github.io/veraz/tags/tag-3/</link>
-      <pubDate>Sat, 17 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://stats4good.github.io/veraz/tags/tag-3/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
