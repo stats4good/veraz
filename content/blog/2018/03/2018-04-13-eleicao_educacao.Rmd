@@ -21,11 +21,11 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALS
 ```
 
 ```{r pacotes}
-library(ggplot2)
+suppressPackageStartupMessages(library(ggplot2))
 library(knitr)
-library(cowplot)
-library(geofacet)
-library(dplyr)
+suppressPackageStartupMessages(library(cowplot))
+suppressPackageStartupMessages(library(geofacet))
+suppressPackageStartupMessages(library(dplyr))
 sysfonts::font_add_google('Share Tech', 'share_tech')
 ```
 
@@ -74,7 +74,7 @@ foram observados;
 
 Para incluir um bloco de equações, o método é o mesmo do LaTeX:
 
-```{r serie_br, fig.cap = 'Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.'}
+```{r serie_br, fig.cap = 'Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.', fig.width = 10}
 cores <- c('#3a5b3b', '#27ad2b')
 
 ggplot(dados_br) +
@@ -114,7 +114,7 @@ showtext::showtext_end()
 
 ```
 
-```{r serie_uf, fig.cap = 'Valores mensais de transferências discriminados por unidade federativa.'}
+```{r serie_uf, fig.cap = 'Valores mensais de transferências discriminados por unidade federativa.', fig.height = 14, fig.width = 10}
 showtext::showtext_begin()
 ggplot(dados_uf) +
   geom_line(aes(x = Data, y = Valor, color = `Nome Programa`)) +
@@ -131,7 +131,7 @@ ggplot(dados_uf) +
         strip.background = element_rect(fill = 'transparent')) +
   scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
   scale_color_manual(values = cores) +
-  theme(legend.position = 'bottom', legend.direction = 'vertical')
+  theme(legend.position = 'bottom', legend.direction = 'vertical') %>% suppressWarnings()
 showtext::showtext_end()
 ```
 
