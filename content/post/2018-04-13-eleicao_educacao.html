@@ -1,0 +1,62 @@
+---
+title: 'Investimentos em Educação no Período Eleitoral'
+author: Lucas Godoy
+date: '2018-04-13'
+slug: eleicao_educacao
+banner: "img/banner_eleicao_educacao.jpeg"
+summary: "Breve análise do impacto do período de eleições presidenciais no investimento em educação."
+categories:
+  - Eleições
+  - Educação
+  - Ciência
+tags:
+  - Impacto das eleições nos investimentos em educação
+  - Pós-Graduação
+  - Pesquisa
+  - Extensão
+---
+
+
+
+<div id="transferencia-de-recursos-federais" class="section level2">
+<h2>Transferência de Recursos Federais</h2>
+<p>As transferências de recursos do governo federal, em geral, podem ser de três tipos, <em>Constitucionais</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, <em>Legais</em><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> e <em>Voluntárias</em><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. Elas podem beneficiar tanto munícipios, unidades federativas e o distrito federal, quanto instituições privadas (com ou sem fins lucrativos) e até instituições no exterior. No <a href="http://www.portaltransparencia.gov.br">portal da transparência</a>, estes dados estão dividos em diversos níveis de agregação. Entretanto, neste post trataremos de investigar o impacto do período eleitoral referente à disputa da presidência da república em transferências para Educação Superior, que englonba graduação, pós-graduação, ensino, pesquisa e exstensão, e promoção da pesquisa e do desenvolvimento tecnológico. Tais recursos são utilizados na concessão de bolsas de estudo, funcionamento de instituições federais de ensino superior, fomando à pesquisa, entre outros.</p>
+</div>
+<div id="hipotese" class="section level2">
+<h2>Hipótese</h2>
+<p>Acredita-se que o investimento nas áreas aqui citadas seja influênciado pelo período de eleições para a presidência da república. Com o intuito de verificar a hipótese levantada foram realizados os seguintes procedimentos:</p>
+<ol style="list-style-type: decimal">
+<li>Download dos dados da subseção <a href="http://www.portaltransparencia.gov.br/downloads/mensal.asp?c=Transferencias">Pagametnos</a>, que pertence à seção de Transferências no portal;<br />
+</li>
+<li>Limpeza dos dados e filtragem dos dados referentes às áreas para as quais deseja-se fazer análise;</li>
+<li>Calculo dos subtotais por área<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, unidade federativa, mês e ano;</li>
+<li>Correção dos valores pela inflação, tomando-se como base o último mês para o qual os dados foram observados;</li>
+<li>Gráfico das séries temporais de interesse e gráfico das médias móveis referentes à estas séries;</li>
+<li>Comparação do total investido antes e depois do início oficial das campanhas eleitorais.</li>
+</ol>
+</div>
+<div id="analise" class="section level2">
+<h2>Análise</h2>
+<p>Para incluir um bloco de equações, o método é o mesmo do LaTeX:</p>
+<div class="figure">
+<img src="/veraz/post/2018-04-13-eleicao_educacao_files/figure-html/serie_br-1.png" alt="Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas." width="672" />
+<p class="caption">
+(#fig:serie_br)Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.
+</p>
+</div>
+<div class="figure">
+<img src="/veraz/post/2018-04-13-eleicao_educacao_files/figure-html/serie_uf-1.png" alt="Valores mensais de transferências discriminados por unidade federativa." width="672" />
+<p class="caption">
+(#fig:serie_uf)Valores mensais de transferências discriminados por unidade federativa.
+</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>São transferências, previstas na Constituição Federal, de parcelas das receitas federais arrecadadas pela União e que devem ser repassadas aos Estados, ao Distrito Federal e aos Municípios. O objetivo do repasse é amenizar as desigualdades regionais e promover o equilíbrio sócioeconômico entre Estados e Municípios. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas na Constituição, destacam-se: o Fundo de Participação dos Estados e do Distrito Federal (FPE); o Fundo de Participação dos Municípios (FPM); o Fundo de Compensação pela Exportação de Produtos Industrializados (FPEX); o Fundo de Manutenção e de Desenvolvimento do Ensino Fundamental e de Valorização do Magistério (FUNDEF); e o Imposto sobre a Propriedade Territorial Rural (ITR).<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>São as parcelas das receitas federais arrecadadas pela União, repassadas aos Estados, ao Distrito Federal e aos Municípios, previstas em leis específicas. Essas leis determinam a forma de habilitação, a transferência, a aplicação dos recursos e como deverá ocorrer a respectiva prestação de contas. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas em leis, destacam-se: o Programa Nacional de Alimentação Escolar (PNAE), o Programa Nacional de Apoio ao Transporte do Escolar (PNATE), o Programa Dinheiro Direto na Escola (PDDE), o Programa de Apoio aos Sistemas de Ensino para Atendimento à Educação de Jovens e Adultos, entre outros.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>São os recursos financeiros repassados pela União aos Estados, Distrito Federal e Municípios em decorrência da celebração de convênios, acordos, ajustes ou outros instrumentos similares, cuja finalidade é a realização de obras e/ou serviços de interesse comum. A Transferência Voluntária é a entrega de recursos a outro ente da Federação, a título de cooperação, auxílio ou assistência financeira, que não decorra de determinação constitucional, legal ou os destinados ao Sistema Único de Saúde (SUS).<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Ensino Superior e Ciência e Tecnologia.<a href="#fnref4">↩</a></p></li>
+</ol>
+</div>

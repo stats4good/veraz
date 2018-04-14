@@ -1,0 +1,135 @@
+---
+title: 'Investimentos em Educação no Período Eleitoral'
+author: Lucas Godoy
+date: '2018-04-13'
+slug: eleicao_educacao
+banner: "img/banner_eleicao_educacao.jpeg"
+summary: "Breve análise do impacto do período de eleições presidenciais no investimento em educação."
+categories:
+  - Eleições
+  - Educação
+  - Ciência
+tags:
+  - Impacto das eleições nos investimentos em educação
+  - Pós-Graduação
+  - Pesquisa
+  - Extensão
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r pacotes}
+library(ggplot2)
+library(knitr)
+library(cowplot)
+library(geofacet)
+library(dplyr)
+sysfonts::font_add_google('Share Tech', 'share_tech')
+```
+
+```{r carregando dados}
+load('data/eleicoes_educacao.RData')
+```
+
+## Transferência de Recursos Federais
+
+  As transferências de recursos do governo federal, em geral, podem ser de três 
+tipos, _Constitucionais_[^1], _Legais_[^2] e _Voluntárias_[^3]. Elas podem beneficiar tanto 
+munícipios, unidades federativas e o distrito federal, quanto instituições privadas 
+(com ou sem fins lucrativos) e até instituições no exterior. 
+No [portal da transparência](http://www.portaltransparencia.gov.br), estes dados estão 
+dividos em diversos níveis de agregação. Entretanto, neste post trataremos de investigar o 
+impacto do período eleitoral referente à disputa da presidência da república em transferências 
+para Educação Superior, que englonba graduação, pós-graduação, ensino, pesquisa e exstensão, 
+e promoção da pesquisa e do desenvolvimento tecnológico. Tais recursos são utilizados na 
+concessão de bolsas de estudo, funcionamento de instituições federais de ensino superior, 
+fomando à pesquisa, entre outros. 
+
+[^1]: São transferências, previstas na Constituição Federal, de parcelas das receitas federais arrecadadas pela União e que devem ser repassadas aos Estados, ao Distrito Federal e aos Municípios. O objetivo do repasse é amenizar as desigualdades regionais e promover o equilíbrio sócioeconômico entre Estados e Municípios. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas na Constituição, destacam-se: o Fundo de Participação dos Estados e do Distrito Federal (FPE); o Fundo de Participação dos Municípios (FPM); o Fundo de Compensação pela Exportação de Produtos Industrializados (FPEX); o Fundo de Manutenção e de Desenvolvimento do Ensino Fundamental e de Valorização do Magistério (FUNDEF); e o Imposto sobre a Propriedade Territorial Rural (ITR).
+
+[^2]: São as parcelas das receitas federais arrecadadas pela União, repassadas aos Estados, ao Distrito Federal e aos Municípios, previstas em leis específicas. Essas leis determinam a forma de habilitação, a transferência, a aplicação dos recursos e como deverá ocorrer a respectiva prestação de contas. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas em leis, destacam-se: o Programa Nacional de Alimentação Escolar (PNAE), o Programa Nacional de Apoio ao Transporte do Escolar (PNATE), o Programa Dinheiro Direto na Escola (PDDE), o Programa de Apoio aos Sistemas de Ensino para Atendimento à Educação de Jovens e Adultos, entre outros.
+
+[^3]: São os recursos financeiros repassados pela União aos Estados, Distrito Federal e Municípios em decorrência da celebração de convênios, acordos, ajustes ou outros instrumentos similares, cuja finalidade é a realização de obras e/ou serviços de interesse comum. A Transferência Voluntária é a entrega de recursos a outro ente da Federação, a título de cooperação, auxílio ou assistência financeira, que não decorra de determinação constitucional, legal ou os destinados ao Sistema Único de Saúde (SUS).
+
+## Hipótese
+
+  Acredita-se que o investimento nas áreas aqui citadas seja influênciado pelo período
+de eleições para a presidência da república. Com o intuito de verificar a hipótese 
+levantada foram realizados os seguintes procedimentos:
+
+1. Download dos dados da subseção [Pagametnos](http://www.portaltransparencia.gov.br/downloads/mensal.asp?c=Transferencias),
+que pertence à seção de Transferências no portal;  
+2. Limpeza dos dados e filtragem dos dados referentes às áreas para as quais deseja-se fazer análise;
+3. Calculo dos subtotais por área[^4], unidade federativa, mês e ano;
+4. Correção dos valores pela inflação, tomando-se como base o último mês para o qual os dados
+foram observados;
+5. Gráfico das séries temporais de interesse e gráfico das médias móveis referentes à estas séries;
+6. Comparação do total investido antes e depois do início oficial das campanhas eleitorais.
+
+[^4]: Ensino Superior e Ciência e Tecnologia.
+
+## Análise
+
+Para incluir um bloco de equações, o método é o mesmo do LaTeX:
+
+```{r serie_br, fig.cap = 'Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.'}
+cores <- c('#3a5b3b', '#27ad2b')
+
+ggplot(dados_br) +
+  geom_line(aes(x = Data, y = Valor, color = `Nome Programa`), size = 1.05) +
+  geom_point(aes(x = Data, y = Valor, color = `Nome Programa`), size = 1.5) +
+  theme_bw() +
+  theme(legend.position = 'bottom', 
+        legend.direction = 'vertical',
+        legend.title = element_blank(),
+        text = element_text(family = 'share_tech')) +
+  scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
+  scale_color_manual(values = cores) +
+  labs(x = '', y = 'Valor (em Reais)') -> plot_serie
+
+ggplot(dados_br) +
+  geom_line(aes(x = Data, y = Media_Movel, color = `Nome Programa`), size = 1.05) +
+  geom_rect(xmin = as.Date('2014/07/06'), xmax = as.Date('2014/10/26'), 
+            ymin = 0, ymax = Inf, fill = 'gray', alpha = .01) +
+  guides(color = F) +
+  theme_bw() +
+  theme(plot.background = element_rect(fill = 'transparent'),
+        panel.background = element_rect(fill = 'transparent'),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        panel.grid = element_blank()) +
+  scale_x_date(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_color_manual(values = cores) +
+  labs(x = '', y = '') -> plot_mm
+
+showtext::showtext_begin()
+ggdraw() +
+  draw_plot(plot_serie, x = 0, y = 0, width = 1, height = 1) +
+  draw_plot(plot_mm, x = 0.55, y = 0.65, width = 0.45, height = 0.35) 
+# draw_plot_label(c("A", "B"), c(0, 0.5), c(1, 0.92), size = 15)
+showtext::showtext_end()
+
+```
+
+```{r serie_uf, fig.cap = 'Valores mensais de transferências discriminados por unidade federativa.'}
+showtext::showtext_begin()
+ggplot(dados_uf) +
+  geom_line(aes(x = Data, y = Valor, color = `Nome Programa`)) +
+  geom_point(aes(x = Data, y = Valor, color = `Nome Programa`)) +
+  facet_geo( ~ `Sigla Unidade Federação`, grid = "br_states_grid1", scales = 'free_y') +
+  guides(color = F) +
+  scale_color_manual(values = cores) +
+  theme_bw() +
+  theme(legend.position = 'bottom', 
+        legend.direction = 'vertical',
+        legend.title = element_blank(),
+        text = element_text(family = 'share_tech'),
+        strip.background = element_rect(fill = 'transparent')) +
+  scale_color_manual(values = cores) +
+  theme(legend.position = 'bottom', legend.direction = 'vertical')
+showtext::showtext_end()
+```
+
