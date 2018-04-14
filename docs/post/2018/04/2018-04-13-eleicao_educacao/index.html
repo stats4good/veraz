@@ -163,32 +163,40 @@
 </div>
 <div id="hipotese" class="section level2">
 <h2>Hipótese</h2>
-<p>Acredita-se que o investimento nas áreas aqui citadas seja influênciado pelo período de eleições para a presidência da república. Com o intuito de verificar a hipótese levantada foram realizados os seguintes procedimentos:</p>
-<ol style="list-style-type: decimal">
-<li>Download dos dados da subseção <a href="http://www.portaltransparencia.gov.br/downloads/mensal.asp?c=Transferencias">Pagametnos</a>, que pertence à seção de Transferências no portal;<br />
+<p>Acredita-se que o investimento nas áreas aqui citadas seja influênciado pelo período de eleições para a presidência da república.</p>
+</div>
+<div id="metodo" class="section level2">
+<h2>Método</h2>
+<p>Com o intuito de verificar a veracidade da hipótese levantada utilizaram-se os dados do portal da transparência referentes aos repasses destinados ao Ensino Superior e à Ciência e Tecnologia no período de janeiro de 2011 à dezembro de 2017. Tais valores foram corrigidos pela inflação<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, com o intuito de remover este efeito da análise. Para a correção, o período de dezembro de 2017 foi tomado como base.</p>
+<p>Feito isso, foram calculadas as médias móveis com uma janela de 12 meses para verificar a existência de alguma tendência na série. Posteriormente calculou-se os valores totais investidos nas duas áreas para os seguintes períodos:</p>
+<ul>
+<li>6 meses que precedem a data na qual passa a ser permitida a propaganda eleitoral - 6 de janeiro de 2014 até 6 de julho de 2014;<br />
 </li>
-<li>Limpeza dos dados e filtragem dos dados referentes às áreas para as quais deseja-se fazer análise;</li>
-<li>Calculo dos subtotais por área<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, unidade federativa, mês e ano;</li>
-<li>Correção dos valores pela inflação, tomando-se como base o último mês para o qual os dados foram observados;</li>
-<li>Gráfico das séries temporais de interesse e gráfico das médias móveis referentes à estas séries;</li>
-<li>Comparação do total investido antes e depois do início oficial das campanhas eleitorais.</li>
-</ol>
+<li>6 meses que sucedem o dia da votação no segundo turo - 26 de outubro de 2014 até 26 de abril de 2015.</li>
+<li>Foram calculados os valores para os mesmos períodos em anos não eleitorais.</li>
+</ul>
+<p>Após calcular estes montantes, foi feito o cálculo das razões entre diferentes períodos comparados com os meses preliminares à campanha eleitoral para analisar a diferença percentual entre os valores.</p>
 </div>
 <div id="analise" class="section level2">
 <h2>Análise</h2>
-<p>Para incluir um bloco de equações, o método é o mesmo do LaTeX:</p>
-<div class="figure">
-<img src="/veraz/blog/2018/03/2018-04-13-eleicao_educacao_files/figure-html/serie_br-1.png" alt="Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas." width="960" />
-<p class="caption">
-(#fig:serie_br)Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.
-</p>
+<p>Na figura abaixo, temos quantia mensal em reais transferida pelo govero federal para Ensino Superior e Ciência e Tecnologia. No canto superior direito do gráfico temos o gráfico das médias móveis referentes à estes mesmos valores. No gráfico referente às médias móveis o período que vai do início das propagandas eleitorais até o dia da eleição no segundo turno está sombreado em cinza. É possível notar que os investimentos no ensino superior apresentaram um crescimento abrupto antes deste período e, após o início da corrida eleitoral, uma queda vertiginosa. Já os investimentos em Ciência e Tecnologia não aparentam apresentar o mesmo comportamento, pois tais repasses decresceram sucessivamente desde 2011.</p>
+<p><img src="/veraz/blog/2018/03/2018-04-13-eleicao_educacao_files/figure-html/fig1-1.png" width="960" /></p>
+<p>O valor repassado ao ensino superior nos 6 meses precedentes ao início da propaganda eleitoral é 161,5988% maior do no período referente aos 6 meses que sucedem o dia da votação no segundo turno. Eventualmente pode-se argumentar que o investimento no ensino superior é maior neste período que vai de 6 de janeiro à 6 de julho. Entretanto, se compararmos os investimentos nesta mesma época do ano, o investimento em 2014 é:</p>
+<ul>
+<li>231,5689% maior que em 2012;</li>
+<li>73,89617% maior que em 2013;</li>
+<li>2099,23% maior que em 2016;</li>
+<li>1279,789% maior que em 2017;</li>
+</ul>
 </div>
-<div class="figure">
-<img src="/veraz/blog/2018/03/2018-04-13-eleicao_educacao_files/figure-html/serie_uf-1.png" alt="Valores mensais de transferências discriminados por unidade federativa." width="960" />
-<p class="caption">
-(#fig:serie_uf)Valores mensais de transferências discriminados por unidade federativa.
-</p>
+<div id="conclusao" class="section level2">
+<h2>Conclusão</h2>
+<p>Aparentemente, o período eleitoral impulsiona os repasses de verba do governo federal para o ensino superior. O mesmo comportamento não é observado nas transferências destinadas à ciência e tecnologia. Além disso, as duas áreas apresentam um grande decréscimo na disponibilidade destes recursos nos últimos anos, tendo a queda na ciência e tecnologia começado em um período anterior ao ensino superior.</p>
 </div>
+<div id="referencias" class="section level1">
+<h1>Referências</h1>
+<p><a href="http://www.tse.jus.br/eleitor-e-eleicoes/eleicoes/eleicoes-anteriores/eleicoes-2014/normas-e-decisoes/normas-e-documentacoes/resolucao-no-23.390">Calendário eleitoral de 2014</a></p>
+<p><a href="https://www.ibge.gov.br/estatisticas-novoportal/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidor-amplo.html?=&amp;t=o-que-e">IPCA</a></p>
 </div>
 <div class="footnotes">
 <hr />
@@ -196,12 +204,35 @@
 <li id="fn1"><p>São transferências, previstas na Constituição Federal, de parcelas das receitas federais arrecadadas pela União e que devem ser repassadas aos Estados, ao Distrito Federal e aos Municípios. O objetivo do repasse é amenizar as desigualdades regionais e promover o equilíbrio sócioeconômico entre Estados e Municípios. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas na Constituição, destacam-se: o Fundo de Participação dos Estados e do Distrito Federal (FPE); o Fundo de Participação dos Municípios (FPM); o Fundo de Compensação pela Exportação de Produtos Industrializados (FPEX); o Fundo de Manutenção e de Desenvolvimento do Ensino Fundamental e de Valorização do Magistério (FUNDEF); e o Imposto sobre a Propriedade Territorial Rural (ITR).<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>São as parcelas das receitas federais arrecadadas pela União, repassadas aos Estados, ao Distrito Federal e aos Municípios, previstas em leis específicas. Essas leis determinam a forma de habilitação, a transferência, a aplicação dos recursos e como deverá ocorrer a respectiva prestação de contas. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas em leis, destacam-se: o Programa Nacional de Alimentação Escolar (PNAE), o Programa Nacional de Apoio ao Transporte do Escolar (PNATE), o Programa Dinheiro Direto na Escola (PDDE), o Programa de Apoio aos Sistemas de Ensino para Atendimento à Educação de Jovens e Adultos, entre outros.<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>São os recursos financeiros repassados pela União aos Estados, Distrito Federal e Municípios em decorrência da celebração de convênios, acordos, ajustes ou outros instrumentos similares, cuja finalidade é a realização de obras e/ou serviços de interesse comum. A Transferência Voluntária é a entrega de recursos a outro ente da Federação, a título de cooperação, auxílio ou assistência financeira, que não decorra de determinação constitucional, legal ou os destinados ao Sistema Único de Saúde (SUS).<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>Ensino Superior e Ciência e Tecnologia.<a href="#fnref4">↩</a></p></li>
+<li id="fn4"><p>utilizou-se o IPCA para corrigir os valores pela inflação.<a href="#fnref4">↩</a></p></li>
 </ol>
 </div>
 
                         </div>
                         
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-stats4good-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
                         
 
                     </div>

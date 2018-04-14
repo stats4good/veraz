@@ -33,6 +33,46 @@ sysfonts::font_add_google('Share Tech', 'share_tech')
 load('data/eleicoes_educacao.RData')
 ```
 
+
+```{r calculos}
+dados_uf  %>% 
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2014/07/06'), Data > as.Date('2014/01/06')) %$% Valor %>% sum -> antes_eleicao
+
+dados_uf  %>%  
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2015/04/26'), Data > as.Date('2014/10/26')) %$% Valor %>% sum -> depois_eleicao
+
+dados_uf  %>% 
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2012/07/06'), Data > as.Date('2012/01/06')) %$% Valor %>% sum -> antes_eleicao2012
+
+dados_uf  %>% 
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2013/07/06'), Data > as.Date('2013/01/06')) %$% Valor %>% sum -> antes_eleicao2013
+
+dados_uf  %>% 
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2016/07/06'), Data > as.Date('2016/01/06')) %$% Valor %>% sum -> antes_eleicao2016
+
+dados_uf  %>% 
+  filter(`Nome Programa` == 'Educação Superior - Graduação, Pós-Graduação, Ensino, Pesquisa e Extensão') %>% 
+  filter(Data < as.Date('2017/07/06'), Data > as.Date('2017/01/06')) %$% Valor %>% sum -> antes_eleicao2017
+
+
+razao1 <- format((antes_eleicao/depois_eleicao - 1)*100, suffix = '%', digits = 7, 
+                 decimal.mark = ',') %>% paste0('%')
+razao2 <- format((antes_eleicao/antes_eleicao2012 - 1)*100, suffix = '%', digits = 7, 
+                 decimal.mark = ',') %>% paste0('%')
+razao3 <- format((antes_eleicao/antes_eleicao2013 - 1)*100, suffix = '%', digits = 7, 
+                 decimal.mark = ',') %>% paste0('%')
+razao4 <- format((antes_eleicao/antes_eleicao2016 - 1)*100, suffix = '%', digits = 7, 
+                 decimal.mark = ',') %>% paste0('%')
+razao5 <- format((antes_eleicao/antes_eleicao2017 - 1)*100, suffix = '%', digits = 7, 
+                 decimal.mark = ',') %>% paste0('%')
+
+```
+
 ## Transferência de Recursos Federais
 
   As transferências de recursos do governo federal, em geral, podem ser de três 
@@ -56,25 +96,46 @@ fomando à pesquisa, entre outros.
 ## Hipótese
 
   Acredita-se que o investimento nas áreas aqui citadas seja influênciado pelo período
-de eleições para a presidência da república. Com o intuito de verificar a hipótese 
-levantada foram realizados os seguintes procedimentos:
+de eleições para a presidência da república. 
 
-1. Download dos dados da subseção [Pagametnos](http://www.portaltransparencia.gov.br/downloads/mensal.asp?c=Transferencias),
-que pertence à seção de Transferências no portal;  
-2. Limpeza dos dados e filtragem dos dados referentes às áreas para as quais deseja-se fazer análise;
-3. Calculo dos subtotais por área[^4], unidade federativa, mês e ano;
-4. Correção dos valores pela inflação, tomando-se como base o último mês para o qual os dados
-foram observados;
-5. Gráfico das séries temporais de interesse e gráfico das médias móveis referentes à estas séries;
-6. Comparação do total investido antes e depois do início oficial das campanhas eleitorais.
+## Método
 
-[^4]: Ensino Superior e Ciência e Tecnologia.
+Com o intuito de verificar a veracidade da hipótese levantada utilizaram-se os 
+dados do portal da transparência referentes aos repasses destinados ao Ensino 
+Superior e à Ciência e Tecnologia no período de janeiro de 2011 à dezembro de 2017.
+Tais valores foram corrigidos pela inflação[^4], com o intuito de remover este
+efeito da análise. Para a correção, o período de dezembro de 2017 foi tomado como base.
+
+Feito isso, foram calculadas as médias móveis com uma janela de 12 meses para verificar a existência
+de alguma tendência na série. Posteriormente calculou-se os valores totais investidos nas duas áreas 
+para os seguintes períodos:
+
+* 6 meses que precedem a data na qual passa a ser permitida a propaganda
+eleitoral - 6 de janeiro de 2014 até 6 de julho de 2014;  
+* 6 meses que sucedem o dia da votação no segundo turo - 26 de outubro
+de 2014 até 26 de abril de 2015.
+* Foram calculados os valores para os mesmos períodos em anos não 
+eleitorais.
+
+Após calcular estes montantes, foi feito o cálculo das razões entre diferentes
+períodos comparados com os meses preliminares à campanha eleitoral para
+analisar a diferença percentual entre os valores.
+
+[^4]: utilizou-se o IPCA para corrigir os valores pela inflação.
 
 ## Análise
 
-Para incluir um bloco de equações, o método é o mesmo do LaTeX:
+Na figura abaixo, temos quantia mensal em reais transferida pelo govero federal
+para Ensino Superior e Ciência e Tecnologia. No canto superior direito do gráfico
+temos o gráfico das médias móveis referentes à estes mesmos valores. No gráfico
+referente às médias móveis o período que vai do início das propagandas eleitorais
+até o dia da eleição no segundo turno está sombreado em cinza. É possível notar
+que os investimentos no ensino superior apresentaram um crescimento abrupto
+antes deste período e, após o início da corrida eleitoral, uma queda vertiginosa.
+Já os investimentos em Ciência e Tecnologia não aparentam apresentar o mesmo
+comportamento, pois tais repasses decresceram sucessivamente desde 2011.
 
-```{r serie_br, fig.cap = 'Valores mensais de transferências. A série localizada no canto superior do gráfico representa as médias móveis, com janela de 12 meses, relativas às séries observadas.', fig.width = 10}
+```{r fig1, fig.width = 10}
 cores <- c('#3a5b3b', '#27ad2b')
 
 ggplot(dados_br) +
@@ -114,24 +175,52 @@ showtext::showtext_end()
 
 ```
 
+O valor repassado ao ensino superior nos 6 meses precedentes ao início
+da propaganda eleitoral é `r razao1` maior do no período referente
+aos 6 meses que sucedem o dia da votação no segundo turno. Eventualmente
+pode-se argumentar que o investimento no ensino superior é maior neste
+período que vai de 6 de janeiro à 6 de julho. Entretanto, se compararmos
+os investimentos nesta mesma época do ano, o investimento em 2014
+é: 
+
+* `r razao2` maior que em 2012;
+* `r razao3` maior que em 2013;
+* `r razao4` maior que em 2016;
+* `r razao5` maior que em 2017;
+
+## Conclusão
+
+Aparentemente, o período eleitoral impulsiona os repasses de verba do governo
+federal para o ensino superior. O mesmo comportamento não é observado nas
+transferências destinadas à ciência e tecnologia. Além disso, as duas áreas
+apresentam um grande decréscimo na disponibilidade destes recursos nos últimos
+anos, tendo a queda na ciência e tecnologia começado em um período anterior
+ao ensino superior.
+
+
 ```{r serie_uf, fig.cap = 'Valores mensais de transferências discriminados por unidade federativa.', fig.height = 14, fig.width = 10}
-showtext::showtext_begin()
-ggplot(dados_uf) +
-  geom_line(aes(x = Data, y = Valor, color = `Nome Programa`)) +
-  geom_point(aes(x = Data, y = Valor, color = `Nome Programa`)) +
-  facet_geo( ~ `Sigla Unidade Federação`, grid = "br_states_grid1", scales = 'free_y') +
-  guides(color = F) +
-  scale_color_manual(values = cores) +
-  theme_bw() +
-  theme(legend.position = 'bottom', 
-        legend.direction = 'vertical',
-        legend.title = element_blank(),
-        axis.text.x = element_blank(),
-        text = element_text(family = 'share_tech'),
-        strip.background = element_rect(fill = 'transparent')) +
-  scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
-  scale_color_manual(values = cores) +
-  theme(legend.position = 'bottom', legend.direction = 'vertical') %>% suppressWarnings()
-showtext::showtext_end()
+# showtext::showtext_begin()
+# ggplot(dados_uf) +
+#   geom_line(aes(x = Data, y = Valor, color = `Nome Programa`)) +
+#   geom_point(aes(x = Data, y = Valor, color = `Nome Programa`)) +
+#   facet_geo( ~ `Sigla Unidade Federação`, grid = "br_states_grid1", scales = 'free_y') +
+#   guides(color = F) +
+#   scale_color_manual(values = cores) +
+#   theme_bw() +
+#   theme(legend.position = 'bottom', 
+#         legend.direction = 'vertical',
+#         legend.title = element_blank(),
+#         axis.text.x = element_blank(),
+#         text = element_text(family = 'share_tech'),
+#         strip.background = element_rect(fill = 'transparent')) +
+#   scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
+#   scale_color_manual(values = cores) +
+#   theme(legend.position = 'bottom', legend.direction = 'vertical') %>% suppressWarnings()
+# showtext::showtext_end()
 ```
 
+# Referências
+
+[Calendário eleitoral de 2014](http://www.tse.jus.br/eleitor-e-eleicoes/eleicoes/eleicoes-anteriores/eleicoes-2014/normas-e-decisoes/normas-e-documentacoes/resolucao-no-23.390)  
+
+[IPCA](https://www.ibge.gov.br/estatisticas-novoportal/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidor-amplo.html?=&t=o-que-e)  
