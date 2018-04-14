@@ -75,17 +75,17 @@ razao5 <- format((antes_eleicao/antes_eleicao2017 - 1)*100, suffix = '%', digits
 
 ## Transferência de Recursos Federais
 
-  As transferências de recursos do governo federal, em geral, podem ser de três 
+  As transferências de recursos do governo federal podem ser de três 
 tipos, _Constitucionais_[^1], _Legais_[^2] e _Voluntárias_[^3]. Elas podem beneficiar tanto 
 munícipios, unidades federativas e o distrito federal, quanto instituições privadas 
-(com ou sem fins lucrativos) e até instituições no exterior. 
+(com ou sem fins lucrativos) e instituições do exterior. 
 No [portal da transparência](http://www.portaltransparencia.gov.br), estes dados estão 
 dividos em diversos níveis de agregação. Entretanto, neste post trataremos de investigar o 
 impacto do período eleitoral referente à disputa da presidência da república em transferências 
-para Educação Superior, que englonba graduação, pós-graduação, ensino, pesquisa e exstensão, 
+para Educação Superior, que engloba graduação, pós-graduação, ensino, pesquisa e extensão, 
 e promoção da pesquisa e do desenvolvimento tecnológico. Tais recursos são utilizados na 
 concessão de bolsas de estudo, funcionamento de instituições federais de ensino superior, 
-fomando à pesquisa, entre outros. 
+fomento à pesquisa, entre outros. 
 
 [^1]: São transferências, previstas na Constituição Federal, de parcelas das receitas federais arrecadadas pela União e que devem ser repassadas aos Estados, ao Distrito Federal e aos Municípios. O objetivo do repasse é amenizar as desigualdades regionais e promover o equilíbrio sócioeconômico entre Estados e Municípios. Dentre as principais transferências da União para os Estados, o DF e os Municípios, previstas na Constituição, destacam-se: o Fundo de Participação dos Estados e do Distrito Federal (FPE); o Fundo de Participação dos Municípios (FPM); o Fundo de Compensação pela Exportação de Produtos Industrializados (FPEX); o Fundo de Manutenção e de Desenvolvimento do Ensino Fundamental e de Valorização do Magistério (FUNDEF); e o Imposto sobre a Propriedade Territorial Rural (ITR).
 
@@ -103,10 +103,10 @@ de eleições para a presidência da república.
 Com o intuito de verificar a veracidade da hipótese levantada utilizaram-se os 
 dados do portal da transparência referentes aos repasses destinados ao Ensino 
 Superior e à Ciência e Tecnologia no período de janeiro de 2011 à dezembro de 2017.
-Tais valores foram corrigidos pela inflação[^4], com o intuito de remover este
+Tais valores foram corrigidos pela inflação[^4] com o intuito de remover este
 efeito da análise. Para a correção, o período de dezembro de 2017 foi tomado como base.
 
-Feito isso, foram calculadas as médias móveis com uma janela de 12 meses para verificar a existência
+Foram calculadas as médias móveis com uma janela de 12 meses para verificar a existência
 de alguma tendência na série. Posteriormente calculou-se os valores totais investidos nas duas áreas 
 para os seguintes períodos:
 
@@ -125,7 +125,7 @@ analisar a diferença percentual entre os valores.
 
 ## Análise
 
-Na figura abaixo, temos quantia mensal em reais transferida pelo govero federal
+Na figura abaixo, temos o valor mensal em reais transferido pelo govero federal
 para Ensino Superior e Ciência e Tecnologia. No canto superior direito do gráfico
 temos o gráfico das médias móveis referentes à estes mesmos valores. No gráfico
 referente às médias móveis o período que vai do início das propagandas eleitorais
@@ -178,10 +178,10 @@ showtext::showtext_end()
 O valor repassado ao ensino superior nos 6 meses precedentes ao início
 da propaganda eleitoral é `r razao1` maior do no período referente
 aos 6 meses que sucedem o dia da votação no segundo turno. Eventualmente
-pode-se argumentar que o investimento no ensino superior é maior neste
-período que vai de 6 de janeiro à 6 de julho. Entretanto, se compararmos
-os investimentos nesta mesma época do ano, o investimento em 2014
-é: 
+pode-se argumentar que o investimento no ensino superior é maior no
+período que vai de 6 de janeiro à 6 de julho, independentemente do ano. 
+Entretanto, se compararmos os investimentos nesta mesma época do ano, 
+o investimento em 2014 é: 
 
 * `r razao2` maior que em 2012;
 * `r razao3` maior que em 2013;
