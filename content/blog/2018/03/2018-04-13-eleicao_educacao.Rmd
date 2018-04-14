@@ -3,7 +3,7 @@ title: 'Investimentos em Educação no Período Eleitoral'
 author: Lucas Godoy
 date: '2018-04-13'
 slug: eleicao_educacao
-banner: "img/banner_eleicao_educacao.jpeg"
+banner: "blog/2018/03/img/banner_eleicao_educacao.jpeg"
 summary: "Breve análise do impacto do período de eleições presidenciais no investimento em educação."
 categories:
   - Eleições
@@ -126,8 +126,10 @@ ggplot(dados_uf) +
   theme(legend.position = 'bottom', 
         legend.direction = 'vertical',
         legend.title = element_blank(),
+        axis.text.x = element_blank(),
         text = element_text(family = 'share_tech'),
         strip.background = element_rect(fill = 'transparent')) +
+  scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
   scale_color_manual(values = cores) +
   theme(legend.position = 'bottom', legend.direction = 'vertical')
 showtext::showtext_end()
