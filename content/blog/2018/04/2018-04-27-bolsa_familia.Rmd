@@ -56,7 +56,7 @@ As condições para ser uma família eletiva ao recebimento da ajuda financeira 
 
 A contrapartida é que as famílias beneficiárias mantenham as crianças e os adolescentes entre 6 e 15 anos com frequência mínima de 85% na escola, e de 75%, para adolescentes de 16 e 17 anos e façam o acompanhamento de saúde das gestantes, as mulheres que estiverem amamentando e as crianças, que também devem ter a vacinação em dia. O programa visa a quebrar o ciclo geracional da pobreza a curto e a longo prazo através de transferências condicionadas de renda. Em janeiro de 2017, o valor médio do benefício era de R\$ 176,00 mensais e o menor valor, de R\$ 35,00 mensais.[4]
 
-## Show me the data
+## Visualizando os dados
 
 Para esta postagem consideramos os dados de pagamento aos beneficiários do Bolsa Família referentes ao mês de janeiro dos anos de 2011 à 2017. Esta decisão foi tomada pelo fato da base de dados de beneficiários ser muito grande e demandar mais tempo para análise, porém veremos que não perdemos muito em generalização, uma vez que os pagamentos mensais são relativamente homogêneos. Por exemplo, para orçamento de 2017 havia sido previsto um gasto de R\$ 29,7 bilhões, se fizermos uma estimativa apenas com o mês de janeiro de 2017, ou seja, o valor total pago em janeiro de 2017 multiplicado por 12 meses resultando em 29,1 bilhões.
 
@@ -187,7 +187,7 @@ colw <- nb2listw(nb, style="W")
 sim1 <- moran.mc(xx$valor_medio_corrigido, listw=colw, nsim=999)
 ````
 
-Para corroborar o resultado visual foi realizado o cálculo do Índice de Moran através da função da `moran.mc` do pacote `spadep`. O valor encontrado foi `r round(sim1$statistic, 3)` com p-valor igual a `r sim1$p.value`, ou seja, rejeitamos a hipótese de independência espacial e portanto temos indicativos de correlação espacial. 
+Para corroborar o resultado visual foi realizado o cálculo do Índice de Moran através da função da `moran.mc` do pacote `spdep`. O valor encontrado foi `r round(sim1$statistic, 3)` com p-valor igual a `r sim1$p.value`, ou seja, rejeitamos a hipótese de independência espacial e portanto temos indicativos de correlação espacial. 
 
 ## Considerações
 
