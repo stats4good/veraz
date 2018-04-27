@@ -1,0 +1,59 @@
+---
+title: 'Investimentos em Educação no Período Eleitoral'
+author: Lucas Godoy
+date: '2018-04-13'
+slug: eleicao_educacao
+banner: "img/banners/banner_eleicao_educacao.jpeg"
+summary: "Breve análise do impacto do período de eleições presidenciais no investimento em educação."
+categories:
+  - Eleições
+  - Educação
+  - Ciência
+tags:
+  - Impacto das eleições nos investimentos em educação
+  - Pós-Graduação
+  - Pesquisa
+  - Extensão
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r pacotes}
+library(ggplot2)
+library(knitr)
+library(cowplot)
+library(geofacet)
+library(dplyr)
+```
+
+```{r carregando dados}
+load('data/eleicoes_educacao.RData')
+```
+
+## Transferência de Recursos Federais
+
+  A transferência de recursos do governo federal, em geral, pode ser de três tipos, _Constitucionais_, _Legais_ e _Voluntárias_. Podem ser beneficiados
+por estas transferências tanto munícipios, unidades federativas e o distrito federal, quanto instituições privadas (com ou sem fins lucrativos) e até
+instituições no exterior. No portal da transparência, estes dados estão dividos em diversos níveis de agregação. Entretanto, neste post trataremos
+de investigar o impacto do período eleitoral referente á disputa da presidência da república em transferências para Educação Superior, que englonba 
+graduação, pós-graduação, ensino, pesquisa e exstensão, e promoção da pesquisa e do desenvolvimento tecnológico. Tais recursos são utilizados
+na concessão de bolsas de estudo, funcionamento de instituições federais de ensino superior, fomando à pesquisa, entre outros.  
+
+## 
+
+
+## Nível Nacional
+
+Para incluir um bloco de equações, o método é o mesmo do LaTeX:
+  
+# Referências
+
+[Friedl, Jeffrey EF. Mastering regular expressions. " O'Reilly Media, Inc.", 2002.](https://books.google.com.br/books?hl=pt-BR&lr=&id=CT-MHZyNK2wC&oi=fnd&pg=PR15&dq=Mastering+Regular+Expressions,+Second+Edition+Jeffrey+E.F.+Friedl-O%27Reilly+(2002)&ots=ecY2U03UQP&sig=S7v-k5hP3kwhfgHs1xvuTruDXa4#v=onepage&q&f=false)
+                                                                                    
+[Hadley Wickham (2016). stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.1.0.](https://cran.r-project.org/web/packages/stringr/stringr.pdf https://CRAN.R-project.org/package=stringr)
+                                                                                    
+[Tutorial do stringr (vignettes)](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+                                                                                    
+[Wikipedia - regular expression](https://en.wikipedia.org/wiki/Regular_expression)

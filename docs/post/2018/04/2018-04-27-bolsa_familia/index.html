@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizando os dados Programa Bolsa Família</title>
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="S4G, R, Data Science">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.38.2" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/veraz/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/veraz/css/style.green.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="/veraz/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+    <link rel="shortcut icon" href="/veraz/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/veraz/img/apple-touch-icon.png" />
+  
+
+  <link href="/veraz/css/owl.carousel.css" rel="stylesheet">
+  <link href="/veraz/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Veraz">
+
+  
+  <meta property="og:title" content="Visualizando os dados Programa Bolsa Família" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/veraz/post/2018/04/2018-04-27-bolsa_familia//" />
+  <meta property="og:image" content="img/logo.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/veraz/">
+                    <img src="/veraz/img/logo.png" alt="Visualizando os dados Programa Bolsa Família logo" class="hidden-xs hidden-sm">
+                    <img src="/veraz/img/logo-small.png" alt="Visualizando os dados Programa Bolsa Família logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Visualizando os dados Programa Bolsa Família - </span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only"></span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/veraz/">Home</a>
+                    
+                  </li>
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/veraz/blog/">Blog</a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Visualizando os dados Programa Bolsa Família</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right"> <a href="#">Luís G. Silva e Silva</a> | 27/04/2018</p>
+
+                        <div id="post-content">
+                          <script src="/veraz/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/veraz/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/veraz/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<div id="programa-social-bolsa-familia" class="section level2">
+<h2>Programa Social: Bolsa Família</h2>
+<p>O Programa Bolsa Família (PBF) é um programa de transferência de renda do Governo Federal direcionado às famílias em situações de pobreza e de extrema pobreza. O programa busca garantir a essas famílias o direito à alimentação e o acesso à educação e à saúde. O programa recebeu este nome em <span class="math inline">\(2004\)</span> quando unificou e ampliou os seguintes programas de transferência já existentes:</p>
+<ul>
+<li>Programa Nacional de Renda Mínima vinculada à Educação - Bolsa Escola (2001)</li>
+<li>Cadastramento Único do Governo Federal (2001)</li>
+<li>Programa Nacional de Renda Mínima vinculada à Saúde - Bolsa Alimentação (2001)</li>
+<li>Programa Auxílio-Gás (2002)</li>
+<li>Programa Nacional de Acesso à Alimentação - Fome Zero (2003)</li>
+</ul>
+</div>
+<div id="quem-pode-participar-do-programa" class="section level2">
+<h2>Quem pode participar do programa</h2>
+<p>As condições para ser uma família eletiva ao recebimento da ajuda financeira é definida como aquelas com renda per capita mensal entre R$ 85,00 e R$ 170,00 que tenham em sua composição gestantes e crianças ou adolescentes entre 0 e 17 anos e extremamente pobres (com renda per capita até R$ 85,00). Além disso, para se candidatar ao programa, é necessário que a família esteja inscrita no Cadastro Único para Programas Sociais do Governo Federal, com seus dados atualizados há menos de 2 anos<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>A contrapartida é que as famílias beneficiárias mantenham as crianças e os adolescentes entre 6 e 15 anos com frequência mínima de 85% na escola, e de 75%, para adolescentes de 16 e 17 anos e façam o acompanhamento de saúde das gestantes, as mulheres que estiverem amamentando e as crianças, que também devem ter a vacinação em dia. O programa visa a quebrar o ciclo geracional da pobreza a curto e a longo prazo através de transferências condicionadas de renda. Em janeiro de 2017, o valor médio do benefício era de R$ 176,00 mensais e o menor valor, de R$ 35,00 mensais.[4]</p>
+</div>
+<div id="show-me-the-data" class="section level2">
+<h2>Show me the data</h2>
+<p>Para esta postagem consideramos os dados de pagamento aos beneficiários do Bolsa Família referentes ao mês de janeiro dos anos de 2011 à 2017. Esta decisão foi tomada pelo fato da base de dados de beneficiários ser muito grande e demandar mais tempo para análise, porém veremos que não perdemos muito em generalização, uma vez que os pagamentos mensais são relativamente homogêneos. Por exemplo, para orçamento de 2017 havia sido previsto um gasto de R$ 29,7 bilhões, se fizermos uma estimativa apenas com o mês de janeiro de 2017, ou seja, o valor total pago em janeiro de 2017 multiplicado por 12 meses resultando em 29,1 bilhões.</p>
+<p>Nos gráficos abaixo podemos visualizar a série histótica do número de beneficiários ao longo dos anos para o mês de janeiro. O gráfico do lado esquerdo apresenta o número absoluto de beneficiários, enquanto o o grafico da direira apresenta a taxa de beneficiários, ou seja, o número de beneciários dividido pela população da região em análise. Notamos que as rigões Norte e Nordeste são as que possuem os maiores taxas de beneficiários, ficando acima de 7,5% da população.</p>
+<p><img src="/veraz/blog/2018/04/2018-04-27-bolsa_familia_files/figure-html/dados-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Com intuito de comparar a série de histórica do número de beneficiários da região com ela mesma propomos o gráfico abaixo com a escala do eixo Y livre. Analisando cada região isoladamento é possível visualizar que o número de benficiários à partir de 2014 e 2015 vem caindo, exceto para região Norte que tem um crescimento praticamente linear.</p>
+<p><img src="/veraz/blog/2018/04/2018-04-27-bolsa_familia_files/figure-html/livre-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Para melhor visualizar e também nos permitir uma comparação entre e intra as regiões nos propomos o gráfico de diferenças relativa (<span class="math inline">\(DR_{\textbf{ANO}}\)</span>). Este é gráfico é construído calculando a diferença do número de beneficiários do respectivo ano <span class="math inline">\(B_{\textbf{Ano}}\)</span> com número de beneficiários em 2011 (<span class="math inline">\(B_{2011}\)</span>), esta diferença é dividida por <span class="math inline">\(B_{2011}\)</span>. Este cálculo é realizado para cada região e ano. A interpretação é feita seguinte forma para a região Sul, em 2017 o número de beneficiários foi 20% menor que em 2011, ou seja, uma redução de 20% do número de famílias beneficiadas pelo PBF. Enquanto que a região Norte em 2017 teve um aumento acima de 20% comparado com 2011. Este gráfico portanto nos permite comparar tanto a região com ela mesma quanto com as demais regiões. Outra informação pertinente neste gráfico é o valor médio pago ao beneficiários que está representado pelo o tamanho do ponto. Por exemplo, podemos ver que o valor médio tende a aumentar, lembrando que estes valores foram corrigidos levando em consideração o mês de janeiro de 2018 como base.</p>
+<p><span class="math display">\[
+DR_{\textbf{ANO}} = \frac{(B_{\textbf{Ano}} - B_{2011})}{B_{2011}}
+\]</span></p>
+<p><img src="/veraz/blog/2018/04/2018-04-27-bolsa_familia_files/figure-html/taxa-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Para uma visão geográfica selecionamos o estado de Minas Gerais e construimos o mapa de valor médio por município. A ideia é tentar identificar algum padrão espacial nos valores médios. O mapa apresentado a seguir é considerando apenas janeiro de 2017. Claramente a região Norte de Minas Gerais apresentam os maiores valores, enquanto a região Sul os menores. Este comportamento é esperado uma vez que a região Norte de MG é uma deas regiões mais pobres do estado, bem como a região Nordeste.</p>
+<div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/veraz/blog/2018/04/2018-04-27-bolsa_familia_files/figure-html//widgets/widget_unnamed-chunk-1.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>Para corroborar o resultado visual foi realizado o cálculo do Índice de Moran através da função da <code>moran.mc</code> do pacote <code>spadep</code>. O valor encontrado foi 0.253 com p-valor igual a 0.001, ou seja, rejeitamos a hipótese de independência espacial e portanto temos indicativos de correlação espacial.</p>
+</div>
+<div id="consideracoes" class="section level2">
+<h2>Considerações</h2>
+<p>Como podemos ver o Portal da Transparência disponiliza dados de diversas fontes que nos permite analisar e enteder melhor as diferenças do nosso país. Na postagem de hoje foi possível verificar uma grande redução do número de beneficiários ao longo dos anos, quebrando uma tendência de crescimento. Os motivos que levaram esta redução não foi analisada neste primeiro momento, mas é já é sabido que huveram muitos cortes à partir de 2015 em diversas frentes.</p>
+<p>Próximos passamos desta análise é relacionar a renda per capita dos municípios com os valores médios pagos pelo Programa Bolsa Família, com intuito de verificar se regiões com renda per capita baixa estão sendo beneficiadas pelo programa.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.caixa.gov.br/programas-sociais/bolsa-familia/Paginas/default.aspx" class="uri">http://www.caixa.gov.br/programas-sociais/bolsa-familia/Paginas/default.aspx</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+                        </div>
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-stats4good-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title"></h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="/veraz/categories/bolsa-fam%c3%adlia">bolsa-família (1)</a>
+            </li>
+            
+            <li><a href="/veraz/categories/ci%c3%aancia">ciência (3)</a>
+            </li>
+            
+            <li><a href="/veraz/categories/economia">economia (1)</a>
+            </li>
+            
+            <li><a href="/veraz/categories/educa%c3%a7%c3%a3o">educação (2)</a>
+            </li>
+            
+            <li><a href="/veraz/categories/elei%c3%a7%c3%b5es">eleições (2)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+      <h3 class="panel-title"></h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="/veraz/tags/bolsa-fam%c3%adlia"><i class="fa fa-tags"></i> bolsa-família</a>
+            </li>
+            
+            <li><a href="/veraz/tags/extens%c3%a3o"><i class="fa fa-tags"></i> extensão</a>
+            </li>
+            
+            <li><a href="/veraz/tags/impacto-das-elei%c3%a7%c3%b5es-nos-investimentos-em-educa%c3%a7%c3%a3o"><i class="fa fa-tags"></i> impacto-das-eleições-nos-investimentos-em-educação</a>
+            </li>
+            
+            <li><a href="/veraz/tags/pesquisa"><i class="fa fa-tags"></i> pesquisa</a>
+            </li>
+            
+            <li><a href="/veraz/tags/p%c3%b3s-gradua%c3%a7%c3%a3o"><i class="fa fa-tags"></i> pós-graduação</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        
+<div id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-5">
+        <p class="hidden-sm hidden-xs">Contact us stats4good@gmail.com</p>
+      <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>
+      <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+      </p>
+      
+      </div>
+      <div class="col-xs-7">
+        <div class="social">
+          
+          <a href="https://github.com/stats4good" target="_blank" style="opacity: 1;"><i class='fa fa-2x fa-github'></i></a>
+          
+          <a href="mailto:stats4good@gmail.com" target="_blank" style="opacity: 1;"><i class='fa fa-2x fa-envelope'></i></a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-107006863-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="/veraz/js/hpneo.gmaps.js"></script>
+<script src="/veraz/js/gmaps.init.js"></script>
+<script src="/veraz/js/front.js"></script>
+
+
+<script src="/veraz/js/owl.carousel.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
+  </body>
+</html>

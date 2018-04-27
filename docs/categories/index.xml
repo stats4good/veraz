@@ -2,38 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Veraz</title>
-    <link>https://stats4good.github.io/veraz/categories/</link>
+    <link>/veraz/categories/</link>
     <description>Recent content in Categories on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
+    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ciência</title>
-      <link>https://stats4good.github.io/veraz/categories/ci%C3%AAncia/</link>
-      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      <title>Bolsa Família</title>
+      <link>/veraz/categories/bolsa-fam%C3%ADlia/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/categories/ci%C3%AAncia/</guid>
+      <guid>/veraz/categories/bolsa-fam%C3%ADlia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ciência</title>
+      <link>/veraz/categories/ci%C3%AAncia/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/categories/ci%C3%AAncia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Economia</title>
+      <link>/veraz/categories/economia/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/categories/economia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Educação</title>
-      <link>https://stats4good.github.io/veraz/categories/educa%C3%A7%C3%A3o/</link>
+      <link>/veraz/categories/educa%C3%A7%C3%A3o/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/categories/educa%C3%A7%C3%A3o/</guid>
+      <guid>/veraz/categories/educa%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eleições</title>
-      <link>https://stats4good.github.io/veraz/categories/elei%C3%A7%C3%B5es/</link>
+      <link>/veraz/categories/elei%C3%A7%C3%B5es/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/categories/elei%C3%A7%C3%B5es/</guid>
+      <guid>/veraz/categories/elei%C3%A7%C3%B5es/</guid>
       <description></description>
     </item>
     

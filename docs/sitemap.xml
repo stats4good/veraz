@@ -3,72 +3,107 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/</loc>
+    <loc>/veraz/post/2018/04/2018-04-27-bolsa_familia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/veraz/post/2018/04/2018-04-13-eleicao_educacao/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/blog/</loc>
+    <loc>/veraz/post/eleicao_educacao/</loc>
+    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/veraz/blog/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/bolsa-fam%C3%ADlia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/bolsa-fam%C3%ADlia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/ci%C3%AAncia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/economia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/ci%C3%AAncia/</loc>
+    <loc>/veraz/categories/elei%C3%A7%C3%B5es/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/educa%C3%A7%C3%A3o/</loc>
+    <loc>/veraz/tags/extens%C3%A3o/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/elei%C3%A7%C3%B5es/</loc>
+    <loc>/veraz/tags/pesquisa/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/post/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/extens%C3%A3o/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
+    <loc>/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
+    <loc>/veraz/tags/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/pesquisa/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/tags/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
+    <loc>/veraz/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
