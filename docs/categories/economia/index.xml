@@ -2,21 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Economia on Veraz</title>
-    <link>https://stats4good.github.io/veraz/categories/economia/</link>
+    <link>/veraz/categories/economia/</link>
     <description>Recent content in Economia on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
+    <copyright>Copyright (c) 2017 , Stats4Good; all rights reserved.</copyright>
     <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/categories/economia/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/categories/economia/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Visualizando os dados Programa Bolsa Família</title>
-      <link>https://stats4good.github.io/veraz/post/2018/04/2018-04-27-bolsa_familia/</link>
+      <title>Visualizando os dados do Programa Bolsa Família</title>
+      <link>/veraz/post/2018/04/2018-04-27-bolsa_familia/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/04/2018-04-27-bolsa_familia/</guid>
+      <guid>/veraz/post/2018/04/2018-04-27-bolsa_familia/</guid>
       <description>Programa Social: Bolsa Família O Programa Bolsa Família (PBF) é um programa de transferência de renda do Governo Federal direcionado às famílias em situações de pobreza e de extrema pobreza. O programa busca garantir a essas famílias o direito à alimentação e o acesso à educação e à saúde. O programa recebeu este nome em \(2004\) quando unificou e ampliou os seguintes programas de transferência já existentes:</description>
     </item>
     

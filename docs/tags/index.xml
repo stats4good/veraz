@@ -2,57 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Veraz</title>
-    <link>https://stats4good.github.io/veraz/tags/</link>
+    <link>/veraz/tags/</link>
     <description>Recent content in Tags on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
+    <copyright>Copyright (c) 2017 , Stats4Good; all rights reserved.</copyright>
     <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bolsa Família</title>
-      <link>https://stats4good.github.io/veraz/tags/bolsa-fam%C3%ADlia/</link>
+      <link>/veraz/tags/bolsa-fam%C3%ADlia/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/tags/bolsa-fam%C3%ADlia/</guid>
+      <guid>/veraz/tags/bolsa-fam%C3%ADlia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Extensão</title>
-      <link>https://stats4good.github.io/veraz/tags/extens%C3%A3o/</link>
+      <link>/veraz/tags/extens%C3%A3o/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/tags/extens%C3%A3o/</guid>
+      <guid>/veraz/tags/extens%C3%A3o/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Impacto Das Eleições Nos Investimentos Em Educação</title>
-      <link>https://stats4good.github.io/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</link>
+      <link>/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</guid>
+      <guid>/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pesquisa</title>
-      <link>https://stats4good.github.io/veraz/tags/pesquisa/</link>
+      <link>/veraz/tags/pesquisa/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/tags/pesquisa/</guid>
+      <guid>/veraz/tags/pesquisa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pós Graduação</title>
-      <link>https://stats4good.github.io/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</link>
+      <link>/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</guid>
+      <guid>/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     

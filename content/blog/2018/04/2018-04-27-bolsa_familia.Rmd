@@ -1,5 +1,5 @@
 ---
-title: 'Visualizando os dados Programa Bolsa Família'
+title: 'Visualizando os dados do Programa Bolsa Família'
 author: Luís G. Silva e Silva
 date: '2018-04-27'
 slug: bolsa_familia
@@ -27,7 +27,7 @@ suppressPackageStartupMessages(library(leaflet))
 suppressPackageStartupMessages(library(spdep))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(gridExtra))
-suppressPackageStartupMessages(require(mapsBR)) ## devtools::install_github("lgsilvaesilva/mapsBR)
+suppressPackageStartupMessages(require(mapsBR, lib.loc = "/Library/Frameworks/R.framework/Versions/3.3/Resources/library")) ## devtools::install_github("lgsilvaesilva/mapsBR)
 sysfonts::font_add_google('Share Tech', 'share_tech')
 ```
 
@@ -52,7 +52,7 @@ O Programa Bolsa Família (PBF) é um programa de transferência de renda do Gov
 
 ## Quem pode participar do programa
 
-As condições para ser uma família eletiva ao recebimento da ajuda financeira é definida como aquelas com renda per capita mensal entre R\$ 85,00 e R\$ 170,00 que tenham em sua composição gestantes e crianças ou adolescentes entre 0 e 17 anos e extremamente pobres (com renda per capita até R$ 85,00). Além disso, para se candidatar ao programa, é necessário que a família esteja inscrita no Cadastro Único para Programas Sociais do Governo Federal, com seus dados atualizados há menos de 2 anos[^1]. 
+As condições para ser uma família eletiva ao recebimento da ajuda financeira é definida como aquelas com renda per capita mensal entre R\$ 85,00 e R\$ 170,00 e que tenham em sua composição gestantes e crianças ou adolescentes entre 0 e 17 anos e extremamente pobres (com renda per capita até R$ 85,00). Além disso, para se candidatar ao programa, é necessário que a família esteja inscrita no Cadastro Único para Programas Sociais do Governo Federal e com seus dados atualizados há menos de 2 anos[^1]. 
 
 A contrapartida é que as famílias beneficiárias mantenham as crianças e os adolescentes entre 6 e 15 anos com frequência mínima de 85% na escola, e de 75%, para adolescentes de 16 e 17 anos e façam o acompanhamento de saúde das gestantes, as mulheres que estiverem amamentando e as crianças, que também devem ter a vacinação em dia. O programa visa a quebrar o ciclo geracional da pobreza a curto e a longo prazo através de transferências condicionadas de renda. Em janeiro de 2017, o valor médio do benefício era de R\$ 176,00 mensais e o menor valor, de R\$ 35,00 mensais.[4]
 
@@ -60,7 +60,7 @@ A contrapartida é que as famílias beneficiárias mantenham as crianças e os a
 
 Para esta postagem consideramos os dados de pagamento aos beneficiários do Bolsa Família referentes ao mês de janeiro dos anos de 2011 à 2017. Esta decisão foi tomada pelo fato da base de dados de beneficiários ser muito grande e demandar mais tempo para análise, porém veremos que não perdemos muito em generalização, uma vez que os pagamentos mensais são relativamente homogêneos. Por exemplo, para orçamento de 2017 havia sido previsto um gasto de R\$ 29,7 bilhões, se fizermos uma estimativa apenas com o mês de janeiro de 2017, ou seja, o valor total pago em janeiro de 2017 multiplicado por 12 meses resultando em 29,1 bilhões.
 
-Nos gráficos abaixo podemos visualizar a série histótica do número de beneficiários ao longo dos anos para o mês de janeiro. O gráfico do lado esquerdo apresenta o número absoluto de beneficiários, enquanto o o grafico da direira apresenta a taxa de beneficiários, ou seja, o número de beneciários dividido pela população da região em análise. Notamos que as rigões Norte e Nordeste são as que possuem os maiores taxas de beneficiários, ficando acima de 7,5% da população.
+Nos gráficos abaixo podemos visualizar a série histórica do número de beneficiários ao longo dos anos para o mês de janeiro. O gráfico do lado esquerdo apresenta o número absoluto de beneficiários, enquanto o o grafico da direira apresenta a taxa de beneficiários, ou seja, o número de beneficiários dividido pela população da região em análise. Notamos que as regiões Norte e Nordeste são as que possuem as maiores taxas de beneficiários, ficando acima de 7,5% da população.
 
 ```{r dados, fig.width=9, fig.height=3,fig.show='hold',fig.align='center'}
 uf_ano <- dados_mun %>%
@@ -87,7 +87,7 @@ gg2 <- ggplot(data = uf_ano) +
 grid.arrange(gg1, gg2, nrow = 1, ncol = 2)
 ```
 
-Com intuito de comparar a série de histórica do número de beneficiários da região com ela mesma propomos o gráfico abaixo com a escala do eixo Y livre. Analisando cada região isoladamento é possível visualizar que o número de benficiários à partir de 2014 e 2015 vem caindo, exceto para região Norte que tem um crescimento praticamente linear.
+Com intuito de comparar a série histórica do número de beneficiários da região com ela mesma propomos o gráfico abaixo com a escala do eixo Y livre. Analisando cada região isoladamente é possível visualizar que o número de benficiários à partir de 2014 e 2015 vem caindo, exceto para região Norte que tem um crescimento praticamente linear.
 
 ```{r livre, fig.width=9, fig.height=3,fig.show='hold',fig.align='center'}
 ggplot(data = uf_ano) +
@@ -101,7 +101,7 @@ ggplot(data = uf_ano) +
   facet_wrap(~REGIAO, scales = "free_y")
 ```
 
-Para melhor visualizar e também nos permitir uma comparação entre e intra as regiões nos propomos o gráfico de diferenças relativa ($DR_{\textbf{ANO}}$). Este é gráfico é construído calculando a diferença do número de beneficiários do respectivo ano $B_{\textbf{Ano}}$ com número de beneficiários em 2011 ($B_{2011}$), esta diferença é dividida por $B_{2011}$. Este cálculo é realizado para cada região e ano. A interpretação é feita seguinte forma para a região Sul, em 2017 o número de beneficiários foi 20% menor que em 2011, ou seja, uma redução de 20% do número de famílias beneficiadas pelo PBF. Enquanto que a região Norte em 2017 teve um aumento acima de 20% comparado com 2011. Este gráfico portanto nos permite comparar tanto a região com ela mesma quanto com as demais regiões. Outra informação pertinente neste gráfico é o valor médio pago ao beneficiários que está representado pelo o tamanho do ponto. Por exemplo, podemos ver que o valor médio tende a aumentar, lembrando que estes valores foram corrigidos levando em consideração o mês de janeiro de 2018 como base.
+Para melhor visualizar e também nos permitir uma comparação entre e intra as regiões nós propomos o gráfico de diferenças relativa ($DR_{\textbf{ANO}}$). Este gráfico é construído calculando a diferença do número de beneficiários do respectivo ano $B_{\textbf{Ano}}$ com número de beneficiários em 2011 ($B_{2011}$), esta diferença é dividida por $B_{2011}$. Este cálculo é realizado para cada região e ano. A interpretação é feita da seguinte forma para a região Sul, em 2017 o número de beneficiários foi 20% menor que em 2011, ou seja, uma redução de 20% do número de famílias beneficiadas pelo PBF. Enquanto que a região Norte em 2017 teve um aumento acima de 20% comparado com 2011. Este gráfico portanto nos permite comparar tanto a região com ela mesma quanto com as demais regiões. Outra informação pertinente neste gráfico é o valor médio pago ao beneficiários que está representado pelo o tamanho do ponto. Por exemplo, podemos ver que o valor médio tende a aumentar, lembrando que estes valores foram corrigidos levando em consideração o mês de janeiro de 2018 como base.
 
 $$
 DR_{\textbf{ANO}} = \frac{(B_{\textbf{Ano}} - B_{2011})}{B_{2011}}
@@ -125,7 +125,7 @@ dados_mun %>%
   theme_minimal()
 ```
 
-Para uma visão geográfica selecionamos o estado de Minas Gerais e construimos o mapa de valor médio por município. A ideia é tentar identificar algum padrão espacial nos valores médios. O mapa apresentado a seguir é considerando apenas janeiro de 2017. Claramente a região Norte de Minas Gerais apresentam os maiores valores, enquanto a região Sul os menores. Este comportamento é esperado uma vez que a região Norte de MG é uma deas regiões mais pobres do estado, bem como a região Nordeste.
+Para uma visão geográfica selecionamos o estado de Minas Gerais e construimos o mapa de valor médio por município. A ideia é tentar identificar algum padrão espacial nos valores médios. O mapa apresentado a seguir é considerando apenas janeiro de 2017. Claramente a região Norte de Minas Gerais apresenta os maiores valores, enquanto a região Sul os menores. Este comportamento é esperado uma vez que a região Norte de MG é uma deas regiões mais pobres do estado, bem como a região Nordeste.
 
 ```{r}
 data(regMun)
@@ -191,7 +191,7 @@ Para corroborar o resultado visual foi realizado o cálculo do Índice de Moran 
 
 ## Considerações
 
-Como podemos ver o Portal da Transparência disponiliza dados de diversas fontes que nos permite analisar e enteder melhor as diferenças do nosso país. Na postagem de hoje foi possível verificar uma grande redução do número de beneficiários ao longo dos anos, quebrando uma tendência de crescimento. Os motivos que levaram esta redução não foi analisada neste primeiro momento, mas é já é sabido que houveram muitos cortes à partir de 2015 em diversas frentes.
+Como podemos ver o Portal da Transparência disponiliza dados de diversas fontes que nos permite analisar e entender melhor as diferenças do nosso país. Na postagem de hoje foi possível verificar uma grande redução do número de beneficiários ao longo dos anos, quebrando uma tendência de crescimento. Os motivos que levaram esta redução não foi analisada neste primeiro momento, mas já é sabido que houveram muitos cortes à partir de 2015 em diversas frentes.
 
 Próximos passamos desta análise é relacionar a renda per capita dos municípios com os valores médios pagos pelo Programa Bolsa Família, com intuito de verificar se regiões com renda per capita baixa estão sendo beneficiadas pelo programa.
 
