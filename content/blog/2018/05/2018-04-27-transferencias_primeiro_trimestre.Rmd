@@ -1,0 +1,228 @@
+---
+title: "Transferências do Governo Federal no 1º trimestre semestre de 2018"
+author: "Douglas R. M. Azevedo"
+date: 2018-05-11
+categories: ["Transferências"]
+tags: ["Mapa de transferências", "Transferências para os estados", "Educação", "Saúde"]
+#banner: "blog/2018/05/template/img/banner.png"
+summary: "O portal da transparência divulgou os dados das transferências para estados e municípios do primeiro semestre de 2018. Você sabe para qual finalidade foram transferidos os montantes para o seu estado/município?"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r pacotes}
+library(dplyr)
+library(stringr)
+library(purrr)
+library(tidyr)
+library(sf)
+library(sp)
+library(highcharter)
+library(leaflet)
+library(shiny)
+library(scales)
+library(mapsBR)
+library(widgetframe)
+```
+
+```{r dados}
+bar_uf <- readRDS(file = "data/bar_uf.RDS")
+cores_bar <- readRDS(file = "data/cores.RDS")
+mun_df <- readRDS(file = "data/mun_df.RDS")
+points_mapa <- readRDS(file = "data/regMun_dots.RDS")
+
+data(regMun)
+data(regUF)
+```
+
+## Transferências
+
+Conforme descrito no post sobre o [Investimento em Educação no Período Eleitoral](https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/) as transferências do Governo Federal podem beneficiar tanto Unidades Federativas quanto municípios. Cada transferência realizada pelo Governo Federal é relacionada a uma função que é, em termos gerais, a finalidade na qual deve ser empregado o dinheiro transferido. Exemplos de funções são: Saúde, Educação e Assistência Social. Finalizado o primeiro trimestre de 2018 você sabe o montante transferido pelo Governo Federal para o seu estado/município e para quais finalidades? 
+
+## Números por Unidades Federativas
+
+Nos três primeiros meses de 2018 o Governo Federal transferiu a quantia de `r paste0("R$ ", formatC(sum(bar_uf$valor_total), digits = 2, format = "f", big.mark = ".", decimal.mark = ","))` (dados obtidos no dia 08/05/2018) para estados e municípios brasileiros. O gráfico abaixo mostra as transferências, ordenadas, por UF. Tais quantias equivalem à soma das transferências para o estado (como um todo) e para cada um dos municípios que compoẽm a respectiva UF. As cores dizem respeito às regiões do Brasil. Note que há duas barras além dos Estados brasileiros, OM e EX, associadas a *Organismos Multigovernamentais* e *Exterior* respectivamente.
+
+<br></br>
+<center>
+```{r barplot UFs"}
+
+bar_uf <- bar_uf %>%
+  ungroup() %>%
+  mutate(nome_uf = as.character(nome_uf),
+         nome_uf = if_else(nome_uf == "OM", "Organismos Multigovernamentais", nome_uf),
+         regiao = if_else(regiao == "OM", "Organismos Multigovernamentais", regiao))
+
+tooltip <- list(c("nome_uf", "Estado: "),
+                c("valor_total_lbl", "Valor transferido:")) %>%
+  map(function(x){
+    tags$tr(
+      tags$th(str_replace_all(str_to_title(x[2]), "_", " ")),
+      tags$td(paste0("{point.", x[1], "}"))
+    )
+  }) %>%
+  do.call(tagList, .) %>% 
+  as.character()
+
+hc <- highchart(height = 700) %>%
+  hc_add_series(bar_uf, 
+                mapping = hcaes(x = uf, y = valor_total/1e6, color = cor),
+                type = "bar",
+                showInLegend = FALSE) %>%
+  hc_tooltip(
+    backgroundColor = grey(0.7),
+    useHTML = TRUE,
+    borderRadius = 10,
+    borderWidth = 0,
+    headerFormat = "<table>",
+    pointFormat = tooltip,
+    footerFormat = "</table>"
+  ) %>%
+  hc_xAxis(categories = bar_uf$uf) %>% 
+  hc_yAxis(labels = list(format = "R$ {value:,.0f} M")) %>% 
+  hc_title(text = "Transferências do Governo Federal para os estados",
+           style = list(fontSize = "15px")) %>% 
+  hc_add_theme(hc_thm = hc_theme_538()) 
+
+for(i in 1:nrow(cores_bar)){
+  hc <- hc %>%  hc_add_series(data = NULL, name = cores_bar$regiao[i], color = cores_bar$cor[i], showInLegend = TRUE, type = "line")
+}
+
+hc %>%
+  frameWidget()
+```
+</center>
+<br></br>
+
+## Transferências para os municípios
+
+```{r percentual funcoes}
+perc <- mun_df %>% 
+  group_by(nome_funcao) %>% 
+  summarise(valor_total = sum(valor_total)) %>% 
+  mutate(percentual = round(100*valor_total/sum(valor_total), digits = 2))
+```
+
+Mensalmente o Governo Federal transfere grandes quantidades de dinheiro para os municípios brasileiros. Este dinheiro é enviado para os municípios para uma finalidade específica como por exemplo Saúde ou Educação. Estes dados estão disponíveis no [Portal da Transparência](http://www.portaltransparencia.gov.br/PortalTransparenciaListaUFs.asp?Exercicio=2018) porém a grande maioria da população não acompanha ou não sabe como acompanhar as transferências para o seu município.
+
+
+O mapa abaixo apresenta as transferências para todos os municípios brasileiros segundo as funções (finalidades). As funções cujo percentual relativo de dinheiro transferido foi muito baixa (inferior a 0.5%) foram agrupadas na categoria 'Outros'. 
+
+Ao clicar com o mouse em um determinado município informações mais acuradas são fornecidas inclusive informando as transferências por finalidade. As cores dos pontos representam as finalidades para as quais foram realizadas transferencias e cada ponto no mapa corresponde a quantia de R$ 500.000,00.
+
+A categoria genérica ['Encargos Especiais'](http://www.portaltransparencia.gov.br/glossario/DetalheGlossario.asp?letra=e) que corresponde a transferências específicas, tais como: Dívidas, ressarcimentos e indenizações e correspondem à `r perc %>% filter(nome_funcao == "Encargos Especiais") %>% .$percentual`% das transferências realizadas pelo Governo Federal. Os pontos associados aos Encargos Especiais foram omitidos para não poluir a visuzalização e por não representarem uma categoria bem definida.
+
+Devido a grande quantidade de informações pode ser que a visualização demore alguns instantes para renderizar.
+
+```{r mapas cidades"}
+detach(name = "package:highcharter")
+
+##-- Pontos ----
+
+funcoes <- points_mapa %>% filter(cat != "Encargos Especiais") %>% .$cat %>% unique %>% sort
+cores_funcao <- data.frame(cat = funcoes,
+                           cor = c("Assistência Social" = "#ff3434", "Educação" = "#fcff82", "Outros" = "#35ff50", "Saúde" = "#82dfff"),
+                           stringsAsFactors = FALSE)
+
+points_mapa <- points_mapa %>% 
+  filter(cat != "Encargos Especiais") %>%
+  left_join(cores_funcao, by = c("cat" = "cat"))
+
+##-- Polígonos ----
+
+mun_df <- mun_df %>%
+  spread(nome_funcao, valor_total, fill = 0)
+
+regMun <- sp::merge(regMun, mun_df, by.x = "COD", by.y = "cod_mun", all.x = T)
+bbox_br <- bbox(regMun)
+
+##-- Tooltip ----
+
+popup_out <- sprintf("<strong>%s - %s habitantes</strong>
+                      <br><br>
+                      <table>
+                        <tr>
+                          <th>Função</th>  
+                          <th>Transferência</th>
+                        </tr>
+                        <tr>
+                          <td><strong>Assistência Social</strong></td>
+                          <td>%s</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Educação</strong></td>
+                          <td>%s</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Encargos especiais</strong></td>
+                          <td>%s</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Saúde</strong></td>
+                          <td>%s</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Outros</strong></td>
+                          <td>%s</td>
+                        </tr>",
+                     regMun@data[, "NOME"],
+                     formatC(regMun@data[, "pop"], big.mark = ".", decimal.mark = ",", format = "d"),
+                     paste0("R$ ", formatC(regMun@data[, "Assistência Social"], big.mark = ".", decimal.mark = ",", format = "f", digits = 2)),
+                     paste0("R$ ", formatC(regMun@data[, "Educação"], big.mark = ".", decimal.mark = ",", format = "f", digits = 2)),
+                     paste0("R$ ", formatC(regMun@data[, "Encargos Especiais"], big.mark = ".", decimal.mark = ",", format = "f", digits = 2)),
+                     paste0("R$ ", formatC(regMun@data[, "Saúde"], big.mark = ".", decimal.mark = ",", format = "f", digits = 2)),
+                     paste0("R$ ", formatC(regMun@data[, "Outros"], big.mark = ".", decimal.mark = ",", format = "f", digits = 2)))
+
+maptile <- "https://api.mapbox.com/styles/v1/cultureofinsight/cj5xt18s90hzq2rpcfk612vkq/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3VsdHVyZW9maW5zaWdodCIsImEiOiJjajV4cnJ6NzMwNHI5MnFwZ3E4cDFsMTBuIn0.I2QzkctPro7acqZBVaJ7Nw"
+mapattr <- '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+
+##-- Mapa ----
+
+l <- leaflet(width = "100%") %>%
+  clearShapes() %>%
+  addCircleMarkers(data = points_mapa, lat = ~lat, lng = ~lon, color = ~cor, opacity = ~lon,
+                   radius = 0.000001, stroke = FALSE, fillOpacity = 1) %>%
+  addPolygons(data = regMun,
+              stroke = TRUE,
+              color = "transparent",
+              weight = 1, 
+              label = ~NOME,
+              smoothFactor = 0.1,
+              fillOpacity = 0,
+              opacity = 0.1, 
+              popup = popup_out,
+              highlightOptions = highlightOptions(
+                color = "white", weight = 2, opacity = 1, bringToFront = TRUE)) %>%
+  addPolylines(data = regUF,
+               stroke = TRUE,
+               color = "grey",
+               weight = 1,
+               highlightOptions = NULL) %>% 
+  addLegend("bottomright", labels = cores_funcao$cat, colors = cores_funcao$cor,
+            title = "1 ponto = R$ 500.000,00", opacity = 1, layerId = "legend") %>%
+  addTiles(urlTemplate = maptile, attribution = mapattr, options = providerTileOptions(noWrap = T))
+
+l %>%
+  frameWidget()
+```
+
+Os pontos são dispostos de forma aleatória dentro de cada município. Municípios com menores áreas e maiores transferências aparecem de forma destacada como é o caso da maioria das capitais dos estados brasileiros. Em contrapartida municípios com maiores áres aparecem com pouca densidade de pontos o que pode representar baixos valores transferidos ou então simplesmente se deve ao fato do município ter uma área relativamente grande. Para evitar confusões basta clicar no município de interesse e avaliar as transferências.
+
+De imediato observa-se que a maior parte das transferências realizadas no primeiro trimestre de 2018 são realizadas para Saúde (`r perc %>% filter(nome_funcao == "Saúde") %>% .$percentual`%) e Educação (`r perc %>% filter(nome_funcao == "Educação") %>% .$percentual`%) que de fato são finalidades muito importantes. 
+
+Um resultado visual interessante é que aparentemente no primeiro trimestre de 2018 as regiões Norte e Nordeste foram transferidos maiores valores para Educação (maior densidade de pontos da cor amarela nas regiões Norte e Nordeste) enquanto para as regiões Sudeste e Sul foram transferidos maiores valores para Saúde (maior densidade de pontos azuis). 
+
+E qual é o comportamento do seu município? 
+
+## Referências
+
+[Investimentos em Educação no Período Eleitoral - VERAZ](https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/)
+                                                                                    
+[Portal da Transparência](http://www.portaltransparencia.gov.br)
+
+[Encargos Especiais - Portal da Transparência](http://www.portaltransparencia.gov.br/glossario/DetalheGlossario.asp?letra=e)
+
+[Estimativa da população dos municípios 2017](https://ww2.ibge.gov.br/home/estatistica/populacao/estimativa2017/estimativa_tcu.shtm)

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/veraz/post/2018/04/2018-04-27-bolsa_familia/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
   </url>
@@ -19,7 +24,7 @@
   
   <url>
     <loc>/veraz/blog/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,6 +59,12 @@
   </url>
   
   <url>
+    <loc>/veraz/tags/educa%C3%A7%C3%A3o/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/categories/educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -78,6 +89,12 @@
   </url>
   
   <url>
+    <loc>/veraz/tags/mapa-de-transfer%C3%AAncias/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/tags/pesquisa/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -96,14 +113,32 @@
   </url>
   
   <url>
+    <loc>/veraz/tags/sa%C3%BAde/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/tags/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/veraz/categories/transfer%C3%AAncias/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/transfer%C3%AAncias-para-os-estados/</loc>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

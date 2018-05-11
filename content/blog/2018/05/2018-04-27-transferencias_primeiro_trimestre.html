@@ -1,0 +1,51 @@
+---
+title: "Transferências do Governo Federal no 1º trimestre semestre de 2018"
+author: "Douglas R. M. Azevedo"
+date: 2018-05-11
+categories: ["Transferências"]
+tags: ["Mapa de transferências", "Transferências para os estados", "Educação", "Saúde"]
+#banner: "blog/2018/05/template/img/banner.png"
+summary: "O portal da transparência divulgou os dados das transferências para estados e municípios do primeiro semestre de 2018. Você sabe para qual finalidade foram transferidos os montantes para o seu estado/município?"
+output: html_document
+---
+
+<script src="/veraz/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/veraz/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/veraz/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<div id="transferencias" class="section level2">
+<h2>Transferências</h2>
+<p>Conforme descrito no post sobre o <a href="https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/">Investimento em Educação no Período Eleitoral</a> as transferências do Governo Federal podem beneficiar tanto Unidades Federativas quanto municípios. Cada transferência realizada pelo Governo Federal é relacionada a uma função que é, em termos gerais, a finalidade na qual deve ser empregado o dinheiro transferido. Exemplos de funções são: Saúde, Educação e Assistência Social. Finalizado o primeiro trimestre de 2018 você sabe o montante transferido pelo Governo Federal para o seu estado/município e para quais finalidades?</p>
+</div>
+<div id="numeros-por-unidades-federativas" class="section level2">
+<h2>Números por Unidades Federativas</h2>
+<p>Nos três primeiros meses de 2018 o Governo Federal transferiu a quantia de R$ 90.640.309.253,27 (dados obtidos no dia 08/05/2018) para estados e municípios brasileiros. O gráfico abaixo mostra as transferências, ordenadas, por UF. Tais quantias equivalem à soma das transferências para o estado (como um todo) e para cada um dos municípios que compoẽm a respectiva UF. As cores dizem respeito às regiões do Brasil. Note que há duas barras além dos Estados brasileiros, OM e EX, associadas a <em>Organismos Multigovernamentais</em> e <em>Exterior</em> respectivamente.</p>
+<br></br>
+<center>
+<div id="htmlwidget-1" style="width:100%;height:700px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/veraz/blog/2018/05/2018-04-27-transferencias_primeiro_trimestre_files/figure-html//widgets/widget_barplot UFs\".html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+</center>
+<p><br></br></p>
+</div>
+<div id="transferencias-para-os-municipios" class="section level2">
+<h2>Transferências para os municípios</h2>
+<p>Mensalmente o Governo Federal transfere grandes quantidades de dinheiro para os municípios brasileiros. Este dinheiro é enviado para os municípios para uma finalidade específica como por exemplo Saúde ou Educação. Estes dados estão disponíveis no <a href="http://www.portaltransparencia.gov.br/PortalTransparenciaListaUFs.asp?Exercicio=2018">Portal da Transparência</a> porém a grande maioria da população não acompanha ou não sabe como acompanhar as transferências para o seu município.</p>
+<p>O mapa abaixo apresenta as transferências para todos os municípios brasileiros segundo as funções (finalidades). As funções cujo percentual relativo de dinheiro transferido foi muito baixa (inferior a 0.5%) foram agrupadas na categoria ‘Outros’.</p>
+<p>Ao clicar com o mouse em um determinado município informações mais acuradas são fornecidas inclusive informando as transferências por finalidade. As cores dos pontos representam as finalidades para as quais foram realizadas transferencias e cada ponto no mapa corresponde a quantia de R$ 500.000,00.</p>
+<p>A categoria genérica <a href="http://www.portaltransparencia.gov.br/glossario/DetalheGlossario.asp?letra=e">‘Encargos Especiais’</a> que corresponde a transferências específicas, tais como: Dívidas, ressarcimentos e indenizações e correspondem à 62.29% das transferências realizadas pelo Governo Federal. Os pontos associados aos Encargos Especiais foram omitidos para não poluir a visuzalização e por não representarem uma categoria bem definida.</p>
+<p>Devido a grande quantidade de informações pode ser que a visualização demore alguns instantes para renderizar.</p>
+<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/veraz/blog/2018/05/2018-04-27-transferencias_primeiro_trimestre_files/figure-html//widgets/widget_mapas cidades\".html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>Os pontos são dispostos de forma aleatória dentro de cada município. Municípios com menores áreas e maiores transferências aparecem de forma destacada como é o caso da maioria das capitais dos estados brasileiros. Em contrapartida municípios com maiores áres aparecem com pouca densidade de pontos o que pode representar baixos valores transferidos ou então simplesmente se deve ao fato do município ter uma área relativamente grande. Para evitar confusões basta clicar no município de interesse e avaliar as transferências.</p>
+<p>De imediato observa-se que a maior parte das transferências realizadas no primeiro trimestre de 2018 são realizadas para Saúde (27.73%) e Educação (7.84%) que de fato são finalidades muito importantes.</p>
+<p>Um resultado visual interessante é que aparentemente no primeiro trimestre de 2018 as regiões Norte e Nordeste foram transferidos maiores valores para Educação (maior densidade de pontos da cor amarela nas regiões Norte e Nordeste) enquanto para as regiões Sudeste e Sul foram transferidos maiores valores para Saúde (maior densidade de pontos azuis).</p>
+<p>E qual é o comportamento do seu município?</p>
+</div>
+<div id="referencias" class="section level2">
+<h2>Referências</h2>
+<p><a href="https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/">Investimentos em Educação no Período Eleitoral - VERAZ</a></p>
+<p><a href="http://www.portaltransparencia.gov.br">Portal da Transparência</a></p>
+<p><a href="http://www.portaltransparencia.gov.br/glossario/DetalheGlossario.asp?letra=e">Encargos Especiais - Portal da Transparência</a></p>
+<p><a href="https://ww2.ibge.gov.br/home/estatistica/populacao/estimativa2017/estimativa_tcu.shtm">Estimativa da população dos municípios 2017</a></p>
+</div>

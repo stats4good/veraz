@@ -6,7 +6,6 @@
     <description>Recent content in Categories on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <copyright>Copyright (c) 2017 , Stats4Good; all rights reserved.</copyright>
     <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/veraz/categories/index.xml" rel="self" type="application/rss+xml" />
@@ -54,6 +53,15 @@
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/veraz/categories/elei%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transferências</title>
+      <link>/veraz/categories/transfer%C3%AAncias/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/categories/transfer%C3%AAncias/</guid>
       <description></description>
     </item>
     

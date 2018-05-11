@@ -6,7 +6,6 @@
     <description>Recent content in Tags on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <copyright>Copyright (c) 2017 , Stats4Good; all rights reserved.</copyright>
     <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/veraz/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -18,6 +17,15 @@
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/veraz/tags/bolsa-fam%C3%ADlia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Educação</title>
+      <link>/veraz/tags/educa%C3%A7%C3%A3o/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/tags/educa%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     
@@ -40,6 +48,15 @@
     </item>
     
     <item>
+      <title>Mapa De Transferências</title>
+      <link>/veraz/tags/mapa-de-transfer%C3%AAncias/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/tags/mapa-de-transfer%C3%AAncias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pesquisa</title>
       <link>/veraz/tags/pesquisa/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
@@ -54,6 +71,24 @@
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Saúde</title>
+      <link>/veraz/tags/sa%C3%BAde/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/tags/sa%C3%BAde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transferências Para Os Estados</title>
+      <link>/veraz/tags/transfer%C3%AAncias-para-os-estados/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/tags/transfer%C3%AAncias-para-os-estados/</guid>
       <description></description>
     </item>
     
