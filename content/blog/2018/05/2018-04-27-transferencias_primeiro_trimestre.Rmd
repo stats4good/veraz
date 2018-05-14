@@ -4,7 +4,7 @@ author: "Douglas R. M. Azevedo"
 date: 2018-05-11
 categories: ["Transferências"]
 tags: ["Mapa de transferências", "Transferências para os estados", "Educação", "Saúde"]
-#banner: "blog/2018/05/template/img/banner.png"
+banner: "img/banners/banner_transf_1_trimestre.jpg"
 summary: "O portal da transparência divulgou os dados das transferências para estados e municípios do primeiro semestre de 2018. Você sabe para qual finalidade foram transferidos os montantes para o seu estado/município?"
 output: html_document
 ---
