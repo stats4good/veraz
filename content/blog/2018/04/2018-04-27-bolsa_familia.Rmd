@@ -27,7 +27,7 @@ suppressPackageStartupMessages(library(leaflet))
 suppressPackageStartupMessages(library(spdep))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(gridExtra))
-suppressPackageStartupMessages(require(mapsBR, lib.loc = "/Library/Frameworks/R.framework/Versions/3.3/Resources/library")) ## devtools::install_github("lgsilvaesilva/mapsBR)
+suppressPackageStartupMessages(require(mapsBR)) ## devtools::install_github("lgsilvaesilva/mapsBR)
 sysfonts::font_add_google('Share Tech', 'share_tech')
 ```
 

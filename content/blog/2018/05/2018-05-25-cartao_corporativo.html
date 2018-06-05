@@ -1,0 +1,44 @@
+---
+title: "Análise dos Gastos do governo usando o Cartão Corporativo"
+author: "Victor Schmidt Comitti"
+date: 2018-05-25
+slug: cartao_corporativo
+banner: "img/banners/banner_ccorp.jpg"
+summary: "Entendendo a trajetória dos gastos do governo com o Cartão Corporativo."
+categories:
+  - Economia
+  - Cartão corporativo
+  - CPGF
+tags:
+  - Histórico dos gastos
+  - Dados sigilosos
+output: html_document
+---
+
+
+
+<div id="o-cartao-corporativo" class="section level1">
+<h1>O Cartão Corporativo</h1>
+<p>O cartão de Pagamento do Governo Federal (CPGF), ou cartão corporativo como é mais conhecido, é um instrumento criado em 2001 com o propósito de dar mais agilidade à administração pública. A ideia inicial era que os gestores de órgãos do governo pudessem cobrir pequenas despesas do dia-a-dia sem a necessidade de licitações ou autorizações especiais. A realidade, no entanto, se mostrou diferente - nos anos seguintes à criação do CPGF surgiram diversas denúncias de mau uso do cartão que motivaram a criação de uma Comissão Parlamentar de Inquérito (CPI) em 2008 para investigar o assunto. A CPI foi encerrada sem que ninguém fosse punido mas, ao menos, levou o governo a diminuir o número de funcionários públicos com acesso ao cartão e a criar regras mais rígidas para que seus ministros pudessem usá-lo.</p>
+<p>Os valores dos gastos de cada unidade gestora portadora do CPGF são públicos e estão disponíveis no Portal da Transparência a partir de Dezembro de 2009. Contudo, boa parte desses gastos possui caráter sigiloso nos termos da lei nº12.527 de 2011, também conhecida como lei do acesso à informação. Os dados com restrições de acesso são aqueles considerados “imprescindíveis para a segurança do Estado ou da Sociedade”. Entre esses dados estão, por exemplo, os gastos relativos à segurança de autoridades e de seus familiares.</p>
+</div>
+<div id="olhando-os-dados" class="section level1">
+<h1>Olhando os dados</h1>
+<p>Antes de proceder à análise dos gastos relativos ao CPGF cabe uma observação importante: não faz sentido comparar valores ao longo do tempo sem levar em conta variações no índice geral de preços da economia. Por esse motivo, todos os dados aqui utilizados foram corrigidos pelo IPCA tendo como base o ano de 2018. Para fazer isso foi utilizada a seguinte equação:</p>
+<span class="math display">\[\begin{equation}
+V_{r}=V_{n}\frac{I_{k}}{I_{t}},
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(V_{r}\)</span> é o valor real no tempo k, <span class="math inline">\(V_{n}\)</span> o valor nominal em t e <span class="math inline">\(\frac{I_{k}}{I_{t}}\)</span> representa a razão do índice de preços entre os dois instantes. O índice de preços pode ser encontrado no site do IBGE. Antes de prosseguirmos vale ainda um outro aviso: devido à correção pelo IPCA, os valores apresentados nesse texto podem diferir daqueles divulgados nos veículos de comunicação. Dito isso, vamos ao que interessa: a figura abaixo mostra a evolução dos gastos com cartão corporativo do governo federal entre Dezembro de 2009 e Novembro de 2017, período para o qual estes dados estão disponíveis no Portal da Transparência.</p>
+<p><img src="/veraz/blog/2018/05/2018-05-25-cartao_corporativo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>É possível observar que o gasto com cartão corporativo possui um padrão sazonal bem definido, sendo notório que o mês com menor gasto é Janeiro, período de férias do funcionalismo. Além disso, parace haver uma discreta tendência de queda dos gastos ao longo de todo o período analisado. Uma maneira simples de verificar a existência dessa possível tendência negativa nos dados é decompondo a série em três componentes: a sazonalidade, a tendência e uma parte aleatória. Essa decomposição pode ser feita com facilidade no R através da função ‘stl’. A figura abaixo mostra o resultado desse exercício. Nosso interesse está na curva mais abaixo indicada por ‘Trend’ que representa a tendência dos dados isoladamente.</p>
+<p><img src="/veraz/blog/2018/05/2018-05-25-cartao_corporativo_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Com a ajuda da decomposição é possível entender com mais clareza o que houve com a tendência dos gastos no período analisado. Em 2011 a queda dos gastos é abrupta, depois segue em ritmo mais lento até 2014 quando eles voltam a crescer. Na época, esse aumento nos gastos foi atribuído à realização da Copa do Mundo no Brasil. A partir de 2015 os gastos voltaram a cair e seguiram assim até o final de 2017. Repare que nos valores apresentados acima não há diferenciação entre gastos abertos e sigilosos. A parcela gastos secretos pode ser obtida através um cálculo simples - basta dividir os gastos secretos pelos totais. A figura abaixo mostra como essa proporção evoluiu ao longo do tempo.</p>
+<p><img src="/veraz/blog/2018/05/2018-05-25-cartao_corporativo_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Note primeiro que a proporção de gastos secretos é bastante alta - representa em média 49% dos gastos totais. Observe também que a proporção de gastos sigilosos parece ter sido maior entre 2012 e 2016. Para visualizar isso de maneira mais adequada, novamente faremos uso da decomposição da série temporal em suas componentes básicas, o que pode ser visto na figura abaixo:</p>
+<p><img src="/veraz/blog/2018/05/2018-05-25-cartao_corporativo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>De fato, a decomposição mostra claramente que, no perído de preparação para a Copa de 2014 e as Olímpiadas de 2016, não apenas os gastos totais do governo usando o Cartão Corporativo aumentaram como também a proporção desses gastos que ficou em sigilo.</p>
+</div>
+<div id="consideracoes-finais" class="section level1">
+<h1>Considerações Finais</h1>
+<p>O objetivo da presente análise era apenas entender a trajetória dos gastos do governo usando o Cartão Corporativo. Verificou-se que estes caíram levemente nos anos analisados ainda que a proporção de gastos sigilosos tenha permanecido alta ao longo de todo o período. Uma possibilidade não explorada neste texto é a de discriminar os gastos por órgão e unidade gestora. Idealmente deveria ser possível também agrupar os gastos por finalidade, mas qualquer trabalho nesse sentido se torna bastante difícil devido à escassez de informações disponíveis no Portal da Transparência. Num momento de grave crise fiscal e de aperto das famílias seria importante que o governo fosse mais transparente em relação às suas contas. Nesse sentido, a ausência de informações importantes sobre determinados gastos usando o Cartão Corporativo e o excesso de gastos sigilosos são um grande retrocesso.</p>
+</div>
