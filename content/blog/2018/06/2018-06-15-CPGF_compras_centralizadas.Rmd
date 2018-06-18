@@ -1,0 +1,220 @@
+---
+title: "Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas"
+author: "Ana Carolina F. Dias"
+date: 2018-06-08
+categories: ["Gastos Governo", "Economia" , "Cartão de Pagamentos"]
+tags: ["Gastos Governo", "Passagens-Aéreas", "Economia"]
+banner: "img/banners/banner_passagens_aereas.png"
+summary: "Exposição dos gastos do Governo Federal com aquisições de passagens aéreas de 2015 a 2017"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# knitr::opts_knit$set(base.dir = 'blog/2018/03/template/')
+```
+
+```{r pacotes}
+library(ggplot2)
+library(knitr)
+library(DT)
+library(dplyr)
+library(scales)
+library(quantmod)
+library(knitr)
+library(highcharter)
+library(widgetframe)
+```
+
+## Cartão de Pagamento do Governo Federal - CPFG
+
+O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. [Leia mais sobre o Cartão Corporativo.](https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/#)
+
+O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal [direta, autárquica e fundacional](http://www.ceap.br/material/MAT19082011165502.pdf). Os valores dos gastos de cada unidade gestora portadora estão disponíveis no Portal da Transparência a partir de Dezembro de 2009. 
+
+Não é divulgado o valor exato, mas o limite de utilização do produto é informado pelo Representante Autorizado do ente público, tendo como valor máximo o equivalente à dotação orçamentária da Unidade (limite de crédito consignado na lei de orçamento ou crédito adicional, para atender determinada despesa), ou seja ao valor autorizado para a execução de um programa, projeto ou atividade.
+
+## Compra direta de passagens aéreas
+
+O Governo Federal criou em 2014 a modalidade de compra direta de passagens aéreas, de modo a eliminar a intermediação de agências de viagem ou de turismo. Essa modalidade de compra direta foi então gradualmente implantada nos diferentes órgãos da administração pública federal, com o objetivo de reduzir os custos de aquisição das passagens e os gastos associados ao controle das compras, bem como diminuir o tempo despendido nos procedimentos de compra.
+
+A aquisição de passagens aéreas é realizada diretamente junto às companhias aéreas credenciadas, sem intermediação de agência de turismo, salvo quando a demanda não estiver contemplada pelo credenciamento, quando houver impedimento para emissão junto à empresa credenciada ou em casos emergenciais devidamente justificados no Sistema de Concessão de Diárias e Passagens - SCDP, de acordo com a [Instrução Normativa N° 3 do Ministério do Planejamento, Orçamento e Gestão.](https://www.comprasgovernamentais.gov.br/index.php/legislacao/instrucoes-normativas/297-instrucao-normativa-n-3-de-11-de-fevereiro-de-2015)
+
+Com a contratação direta destes serviços, as atividades relativas à cotação, emissão e cancelamento de bilhetes são executadas diretamente por servidores da Administração junto às companhias aéreas credenciadas. O pagamento das despesas relativas à compra direta das passagens aéreas é realizado por meio eletrônico e operacionalizado pelo Cartão de Pagamento do Governo Federal – Passagem Aérea (CPGF), operado pelo Banco do Brasil. 
+O CPGF - Passagem Aérea é de uso exclusivo para compra de passagens aéreas junto às companhias aéreas credenciadas, através da utilização  do ambiente de reservas de passagens do SCDP.   
+
+O portador do CPGF é a autoridade responsável pela autorização das despesas de viagem (diárias e passagens) no SCDP, ou seja, os Ordenadores de Despesas das Unidades Gestoras, onde o cartão físico é emitido em nome da Unidade Gestora e do portador.
+
+## Visualizando os dados
+
+Para esta análise considerou-se os gastos do Cartão de Pagamento do Governo Federal com passagens aéreas referentes aos anos de 2015 à 2017. 
+Esta decisão foi tomada pelo fato da base de dados estar completa apenas para esses três anos, visto também que esse tipo de aquisição foi implementada em 2014.
+
+Vale ressaltar que utilizou-se o IPCA para corrigir pela inflação os valores demonstrados nessa análise, usando como base o último mês do banco de dados, ou seja, o mês de Dezembro de 2017. Portanto devido à correção pelo IPCA, os valores apresentados nesse texto podem diferir dos dados brutos apresentados e divulgados no Portal da Transparência e nos veículos de comunicação. 
+
+Podemos observar na tabela mostrada a seguir que a soma total de gastos do Governo Federal com passagens aéreas em 2015, 2016 e 2017 foi de 593.392.395 reais, sendo o ano de 2017 com o maior valor total gasto. 
+
+```{r carregando dados}
+
+# dados2015 = read.table("data/dados2015_CPFG_Compras_centralizadas.csv",header=T,sep=";",check.names = F, fileEncoding = "Windows-1252")
+# dados2016 = read.table("data/dados2016_CPFG_Compras_centralizadas.csv",header=T,sep=";",check.names = F, fileEncoding = "Windows-1252")
+# dados2017 = read.table("data/dados2017_CPFG_Compras_centralizadas.csv",header=T,sep=";",check.names = F, fileEncoding = "Windows-1252")
+
+# save(dados2015, dados2016, dados2017, file = "data/CPFG_Compras_centralizadas.RData")
+load("data/CPFG_Compras_centralizadas.RData")
+point <- format_format(big.mark = ".", decimal.mark = ",")
+
+levels(dados2015$`Mês Extrato`) = levels(dados2016$`Mês Extrato`) = levels(dados2017$`Mês Extrato`) <-
+  c("Janeiro","Fevereiro", "Março", "Abril","Maio","Junho","Julho","Agosto","Setembro", "Outubro" ,"Novembro","Dezembro")
+
+DT::datatable(rbind(paste("R$",point(sum(dados2015$Valor_corrigido))),
+                paste("R$",point(sum(dados2016$Valor_corrigido))),
+                paste("R$",point(sum(dados2017$Valor_corrigido))),
+                paste("R$",point(sum(dados2015$Valor_corrigido, dados2016$Valor_corrigido, dados2017$Valor_corrigido)))),
+                colnames  = c("Ano", "Valor total das Transações"), rownames  = c("2015","2016","2017", "Total"),
+                class = 'cell-border stripe', height = "250px",
+                options = list(ordering=F,dom = 't', autoWidth = F,columnDefs = list(list(className = 'dt-center', targets= '_all' )))) %>%
+  frameWidget()
+```
+
+Apresentamos abaixo evolução dos Gastos do Governo com passagens aéreas durante os três anos em cada um dos meses, percebe-se que todos os anos possuem um comportamento semelhante quanto a queda ou aumento de gastos em passagens aéreas.   
+
+Sendo os meses de Abril e Maio que apresentam menos gastos totais e o mês de março que apresenta mais gastos durante o ano com aquisição de passagens aéreas. Vemos também um aumento no valor total gasto com passagens por mêS no último ano, chegando a quantia de 37.069.391 reais apenas em Março de 2017.
+Ressaltamos que o gasto apresentado é referente ao mês do Extrato da Fatura de Pagamento do Cartão e não ao mês da Data de Aquisição da passagem aérea.
+
+```{r plot1}
+Ano_extrato = rbind(dados2015,dados2016,dados2017) %>% 
+  dplyr:: group_by(`Mês Extrato`,`Ano Extrato`) %>% 
+  dplyr::summarise(Valor = round(sum(Valor_corrigido),0))
+
+highcharter::highchart() %>%
+  hc_title(text = "Valor Recebido por Empresas Aéreas em passagens utilizadas pelo Governo no Ano de 2015") %>%
+  hc_xAxis(categories = unique(Ano_extrato$`Mês Extrato`)) %>%
+  hc_add_series(data = Ano_extrato,
+                mapping = hcaes(y = Valor,x=`Mês Extrato`, group = `Ano Extrato`),
+                type = "line") %>%
+  frameWidget()
+```
+  
+E os valores desses gastos estão disponíveis a seguir: 
+
+<br>
+
+```{r mostra tabela}
+mes_extrato2015 = dados2015 %>% 
+  dplyr:: group_by(`Mês Extrato`) %>% 
+  dplyr::summarise(Valor = paste("R$",point(sum(Valor_corrigido)))) 
+  
+mes_extrato2016 = dados2016 %>% 
+  dplyr:: group_by(`Mês Extrato`) %>% 
+  dplyr::summarise(Valor = paste("R$",point(sum(Valor_corrigido))))
+
+mes_extrato2017 = dados2017 %>% 
+  dplyr:: group_by(`Mês Extrato`) %>% 
+  dplyr::summarise(Valor = paste("R$",point(sum(Valor_corrigido))))
+
+DT:: datatable(cbind(mes_extrato2015,mes_extrato2016$Valor, mes_extrato2017$Valor  ) , 
+          colnames = c("Mês Extrato", "2015" , "2016" , "2017"),
+                class = 'cell-border stripe',
+options = list(ordering=F,dom = 't', autoWidth = F,pageLength = 12,columnDefs = list(list(className = 'dt-center', targets= '_all' )))) %>%
+  frameWidget()
+
+
+```
+<br>
+
+### Gastos Totais dos Órgãos Superiores
+
+Temos ainda disponível nessa base de dados, os gastos totais com passagens aéreas utilizado por cada órgão Superior do Governo.
+Vemos que o órgão Superior que mais tem gastos com passagens aéreas é Ministério da Educação, seguido do Ministério da Justiça.   
+
+Os Órgãos superiores apresentados na tabela são os originais declarados no próprio banco de dados. 
+
+<br>
+```{r plot2}
+
+orgaoTotal <-  rbind(dados2015,dados2016,dados2017) %>%
+  group_by(`Nome Órgão Superior` , `Ano Extrato`)%>%
+  summarise(Valor =  round(sum(Valor_corrigido),0)) %>%
+  arrange(desc(Valor))
+
+
+highchart() %>% 
+  hc_title(text = "Gastos totais dos Órgãos Superiores - 2015 a 2017  ") %>%
+  hc_add_series(data = orgaoTotal, type = "bar",
+                mapping = hcaes(y = Valor ,group = `Ano Extrato`),
+                showInLegend = T)  %>% 
+  hc_xAxis(categories = unique(orgaoTotal$`Nome Órgão Superior`)) %>%
+  frameWidget()
+
+```
+<br>
+
+
+### Empresas Aéreas favorecidas com as compras de Passagens pelo Governo
+
+No modelo de compra direta de passagens, a cada viagem é realizada uma pesquisa de preços no Sistema de Concessão de Diárias e Passagens - SCDP, o qual se comunica com os sistemas das companhias aéreas e aplica os descontos definidos para o Governo Federal, identificando, na emissão de bilhete, qual a melhor oferta para cada viagem, como qualquer cidadão pode fazer.
+
+Vemos que em 2017 a empresa GOL teve o maior valor de repasses recebido, o que pode indicar que a empresa forneceu no ano de 2017 os melhores valores de oferta para as viagens requeridas pelo Governo.
+
+O gráfico a seguir apresenta os valores totais repassados as empresas aéreas atráves das compras de passagens pelo Governo.  
+
+<br>
+
+```{r plot3}
+
+FavorecidosTotal <- rbind(dados2015,dados2016,dados2017) %>%
+  group_by(`Nome Favorecido`,`Ano Extrato`) %>%
+  summarise(Valor = round(sum(Valor_corrigido)),0)
+
+highchart() %>%
+hc_title(text = "Valor Recebido por Empresas Aéreas em passagens utilizadas pelo Governo") %>%
+hc_add_series(data = FavorecidosTotal, 
+                mapping = hcaes(y = Valor,x = `Ano Extrato`, group=`Nome Favorecido`),  type = "column") %>% 
+hc_xAxis(categories = unique(FavorecidosTotal$`Ano Extrato`)) %>% 
+  hc_chart(type = "column",options3d = list(enabled = TRUE, beta = 15, alpha = 15)) %>%
+  frameWidget()
+
+```
+
+<br>
+
+1. AZUL = AZUL LINHAS AEREAS BRASILEIRAS S.A.
+2. GOL = GOL LINHAS AEREAS S.A.
+3. AVIANCA =  OCEANAIR LINHAS AEREAS S/A 
+4. TAM = TAM LINHAS AEREAS S/A. [LATAM AIRLINES BRASIL] 
+5. MAP = MAP TRANSPORTES AEREOS LTDA [MAP LINHAS AEREAS]
+
++ Os valores apresentados acima como não declarados, apenas vieram em branco no banco de dados fornecido.  
+
++ Os valores apresentados como SIGILOSOS são os dados que contém "Informações protegidas por sigilo, nos termos da legislação, para garantia da segurança da sociedade e do Estado" e por esse motivo apenas algumas informações como o valor da passagem adquirida são fornecidas no banco de dados. Uma análise mais cautelosa será feita em outro momento apenas para os dados sigilosos. 
+
+<br>
+
+## Considerações Finais
+
+O objetivo da análise apresentada foi apenas criar visualizações simples e comparavéis para mostrar um pouco do comportamento de gastos do Governo Federal com passagens aéreas. Verificou-se que essas aquisições apresentam um valor significativo para as contas do Governo e que o valor total gasto com passagens aéreas tem aumentado desde a data de aquisição do modelo de compra direta.  
+Devido à escassez de informações disponíveis no Portal da Transparência, como por exemplo a finalidade da aquisição de passagem aérea, uma análise mais profunda no sentido de avaliar o quão necessários são os gastos apresentados, torna-se difícil. 
+
+
+
+
+**Obs:**  _A Filtragem de conteúdos nos gráficos pode ser feita clicando nas legendas._
+
+# Referências
+
+[Site do Tesouro Nacional](http://www.tesouro.fazenda.gov.br/-/cartao-de-pagamento-do-governo-federal)
+
+[Portal da Transparência](http://www.portaltransparencia.gov.br/)
+
+[Sistema de Concessão de Diárias e Passagens - SCDP](https://www2.scdp.gov.br/novoscdp/home.xhtml)
+                                                                                    
+[Guia de orientacao - Adesão a compra direta de passagens aéreas](https://www.governodigital.gov.br/documentos-e-arquivos/Guia%20de%20orientacao%20-%20Adesao%20a%20compra%20direta%20-%2002.2015.pdf)
+
+[Nota sobre aquisição de passagens aéreas](http://www.planejamento.gov.br/noticias/nota-de-esclarecimento-sobre-aquisicao-de-passagens-aereas)  
+                                                                                    
+[Normas,Orientações e Editais de Compra Direta - Passagens Aéreas ](https://www.comprasgovernamentais.gov.br/index.php/central-de-compras/compra-direta-passagens-aereas)
+
+[Manual de Orientações ao Portador do Cartão de Pagamento do Governo Federal –CPFG ](https://www.comprasgovernamentais.gov.br/index.php/central-de-compras/compra-direta-passagens-aereas)
+
+[Manual de orientação aos gestores federais quanto à utilização do Cartão de Pagamentos do Governo Federal (CPGF)](http://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf)

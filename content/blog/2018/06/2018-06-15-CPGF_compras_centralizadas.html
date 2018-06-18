@@ -1,0 +1,91 @@
+---
+title: "Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas"
+author: "Ana Carolina F. Dias"
+date: 2018-06-08
+categories: ["Gastos Governo", "Economia" , "Cartão de Pagamentos"]
+tags: ["Gastos Governo", "Passagens-Aéreas", "Economia"]
+banner: "img/banners/banner_passagens_aereas.png"
+summary: "Exposição dos gastos do Governo Federal com aquisições de passagens aéreas de 2015 a 2017"
+output: html_document
+---
+
+<script src="/veraz/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/veraz/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/veraz/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<div id="cartao-de-pagamento-do-governo-federal---cpfg" class="section level2">
+<h2>Cartão de Pagamento do Governo Federal - CPFG</h2>
+<p>O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. <a href="https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/#">Leia mais sobre o Cartão Corporativo.</a></p>
+<p>O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal <a href="http://www.ceap.br/material/MAT19082011165502.pdf">direta, autárquica e fundacional</a>. Os valores dos gastos de cada unidade gestora portadora estão disponíveis no Portal da Transparência a partir de Dezembro de 2009.</p>
+<p>Não é divulgado o valor exato, mas o limite de utilização do produto é informado pelo Representante Autorizado do ente público, tendo como valor máximo o equivalente à dotação orçamentária da Unidade (limite de crédito consignado na lei de orçamento ou crédito adicional, para atender determinada despesa), ou seja ao valor autorizado para a execução de um programa, projeto ou atividade.</p>
+</div>
+<div id="compra-direta-de-passagens-aereas" class="section level2">
+<h2>Compra direta de passagens aéreas</h2>
+<p>O Governo Federal criou em 2014 a modalidade de compra direta de passagens aéreas, de modo a eliminar a intermediação de agências de viagem ou de turismo. Essa modalidade de compra direta foi então gradualmente implantada nos diferentes órgãos da administração pública federal, com o objetivo de reduzir os custos de aquisição das passagens e os gastos associados ao controle das compras, bem como diminuir o tempo despendido nos procedimentos de compra.</p>
+<p>A aquisição de passagens aéreas é realizada diretamente junto às companhias aéreas credenciadas, sem intermediação de agência de turismo, salvo quando a demanda não estiver contemplada pelo credenciamento, quando houver impedimento para emissão junto à empresa credenciada ou em casos emergenciais devidamente justificados no Sistema de Concessão de Diárias e Passagens - SCDP, de acordo com a <a href="https://www.comprasgovernamentais.gov.br/index.php/legislacao/instrucoes-normativas/297-instrucao-normativa-n-3-de-11-de-fevereiro-de-2015">Instrução Normativa N° 3 do Ministério do Planejamento, Orçamento e Gestão.</a></p>
+<p>Com a contratação direta destes serviços, as atividades relativas à cotação, emissão e cancelamento de bilhetes são executadas diretamente por servidores da Administração junto às companhias aéreas credenciadas. O pagamento das despesas relativas à compra direta das passagens aéreas é realizado por meio eletrônico e operacionalizado pelo Cartão de Pagamento do Governo Federal – Passagem Aérea (CPGF), operado pelo Banco do Brasil. O CPGF - Passagem Aérea é de uso exclusivo para compra de passagens aéreas junto às companhias aéreas credenciadas, através da utilização do ambiente de reservas de passagens do SCDP.</p>
+<p>O portador do CPGF é a autoridade responsável pela autorização das despesas de viagem (diárias e passagens) no SCDP, ou seja, os Ordenadores de Despesas das Unidades Gestoras, onde o cartão físico é emitido em nome da Unidade Gestora e do portador.</p>
+</div>
+<div id="visualizando-os-dados" class="section level2">
+<h2>Visualizando os dados</h2>
+<p>Para esta análise considerou-se os gastos do Cartão de Pagamento do Governo Federal com passagens aéreas referentes aos anos de 2015 à 2017. Esta decisão foi tomada pelo fato da base de dados estar completa apenas para esses três anos, visto também que esse tipo de aquisição foi implementada em 2014.</p>
+<p>Vale ressaltar que utilizou-se o IPCA para corrigir pela inflação os valores demonstrados nessa análise, usando como base o último mês do banco de dados, ou seja, o mês de Dezembro de 2017. Portanto devido à correção pelo IPCA, os valores apresentados nesse texto podem diferir dos dados brutos apresentados e divulgados no Portal da Transparência e nos veículos de comunicação.</p>
+<p>Podemos observar na tabela mostrada a seguir que a soma total de gastos do Governo Federal com passagens aéreas em 2015, 2016 e 2017 foi de 593.392.395 reais, sendo o ano de 2017 com o maior valor total gasto.</p>
+<div id="htmlwidget-1" style="width:100%;height:250px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/veraz/blog/2018/06/2018-06-15-CPGF_compras_centralizadas_files/figure-html//widgets/widget_carregando dados.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>Apresentamos abaixo evolução dos Gastos do Governo com passagens aéreas durante os três anos em cada um dos meses, percebe-se que todos os anos possuem um comportamento semelhante quanto a queda ou aumento de gastos em passagens aéreas.</p>
+<p>Sendo os meses de Abril e Maio que apresentam menos gastos totais e o mês de março que apresenta mais gastos durante o ano com aquisição de passagens aéreas. Vemos também um aumento no valor total gasto com passagens por mêS no último ano, chegando a quantia de 37.069.391 reais apenas em Março de 2017. Ressaltamos que o gasto apresentado é referente ao mês do Extrato da Fatura de Pagamento do Cartão e não ao mês da Data de Aquisição da passagem aérea.</p>
+<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/veraz/blog/2018/06/2018-06-15-CPGF_compras_centralizadas_files/figure-html//widgets/widget_plot1.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>E os valores desses gastos estão disponíveis a seguir:</p>
+<p><br></p>
+<p><div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/veraz/blog/2018/06/2018-06-15-CPGF_compras_centralizadas_files/figure-html//widgets/widget_mostra tabela.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<div id="gastos-totais-dos-orgaos-superiores" class="section level3">
+<h3>Gastos Totais dos Órgãos Superiores</h3>
+<p>Temos ainda disponível nessa base de dados, os gastos totais com passagens aéreas utilizado por cada órgão Superior do Governo. Vemos que o órgão Superior que mais tem gastos com passagens aéreas é Ministério da Educação, seguido do Ministério da Justiça.</p>
+<p>Os Órgãos superiores apresentados na tabela são os originais declarados no próprio banco de dados.</p>
+<p><br> <div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/veraz/blog/2018/06/2018-06-15-CPGF_compras_centralizadas_files/figure-html//widgets/widget_plot2.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+</div>
+<div id="empresas-aereas-favorecidas-com-as-compras-de-passagens-pelo-governo" class="section level3">
+<h3>Empresas Aéreas favorecidas com as compras de Passagens pelo Governo</h3>
+<p>No modelo de compra direta de passagens, a cada viagem é realizada uma pesquisa de preços no Sistema de Concessão de Diárias e Passagens - SCDP, o qual se comunica com os sistemas das companhias aéreas e aplica os descontos definidos para o Governo Federal, identificando, na emissão de bilhete, qual a melhor oferta para cada viagem, como qualquer cidadão pode fazer.</p>
+<p>Vemos que em 2017 a empresa GOL teve o maior valor de repasses recebido, o que pode indicar que a empresa forneceu no ano de 2017 os melhores valores de oferta para as viagens requeridas pelo Governo.</p>
+<p>O gráfico a seguir apresenta os valores totais repassados as empresas aéreas atráves das compras de passagens pelo Governo.</p>
+<p><br></p>
+<div id="htmlwidget-5" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/veraz/blog/2018/06/2018-06-15-CPGF_compras_centralizadas_files/figure-html//widgets/widget_plot3.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>AZUL = AZUL LINHAS AEREAS BRASILEIRAS S.A.</li>
+<li>GOL = GOL LINHAS AEREAS S.A.</li>
+<li>AVIANCA = OCEANAIR LINHAS AEREAS S/A</li>
+<li>TAM = TAM LINHAS AEREAS S/A. [LATAM AIRLINES BRASIL]</li>
+<li>MAP = MAP TRANSPORTES AEREOS LTDA [MAP LINHAS AEREAS]</li>
+</ol>
+<ul>
+<li><p>Os valores apresentados acima como não declarados, apenas vieram em branco no banco de dados fornecido.</p></li>
+<li><p>Os valores apresentados como SIGILOSOS são os dados que contém “Informações protegidas por sigilo, nos termos da legislação, para garantia da segurança da sociedade e do Estado” e por esse motivo apenas algumas informações como o valor da passagem adquirida são fornecidas no banco de dados. Uma análise mais cautelosa será feita em outro momento apenas para os dados sigilosos.</p></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="consideracoes-finais" class="section level2">
+<h2>Considerações Finais</h2>
+<p>O objetivo da análise apresentada foi apenas criar visualizações simples e comparavéis para mostrar um pouco do comportamento de gastos do Governo Federal com passagens aéreas. Verificou-se que essas aquisições apresentam um valor significativo para as contas do Governo e que o valor total gasto com passagens aéreas tem aumentado desde a data de aquisição do modelo de compra direta.<br />
+Devido à escassez de informações disponíveis no Portal da Transparência, como por exemplo a finalidade da aquisição de passagem aérea, uma análise mais profunda no sentido de avaliar o quão necessários são os gastos apresentados, torna-se difícil.</p>
+<p><strong>Obs:</strong> <em>A Filtragem de conteúdos nos gráficos pode ser feita clicando nas legendas.</em></p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referências</h1>
+<p><a href="http://www.tesouro.fazenda.gov.br/-/cartao-de-pagamento-do-governo-federal">Site do Tesouro Nacional</a></p>
+<p><a href="http://www.portaltransparencia.gov.br/">Portal da Transparência</a></p>
+<p><a href="https://www2.scdp.gov.br/novoscdp/home.xhtml">Sistema de Concessão de Diárias e Passagens - SCDP</a></p>
+<p><a href="https://www.governodigital.gov.br/documentos-e-arquivos/Guia%20de%20orientacao%20-%20Adesao%20a%20compra%20direta%20-%2002.2015.pdf">Guia de orientacao - Adesão a compra direta de passagens aéreas</a></p>
+<p><a href="http://www.planejamento.gov.br/noticias/nota-de-esclarecimento-sobre-aquisicao-de-passagens-aereas">Nota sobre aquisição de passagens aéreas</a></p>
+<p><a href="https://www.comprasgovernamentais.gov.br/index.php/central-de-compras/compra-direta-passagens-aereas">Normas,Orientações e Editais de Compra Direta - Passagens Aéreas</a></p>
+<p><a href="https://www.comprasgovernamentais.gov.br/index.php/central-de-compras/compra-direta-passagens-aereas">Manual de Orientações ao Portador do Cartão de Pagamento do Governo Federal –CPFG</a></p>
+<p><a href="http://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf">Manual de orientação aos gestores federais quanto à utilização do Cartão de Pagamentos do Governo Federal (CPGF)</a></p>
+</div>

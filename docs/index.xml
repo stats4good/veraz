@@ -6,10 +6,20 @@
     <description>Recent content on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 25 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://stats4good.github.io/veraz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas</title>
+      <link>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
+      <description>Cartão de Pagamento do Governo Federal - CPFG O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. Leia mais sobre o Cartão Corporativo.
+O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal direta, autárquica e fundacional.</description>
+    </item>
     
     <item>
       <title>Análise dos Gastos do governo usando o Cartão Corporativo</title>
