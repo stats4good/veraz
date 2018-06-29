@@ -1,5 +1,5 @@
 ---
-title: "A fome Insáciavel dos Servidores Públicos"
+title: "A Fome Insáciavel dos Servidores Públicos"
 author: "Anônimo"
 date: 2018-06-29
 categories: ["Gastos Governo", "CPGF", "Cartão de Pagamentos"]
@@ -76,6 +76,8 @@ dados_restaurante %>%
 
 ```
 
+<br></br>
+
 Como podemos notar, há gastos exorbitantes em churrascarias e restaurantes, como por exemplo: uma refeição na Churrascaria "Caminho do Sul", localizado na Rodovia Régis Bittencourt em Itapecerica da Serra-SP, por singelos R$15.000. Se notarmos a data da compra, outubro de 2016, podemos relembrar que naquela época trâmitava na câmara dos deputados a famosa "PEC dos gastos", que vira a ser assinada em 13 de Dezembro de 2016. 
 
 
@@ -85,7 +87,10 @@ Além disso, aparentemente não é só de churrasco que os servidores gostam, h�
 
 Todo CPGF é manuseado por um servidor público que responde por alguma hierarquia. Estas hierarquias estão dispostas da seguinte maneiras:
 
-![](img/hierarquia.png) 
+```{r}
+knitr::include_graphics('/veraz/blog/2018/06/img/hierarquia.png')
+```
+
 
 Observando o diagrama acima, podemos notar que cada servidor responde a um órgão superior, um orgão subordinado e à uma unidade gestora. Considerando um exemplo mais sólido, um agente público funcionário da UFMG(Universidade Federal de Minas Gerais) campus Montes Claros, do departamente de ciências agrárias responde à sua unidade gestora, um orgão subordinado(UFMG) e à um orgão superior(Ministério da Educação). Assim, todos possuem suas hierarquias dentro do sistema público, e portanto cada gasto é atribuido há um nível da hierarquia.
 

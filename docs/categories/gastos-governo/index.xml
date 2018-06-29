@@ -2,21 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gastos Governo on Veraz</title>
-    <link>https://stats4good.github.io/veraz/categories/gastos-governo/</link>
+    <link>/veraz/categories/gastos-governo/</link>
     <description>Recent content in Gastos Governo on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 08 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/categories/gastos-governo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/categories/gastos-governo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>A Fome Insáciavel dos Servidores Públicos</title>
+      <link>/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</link>
+      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</guid>
+      <description>Visão Geral Atualmente o Brasil, país o qual a economia encolheu 3,8% e 3,6% em 2015 e 2016, respectivamente, e que mostra um tímido crescimento de 1% no PIB em 2017, vive uma catástrofe nas finanças públicas. Foram diversos os cortes nos últimos anos em pastas importantes como educação e saúde, devido à crise que assola a federação. Em um momento delicado no orçamento federal, é de suma importância que os agentes públicos prezem pelo gasto responsável e inteligente do dinheiro público advindo dos pagadores de impostos.</description>
+    </item>
+    
+    <item>
       <title>Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas</title>
-      <link>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
+      <link>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
+      <guid>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
       <description>Cartão de Pagamento do Governo Federal - CPFG O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. Leia mais sobre o Cartão Corporativo.
 O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal direta, autárquica e fundacional.</description>
     </item>

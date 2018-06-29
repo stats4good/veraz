@@ -3,206 +3,217 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</loc>
+    <loc>/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</loc>
     <lastmod>2018-06-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/</loc>
+    <loc>/veraz/post/2018/05/2018-05-25-cartao_corporativo/</loc>
     <lastmod>2018-05-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</loc>
+    <loc>/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/04/2018-04-27-bolsa_familia/</loc>
+    <loc>/veraz/post/2018/04/2018-04-27-bolsa_familia/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/</loc>
+    <loc>/veraz/post/2018/04/2018-04-13-eleicao_educacao/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/eleicao_educacao/</loc>
+    <loc>/veraz/post/eleicao_educacao/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/blog/</loc>
-    <lastmod>2018-06-08T00:00:00+00:00</lastmod>
+    <loc>/veraz/tags/alimenta%C3%A7%C3%A3o/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/bolsa-fam%C3%ADlia/</loc>
+    <loc>/veraz/blog/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/bolsa-fam%C3%ADlia/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/bolsa-fam%C3%ADlia/</loc>
+    <loc>/veraz/categories/bolsa-fam%C3%ADlia/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/cart%C3%A3o-corporativo/</loc>
-    <lastmod>2018-05-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/cart%C3%A3o-de-pagamentos/</loc>
-    <lastmod>2018-06-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/ci%C3%AAncia/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stats4good.github.io/veraz/categories/cpgf/</loc>
+    <loc>/veraz/categories/cart%C3%A3o-corporativo/</loc>
     <lastmod>2018-05-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/dados-sigilosos/</loc>
+    <loc>/veraz/categories/cart%C3%A3o-de-pagamentos/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/ci%C3%AAncia/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/cpgf/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/dados-sigilosos/</loc>
     <lastmod>2018-05-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/economia/</loc>
+    <loc>/veraz/tags/economia/</loc>
     <lastmod>2018-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/economia/</loc>
+    <loc>/veraz/categories/economia/</loc>
     <lastmod>2018-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/educa%C3%A7%C3%A3o/</loc>
+    <loc>/veraz/tags/educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/educa%C3%A7%C3%A3o/</loc>
+    <loc>/veraz/categories/educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/elei%C3%A7%C3%B5es/</loc>
+    <loc>/veraz/categories/elei%C3%A7%C3%B5es/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/extens%C3%A3o/</loc>
+    <loc>/veraz/tags/extens%C3%A3o/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/gastos-governo/</loc>
-    <lastmod>2018-06-08T00:00:00+00:00</lastmod>
+    <loc>/veraz/tags/gastos-governo/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/gastos-governo/</loc>
-    <lastmod>2018-06-08T00:00:00+00:00</lastmod>
+    <loc>/veraz/categories/gastos-governo/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/hist%C3%B3rico-dos-gastos/</loc>
+    <loc>/veraz/tags/hist%C3%B3rico-dos-gastos/</loc>
     <lastmod>2018-05-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</loc>
+    <loc>/veraz/tags/impacto-das-elei%C3%A7%C3%B5es-nos-investimentos-em-educa%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/mapa-de-transfer%C3%AAncias/</loc>
+    <loc>/veraz/tags/mapa-de-transfer%C3%AAncias/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/passagens-a%C3%A9reas/</loc>
+    <loc>/veraz/tags/passagens-a%C3%A9reas/</loc>
     <lastmod>2018-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/pesquisa/</loc>
+    <loc>/veraz/tags/pesquisa/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/post/</loc>
+    <loc>/veraz/post/</loc>
     <lastmod>2018-04-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</loc>
+    <loc>/veraz/tags/p%C3%B3s-gradua%C3%A7%C3%A3o/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/sa%C3%BAde/</loc>
+    <loc>/veraz/tags/sa%C3%BAde/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <loc>/veraz/tags/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/categories/transfer%C3%AAncias/</loc>
+    <loc>/veraz/categories/transfer%C3%AAncias/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/tags/transfer%C3%AAncias-para-os-estados/</loc>
+    <loc>/veraz/tags/transfer%C3%AAncias-para-os-estados/</loc>
     <lastmod>2018-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stats4good.github.io/veraz/</loc>
-    <lastmod>2018-06-08T00:00:00+00:00</lastmod>
+    <loc>/veraz/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
