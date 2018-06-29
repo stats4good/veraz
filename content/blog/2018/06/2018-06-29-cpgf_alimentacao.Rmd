@@ -1,0 +1,148 @@
+---
+title: "A fome Insáciavel dos Servidores Públicos"
+author: "Anônimo"
+date: 2018-06-29
+categories: ["Gastos Governo", "CPGF", "Cartão de Pagamentos"]
+slug: cpgf_alimentacao
+tags: ["Gastos-Governo", "Alimentação"]
+banner: "img/banners/augusto_post.jpeg"
+summary: "Descrição dos gastos em alimentação com o Cartão Corporativo do Governo Federal"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+require(dplyr)
+require(stringr)
+require(treemap)
+require(highcharter)
+require(RColorBrewer)
+require(DT)
+require(lubridate)
+require(zoo)
+
+# dados <- readRDS('data/cpgf.RDS')
+# 
+# 
+# dados_restaurante <- dados %>%
+#   filter(str_detect(`Nome Favorecido`, "RESTAURANTE|CHURRASCARIA|COCO BAMBU")) %>%
+#   mutate(data = as.yearmon(sprintf('%s-%02d', Ano, Mes))) %>%
+#   mutate_if(is.character, str_to_title) 
+
+dados_restaurante <- readRDS('data/cpgf_rest.RDS')
+```
+
+## Visão Geral
+
+Atualmente o Brasil, país o qual a economia encolheu 3,8\% e 3,6\% em 2015 e 2016, respectivamente, e que mostra um tímido crescimento de 1\% no PIB em 2017, vive uma catástrofe nas finanças públicas. Foram diversos os cortes nos últimos anos em pastas importantes como educação e saúde, devido à crise que assola a federação. Em um momento delicado no orçamento federal, é de suma importância que os agentes públicos prezem pelo gasto responsável e inteligente do dinheiro público advindo dos pagadores de impostos. 
+
+Como foi exposto no [post](https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/#) sobre o cartão corporativo federal(CPGF), há indícios(tímidos) que os servidores andam diminuindo a "gastança". Hoje viemos mostrar o comportamento do uso do CPGF com a alimentação dos servidores.
+
+Lembrando que, o cartão corporativo foi criado para dar agilidade no dia-a-dia da administração pública e, segundo a [CGU](https://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf) sua utilização deve ser em situações expecionais e em despesas enquadradas como [*Suprimento de Fundos*](https://canalabertobrasil.com.br/o-que-e-suprimento-de-fundos/). Em um resumo informal, um suprimento de fundos é quando o governo deixa de assumir a responsabilidade sobre a compra e o detentor do CPGF assume a responsabilidade, tendo responsabilidade de comprovar o gasto. Ou seja, não há processo licitatório.
+
+Segundo a cartilha da CGU, despesas com alimentação podem ser custeadas com recursos públicos, observado o interesse público, e desde que precedidas do processo licitatório cabível, e que não se confundam com aquelas já inclusas nos valores concedidos aos servidores a título de auxílio alimentação e de
+diárias, quando for o caso. Podem-se exemplificar entre as mais comuns permitidas, as despesas
+realizadas com aquisição de café, açúcar, água, para uso no local de trabalho, sempre precedidas de licitação.
+
+Ainda, despesas com alimentação decorrentes de reunião de trabalho internas em horário de almoço ou depois do expediente, no local de trabalho ou em restaurantes, não são passíveis de serem custeadas com recursos públicos, sob qualquer forma de aplicação.
+
+Neste cenário, analisamos como é feita a utilização do CPGF para a alimentação de alguns agentes públicos. Utilizamos dados do [portal da transparência](http://www.portaltransparencia.gov.br/) referentes ao período de janeiro de 2011 à dezembro de 2017.
+
+
+## O que os números dizem?
+
+Primeiramente, destacamos que filtramos apenas os gastos em que o favorecido possui **Restaurante** ou **Churrascaria** no nome fantasia. 
+
+Em números gerais, de janeiro de 2011 à dezembro de 2017, foram efetuadas 13.397 transações, com gastos chegando R\$3.3 milhões. O ticket médio gira em torno de R\$245. Além disso, outro fato interessante é que cerca de 4\% das refeições custaram mais de R$1.000.
+
+Abaixo discriminamos os 100 maiores gastos(de uma só vez) em restaurantes, utilizando o CPGF:
+
+```{r}
+dados_restaurante %>%
+  mutate(`Valor Transação` = round(`Valor Transação`),
+         data = sprintf('%02d/%s', Mes, Ano)) %>%
+  top_n(100, wt = `Valor Transação`) %>%
+  arrange(desc(`Valor Transação`)) %>%
+  select(`Nome Órgão Superior`, `Nome Favorecido`, `Valor Transação`, data) %>%
+  datatable(rownames = F,
+            colnames = c("Órgão", "Favorecido", "Valor", "Data"),
+            caption = "Tabela 1 : Ranking dos 100 maiores gastos.",
+            options = list(searchHighlight = TRUE,
+                           dom = 'ftp',
+                           columnDefs = list(list(className = 'dt-center', targets = "_all")),
+                           language = list(search = 'Filtro:'))) %>%
+  formatCurrency(c('Valor Transação'), 'R$', digits = 0, mark = '.') %>% 
+  widgetframe::frameWidget()
+
+```
+
+Como podemos notar, há gastos exorbitantes em churrascarias e restaurantes, como por exemplo: uma refeição na Churrascaria "Caminho do Sul", localizado na Rodovia Régis Bittencourt em Itapecerica da Serra-SP, por singelos R$15.000. Se notarmos a data da compra, outubro de 2016, podemos relembrar que naquela época trâmitava na câmara dos deputados a famosa "PEC dos gastos", que vira a ser assinada em 13 de Dezembro de 2016. 
+
+
+Além disso, aparentemente não é só de churrasco que os servidores gostam, há também refeições no 'Coco Bambu Lago Sul', famoso restaurante de frutos do mar, saindo por apenas R\$4.267. Também temos gastos de R$4.101 em uma lanchonete da rodoviária de um servidor do ministério da saúde. 
+
+### Gastos por Ministério e Unidade Gestora
+
+Todo CPGF é manuseado por um servidor público que responde por alguma hierarquia. Estas hierarquias estão dispostas da seguinte maneiras:
+
+![](img/hierarquia.png) 
+
+Observando o diagrama acima, podemos notar que cada servidor responde a um órgão superior, um orgão subordinado e à uma unidade gestora. Considerando um exemplo mais sólido, um agente público funcionário da UFMG(Universidade Federal de Minas Gerais) campus Montes Claros, do departamente de ciências agrárias responde à sua unidade gestora, um orgão subordinado(UFMG) e à um orgão superior(Ministério da Educação). Assim, todos possuem suas hierarquias dentro do sistema público, e portanto cada gasto é atribuido há um nível da hierarquia.
+
+Abaixo mostramos um treemap com os gastos em restaurantes em dois níveis, um primeiro nível com o gasto para o orgão superior e ao clicar no orgão, temos o gasto pela unidade gestora. O tamanho do retângulo é referente à proporção gasta.
+
+```{r}
+
+ministerio_rest <-  dados_restaurante %>%
+  group_by(`Nome Órgão Superior`, `Nome Unidade Gestora`) %>%
+  summarise(total_valor = round(sum(`Valor Transação`), digits = 0)) %>%
+  arrange(`Nome Órgão Superior`, desc(total_valor))%>%
+  ungroup()%>%
+  group_by(`Nome Órgão Superior`)%>%
+  mutate(perc_orgao = total_valor/sum(total_valor),
+         perca_orgao = cumsum(perc_orgao)) %>%
+  ungroup()
+
+
+tooltip <- paste('<b>Orgão: {point.Nome Órgão Superior}<\b><br>',
+                 '<b>Valor: {point.total_valor}<\b><br>',
+                 '<b>Percentual: {point.perc_orgao}<\b><br>')
+
+tooltip_formatada <- "function(){return('')}"
+#tooltip <- 'Orgão: {point.Nome Órgão Superior}<br> Valor: {point.total_valor}<br> Percentual: {point.perc_orgao}<br>'
+
+hctreemap2(ministerio_rest,
+           group_vars = c('Nome Órgão Superior', 'Nome Unidade Gestora'),
+           size_var = 'total_valor',
+           color_var = 'total_valor',
+           layoutAlgorithm = "squarified",
+           levelIsConstant = F,
+           allowDrillToNode = T,
+           animationLimiti = 1000,
+           dataLabels = list(enabled = F, color = 'black', shadow = F),
+           levels = list(list(level = 1,
+                              dataLabels = list(enabled = T)))) %>%
+  hc_colorAxis(minColor = brewer.pal(9, "BuGn")[1],
+               maxColor = brewer.pal(9, "BuGn")[9]) %>%
+  hc_tooltip(backgroundColor = "#e6ffe6",
+             shared = TRUE, 
+             useHTML = T,
+             borderWidth = 5,
+             valueDecimals = 0,
+             valuePrefix = 'R$',
+             headerFormat = "<p>",
+             #formmater = JS(tooltip_formatada),
+             #pointFormat = tooltip,
+             footerFormat = "</p>") %>% 
+  widgetframe::frameWidget()
+
+```
+
+Como podemos ver pelo gráfico, a proporção de recursos utilizados via CPGF em restaurantes se deve quase que total pelo ministério da defesa, chegando a incríveis 88\% e quase R\$3 milhões de reais. A titulo de comparação, o segundo colocado(Ministério da Educação) gastou quase 25 vezes menos. Dentro do Ministério da Defesa, a unidade gestora que possui maior gasto é o Departamento de Administração Interna-Md com cerca de R\$200 mil gastos no período e também os 4º e 5º batalhão logístico com mais de R\$100 mil cada.
+
+
+## Considerações Finais
+
+Como vimos neste post, entre 2011 e 2017 os agentes públicos utilizaram o cartão federal em restaurantes com despesas ultrapassando os R$3 milhões. Infelizmente não temos disponível a informação da justificativa dos pagamentos, mostrando novamente a falta de transparência do governo federal. 
+
+Entre os fatos analisados, é notório que quase todo o gasto, 90\%, é advindo do Ministério da Defesa. Em tempos de **batalhas** orçamentárias, temos de vencer a **guerra** ao acesso à informação e entender o motivo do dinheiro advindo de impostos estar sendo gasto desta maneira. É importante que nossos servidores sigam os regimes que regem a Administração Pública: legalidade, impessoalidade, moralidade, publicidade e eficiência, bem como o princípio da isonomia e **da aquisição mais vantajosa para a Administração Pública**.
