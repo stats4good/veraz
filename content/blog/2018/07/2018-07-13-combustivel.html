@@ -1,0 +1,51 @@
+---
+draft: yes
+title: "Gastos com combustíveis utilizando o Cartão de Pagamentos do Governo Federal"
+author: "Ana Júlia Alves"
+date: 2018-07-13
+categories: ["Gastos Governo", "Economia" , "Cartão de Pagamento do Governo Federal" , "Combustível"]
+tags: ["Gastos-Governo", "Portal da Transparência", "Economia", "Combustível"]
+slug: combustivel
+banner: "img/banners/banner_aj.jpeg"
+summary: "Análise dos gastos do Governo Federal com combustíveis entre os anos de 2014 a 2017"
+output: html_document
+---
+
+<script src="/veraz/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/veraz/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/veraz/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+
+
+<div id="gastos-com-combustivel-utilizando-o-cartao-de-pagamentos-do-governo-federal" class="section level2">
+<h2>Gastos com combustível utilizando o Cartão de Pagamentos do Governo Federal</h2>
+<p>No último mês de maio vivemos uma das maiores crises de desabastecimento de combustível do Brasil, devido à paralisação de caminhoneiros por todo o território nacional. Pensando nisso decidimos analisar o comportamento dos servidores públicos no consumo de combustíveis com a utilização do Cartão de Pagamentos do Governo Federal (CPGF), também chamado de Cartão Corporativo. Os dados obtidos no Portal da Transparência correspondem aos anos de 2014 a 2017 e para analisá-los foram considerados todos os casos em que a palavra <strong><em>Posto</em></strong> apareceu no campo <em>Nome do Favorecido</em>. É importante considerar que não existe descrição do gasto nos dados fornecidos pelo portal e, portanto, os valores podem compreender qualquer espécie de compra dentro do estabelecimeno. Nesse caso, foi considerado que todo o gasto refere-se à compra de combustível.</p>
+<p>De acordo com a cartilha de <a href="https://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf/#">Perguntas e Respostas</a> disponibilizada pela Controladoria Geral da União (CGU), podem ser realizadas com o CPGF despesas com combustíveis, lubrificantes, peças de reposição, pedágios, conserto de pneus e do próprio veículo, quando houver deslocamentos a serviço, fora da sede do servidor, em veículo oficial.</p>
+</div>
+<div id="visualizando-os-dados" class="section level2">
+<h2>Visualizando os dados</h2>
+<p><br></p>
+<p>Como observado em <a href="https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/#">postagens anteriores</a> os gastos com o Cartão Corporativo têm apresentado uma tendência de queda ao longo dos últimos anos, o que refletiu no gasto total em relação ao consumo de combustíveis. No gráfico a seguir é possível observar uma redução de um pouco mais de um milhão de reais no período entre 2014 e 2017. É importante ainda destacar que durante a análise dos dados foi verificado que nos últimos anos ocorreu um aumento na utilização de serviços de carro particular por aplicativo e táxi, sendo esse um tema interessante para estudos posteriores.</p>
+<p><div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/veraz/blog/2018/07/2018-07-13-combustivel_files/figure-html//widgets/widget_plot1.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<p>O gasto médio por servidor público no ano de 2017 foi de 1.448,46 reais, sendo que as menores despesas são da ordem de 10,00 reais e a maior de aproximadamente 46.000,00 reais. Embora em termos do valor total, o gasto com combustíveis tenha apresentado redução nos últimos anos, esse comportamento deve-se à redução do número de servidores públicos utilizando o CPGF. Em 2014, 2.470 funcionários utilizaram o Cartão Corporativo em postos de gasolina, enquanto que em 2017, 1.549 funcionários públicos utilizaram o cartão nesses estabelecimentos. No gráfico a seguir é possível observar que em média o consumo por pessoa tem se mantido aproximadamente constante, inclusive em períodos de férias, como janeiro e julho. Além disso, é interessante observar o pico de consumo no mês de fevereiro em 2016 e 2017.</p>
+<p><div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/veraz/blog/2018/07/2018-07-13-combustivel_files/figure-html//widgets/widget_plot2.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<p>No treemap a seguir temos os gastos com combustível à nível de Órgão Superior no ano de 2017. Nesse tipo de gráfico o tamanho do retângulo é proporcional à despesa. O Ministério do Planejamento, Desenvolvimento e Gestão e a Presidência da República são os órgãos que mais gastaram recursos, correspondendo a quase 40% dos gastos com combustível.</p>
+<p><div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/veraz/blog/2018/07/2018-07-13-combustivel_files/figure-html//widgets/widget_plot3.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script> <br></p>
+<p>Como exemplificado em um <a href="https://stats4good.github.io/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/#">post anterior</a> existe uma hierarquia dentro do sistema público. Cada servidor está alocado em um Órgão Superior, um Órgão Subordinado e à uma Unidade Gestora. A seguir temos a lista dos Órgãos Superiores ordenados de forma decrescente de acordo com o gasto de recursos com combustível via cartão corporativo:</p>
+<div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/veraz/blog/2018/07/2018-07-13-combustivel_files/figure-html//widgets/widget_mostra_dados1.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>Além disso, apresentamos uma lista dos Órgãos Subordinados ordenados de acordo com o gasto de recursos públicos em postos de gasolina:</p>
+<div id="htmlwidget-5" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/veraz/blog/2018/07/2018-07-13-combustivel_files/figure-html//widgets/widget_mostra_dados2.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="consideracoes-finais" class="section level2">
+<h2>Considerações Finais</h2>
+<p>De forma geral é possível observar uma queda significativa no gasto em postos de gasolina via Cartão de Pagamentos do Governo Federal. No entanto, como foi possível verificar o ticket médio tem se mantido constante, em torno de 500,00 reais por servidor público mensalmente. Como mencionado anteriormente, nos últimos anos foi observado na base um aumento de gastos do Cartão Corporativo com serviços de motorista particular por aplicativo e táxi. Esse comportamento pode explicar de certa forma a queda no gasto com combustível, mas conclusões mais concretas devem ser tomadas após um estudo dos dados do Portal da Transparência considerando essa abordagem.</p>
+</div>
+<div id="referencias" class="section level1">
+<h1>Referências</h1>
+<p><a href="http://www.portaltransparencia.gov.br/">Portal da Transparência</a></p>
+<p><a href="https://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf/">Orientações da CGU sobre gastos do CPGF</a></p>
+</div>

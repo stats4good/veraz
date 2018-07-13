@@ -1,0 +1,197 @@
+---
+title: "Gastos com combustíveis utilizando o Cartão de Pagamentos do Governo Federal"
+author: "Ana Júlia Alves"
+date: 2018-07-13
+categories: ["Gastos Governo", "Economia" , "Cartão de Pagamento do Governo Federal" , "Combustível"]
+tags: ["Gastos-Governo", "Portal da Transparência", "Economia", "Combustível"]
+slug: combustivel
+banner: "img/banners/banner_aj.jpeg"
+summary: "Análise dos gastos do Governo Federal com combustíveis entre os anos de 2014 a 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# knitr::opts_knit$set(base.dir = 'blog/2018/03/template/')
+```
+
+```{r pacotes}   
+library(DT)
+library(ggplot2)
+library(knitr)
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(sqldf)
+library(highcharter)
+library(stringr)
+```
+
+## Gastos com combustível utilizando o Cartão de Pagamentos do Governo Federal
+
+No último mês de maio vivemos uma das maiores crises de desabastecimento de 
+combustível do Brasil, devido à paralisação de caminhoneiros por todo o território 
+nacional. Pensando nisso decidimos analisar o comportamento dos servidores públicos 
+no consumo de combustíveis com a utilização do Cartão de Pagamentos do Governo Federal 
+(CPGF), também chamado de Cartão Corporativo. Os dados obtidos no Portal da 
+Transparência correspondem aos anos de 2014 a 2017 e para analisá-los foram 
+considerados todos os casos em que a palavra **_Posto_** apareceu no campo 
+_Nome do Favorecido_. É importante considerar que não existe descrição do 
+gasto nos dados fornecidos pelo portal e, portanto, os valores podem compreender 
+qualquer espécie de compra dentro do estabelecimeno. Nesse caso, foi 
+considerado que todo o gasto refere-se à compra de combustível. 
+
+De acordo com a cartilha de [Perguntas e Respostas](https://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf/#)
+disponibilizada pela Controladoria Geral da União (CGU), podem ser realizadas 
+com o CPGF despesas com combustíveis, lubrificantes, peças de reposição, 
+pedágios, conserto de pneus e do próprio veículo, quando houver deslocamentos a 
+serviço, fora da sede do servidor, em veículo oficial. 
+
+## Visualizando os dados
+
+
+```{r carregando dados}
+table_fuel <- readRDS('data/table_fuel.rds')
+```    
+<br>
+
+
+Como observado em [postagens anteriores](https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/#) 
+os gastos com o Cartão Corporativo têm apresentado uma tendência de queda ao 
+longo dos últimos anos, o que refletiu no gasto total em relação ao consumo de 
+combustíveis. No gráfico a seguir é possível observar uma redução de um pouco mais 
+de um milhão de reais no período entre 2014 e 2017. É importante ainda destacar que 
+durante a análise dos dados foi verificado que nos últimos anos ocorreu um aumento 
+na utilização de serviços de carro particular por aplicativo e táxi, sendo esse um 
+tema interessante para estudos posteriores.
+
+
+```{r plot1}
+table_fuel$Valor_Transacao <- as.numeric(table_fuel$Valor_Transacao)
+
+soma_valor_fuel <- table_fuel %>%
+  group_by(Ano_Extrato) %>%
+  summarise(soma = round(sum(Valor_Transacao), 0))%>% 
+  arrange(desc(soma))
+
+
+highcharter::highchart() %>%
+  hc_title(text = "Gasto com combustível por ano") %>%
+  hc_xAxis(categories = unique(soma_valor_fuel$Ano_Extrato)) %>%
+  hc_add_series(name = "Gasto com combustível",
+                data = soma_valor_fuel,
+                mapping = hcaes(y = soma, x = Ano_Extrato),
+                type = "line") %>% 
+  widgetframe::frameWidget()
+```
+<br>
+
+O gasto médio por servidor público no ano de 2017 foi de 1.448,46 reais, sendo 
+que as menores despesas são da ordem de 10,00 reais e a maior de aproximadamente 
+46.000,00 reais. Embora em termos do valor total, o gasto com combustíveis tenha 
+apresentado redução nos últimos anos, esse comportamento deve-se à redução do 
+número de servidores públicos utilizando o CPGF.
+Em 2014, 2.470 funcionários utilizaram o Cartão Corporativo em postos de gasolina, 
+enquanto que em 2017, 1.549 funcionários públicos utilizaram o cartão nesses 
+estabelecimentos. No gráfico a seguir é possível observar que em média o consumo 
+por pessoa tem se mantido aproximadamente constante, inclusive em períodos de 
+férias, como janeiro e julho. Além disso, é interessante observar o pico de 
+consumo no mês de fevereiro em 2016 e 2017.
+
+```{r plot2}
+gasto_pessoa_anual <- table_fuel %>%
+  dplyr::group_by(CPF_Portador,Mes_Extrato,Ano_Extrato) %>%
+  dplyr::summarise(soma = sum(Valor_Transacao)) %>% 
+  dplyr::arrange(desc(Mes_Extrato))  
+
+gasto_mes_anual <- gasto_pessoa_anual %>%
+  dplyr::group_by(Mes_Extrato,Ano_Extrato) %>%
+  dplyr::summarise(media = mean(soma)) %>%
+  dplyr::arrange(desc(Ano_Extrato,Mes_Extrato))  
+
+highcharter::highchart() %>%
+hc_title(text = "Gasto médio de combustível por por pessoa") %>%
+hc_xAxis(categories = unique(gasto_mes_anual$`Mes_Extrato`)) %>%
+hc_add_series(data = gasto_mes_anual,
+              mapping = hcaes(y = media,x=`Mes_Extrato`,group = `Ano_Extrato`),
+              type = "line") %>% 
+  widgetframe::frameWidget()
+```
+<br>
+
+No treemap a seguir temos os gastos com combustível à nível de Órgão Superior 
+no ano de 2017. Nesse tipo de gráfico o tamanho do retângulo é proporcional à 
+despesa. O Ministério do Planejamento, Desenvolvimento e Gestão e a Presidência 
+da República são os órgãos que mais gastaram recursos, correspondendo a quase 40% 
+dos gastos com combustível. 
+
+```{r plot3}
+table_fuel_2017 <- table_fuel %>% 
+  dplyr::filter(Ano_Extrato == 2017)
+
+gasto_org <- table_fuel_2017 %>%
+  dplyr::group_by(Nome_Org_Sup) %>%
+  dplyr::summarise(soma = sum(Valor_Transacao)) %>% 
+  dplyr::arrange(desc(soma))   
+
+highchart() %>% 
+  hc_add_series(data = gasto_org, 
+                mapping = hcaes(name = Nome_Org_Sup, value = soma),
+                type = "treemap", colorByPoint = TRUE) %>% 
+  widgetframe::frameWidget()
+```
+<br>
+
+Como exemplificado em um [post anterior](https://stats4good.github.io/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/#) 
+existe uma hierarquia dentro do sistema público. Cada servidor está alocado em 
+um Órgão Superior, um Órgão Subordinado e à uma Unidade Gestora. A seguir temos 
+a lista dos Órgãos Superiores ordenados de forma decrescente de acordo com o 
+gasto de recursos com combustível via cartão corporativo:
+
+```{r mostra_dados1}
+table_fuel_2017 <- table_fuel %>% 
+  dplyr::filter(Ano_Extrato == 2017)
+
+gasto_org <- table_fuel_2017 %>%
+  dplyr::group_by(Nome_Org_Sup) %>%
+  dplyr::summarise(Gasto= sum(Valor_Transacao)) %>% 
+  dplyr::arrange(desc(Gasto)) 
+
+DT::datatable(gasto_org,colnames = c("Órgão Superior","Gasto (em R$)")) %>% 
+  widgetframe::frameWidget()
+```
+
+Além disso, apresentamos uma lista dos Órgãos Subordinados ordenados de acordo 
+com o gasto de  recursos públicos em postos de gasolina:
+
+
+```{r mostra_dados2}
+table_fuel_2017 <- table_fuel %>% 
+  dplyr::filter(Ano_Extrato == 2017)
+
+gasto_org_sub <- table_fuel_2017 %>%
+  dplyr::group_by(Nome_Org_Sub) %>%
+  dplyr::summarise(soma = sum(Valor_Transacao)) %>% 
+  dplyr::arrange(desc(soma))   
+
+DT::datatable(gasto_org_sub,colnames = c("Órgão Subordinado","Gasto (em R$)")) %>% 
+  widgetframe::frameWidget()
+```
+
+
+## Considerações Finais
+
+De forma geral é possível observar uma queda significativa no gasto em postos de 
+gasolina via Cartão de Pagamentos do Governo Federal. No entanto, como foi possível 
+verificar o ticket médio tem se mantido constante, em torno de 500,00 reais por 
+servidor público mensalmente. Como mencionado anteriormente, nos últimos anos foi 
+observado na base um aumento de gastos do Cartão Corporativo com serviços de motorista 
+particular por aplicativo e táxi. Esse comportamento pode explicar de certa forma a 
+queda no gasto com combustível, mas conclusões mais concretas devem ser tomadas após 
+um estudo dos dados do Portal da Transparência considerando essa abordagem.
+
+# Referências
+
+[Portal da Transparência](http://www.portaltransparencia.gov.br/)
+
+[Orientações da CGU sobre gastos do CPGF](https://www.cgu.gov.br/Publicacoes/orientacoes-aos-gestores/arquivos/suprimento-de-fundos-e-cartao-de-pagamento.pdf/)
