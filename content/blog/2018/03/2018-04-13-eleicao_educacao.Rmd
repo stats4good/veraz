@@ -24,7 +24,6 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALS
 suppressPackageStartupMessages(library(ggplot2))
 library(knitr)
 suppressPackageStartupMessages(library(cowplot))
-suppressPackageStartupMessages(library(geofacet))
 suppressPackageStartupMessages(library(dplyr))
 sysfonts::font_add_google('Share Tech', 'share_tech')
 ```

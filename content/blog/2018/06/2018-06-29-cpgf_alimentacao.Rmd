@@ -1,5 +1,5 @@
 ---
-title: "A Fome Insáciavel dos Servidores Públicos"
+title: "A Fome Insaciável dos Servidores Públicos"
 author: "Anônimo"
 date: 2018-06-29
 categories: ["Gastos Governo", "CPGF", "Cartão de Pagamentos"]

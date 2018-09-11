@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portal Da Transparência on Veraz</title>
-    <link>/veraz/tags/portal-da-transpar%C3%AAncia/</link>
+    <link>https://stats4good.github.io/veraz/tags/portal-da-transpar%C3%AAncia/</link>
     <description>Recent content in Portal Da Transparência on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/veraz/tags/portal-da-transpar%C3%AAncia/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stats4good.github.io/veraz/tags/portal-da-transpar%C3%AAncia/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gastos com combustíveis utilizando o Cartão de Pagamentos do Governo Federal</title>
-      <link>/veraz/post/2018/07/2018-07-13-combustivel/</link>
+      <link>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</link>
       <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/veraz/post/2018/07/2018-07-13-combustivel/</guid>
+      <guid>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</guid>
       <description>Gastos com combustível utilizando o Cartão de Pagamentos do Governo Federal No último mês de maio vivemos uma das maiores crises de desabastecimento de combustível do Brasil, devido à paralisação de caminhoneiros por todo o território nacional. Pensando nisso decidimos analisar o comportamento dos servidores públicos no consumo de combustíveis com a utilização do Cartão de Pagamentos do Governo Federal (CPGF), também chamado de Cartão Corporativo. Os dados obtidos no Portal da Transparência correspondem aos anos de 2014 a 2017 e para analisá-los foram considerados todos os casos em que a palavra Posto apareceu no campo Nome do Favorecido.</description>
     </item>
     
