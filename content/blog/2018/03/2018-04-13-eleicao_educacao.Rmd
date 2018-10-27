@@ -146,7 +146,7 @@ ggplot(dados_br) +
         legend.title = element_blank()#,
         # text = element_text(family = 'share_tech')
         ) +
-  scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
+  scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.')) +
   scale_color_manual(values = cores) +
   labs(x = '', y = 'Valor (em Reais)') -> plot_serie
 
@@ -196,28 +196,6 @@ transferências destinadas à ciência e tecnologia. Além disso, as duas áreas
 apresentam um grande decréscimo na disponibilidade destes recursos nos últimos
 anos, tendo a queda na ciência e tecnologia começado em um período anterior
 ao ensino superior.
-
-
-```{r serie_uf, fig.cap = 'Valores mensais de transferências discriminados por unidade federativa.', fig.height = 14, fig.width = 10}
-# showtext::showtext_begin()
-# ggplot(dados_uf) +
-#   geom_line(aes(x = Data, y = Valor, color = `Nome Programa`)) +
-#   geom_point(aes(x = Data, y = Valor, color = `Nome Programa`)) +
-#   facet_geo( ~ `Sigla Unidade Federação`, grid = "br_states_grid1", scales = 'free_y') +
-#   guides(color = F) +
-#   scale_color_manual(values = cores) +
-#   theme_bw() +
-#   theme(legend.position = 'bottom', 
-#         legend.direction = 'vertical',
-#         legend.title = element_blank(),
-#         axis.text.x = element_blank(),
-#         text = element_text(family = 'share_tech'),
-#         strip.background = element_rect(fill = 'transparent')) +
-#   scale_y_continuous(labels =  scales::dollar_format(prefix = 'R$', big.mark = '.', zero.print = 2)) +
-#   scale_color_manual(values = cores) +
-#   theme(legend.position = 'bottom', legend.direction = 'vertical') %>% suppressWarnings()
-# showtext::showtext_end()
-```
 
 # Referências
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orçamento on Veraz</title>
+    <link>/veraz/categories/or%C3%A7amento/</link>
+    <description>Recent content in Orçamento on Veraz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/veraz/categories/or%C3%A7amento/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quanto vale um voto?</title>
+      <link>/veraz/post/2018/10/2017-10-27-voto_orcamento/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/10/2017-10-27-voto_orcamento/</guid>
+      <description>Introdução O economista americano Anthony Downs introduziu na década de 1950 aquele que viria a ser conhecido como o paradoxo do voto. Segundo ele o ato de votar seria irracional pois os custos envolvidos excederiam os benefícios uma vez que a chance de uma eleição ser decidida por um único voto é muito baixa. Entretanto, se todas as pessoas aceitarem esse raciocínio, ninguém votaria e, nesse caso, o peso de um único voto seria máximo.</description>
+    </item>
+    
+  </channel>
+</rss>

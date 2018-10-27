@@ -1,0 +1,60 @@
+---
+title: "Quanto vale um voto?"
+author: "Victor Schmidt Comitti"
+date: 2018-10-27
+categories: ["Orçamento", "Eleições"]
+tags: ["Economia", "Portal da Transparência"]
+banner: "img/banners/banner_votos_orc.jpg"
+summary: "Quanto vale o seu voto e qual a probabilidade do mesmo decidir uma eleição?"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r pacotes, include=FALSE}
+library(ggplot2)
+library(knitr)
+# library(plotly)
+```
+#Introdução
+O economista americano Anthony Downs introduziu na década de 1950 aquele que viria a ser conhecido como o paradoxo do voto. Segundo ele o ato de votar seria irracional pois os custos envolvidos excederiam os benefícios uma vez que a chance de uma eleição ser decidida por um único voto é muito baixa. Entretanto, se todas as pessoas aceitarem esse raciocínio, ninguém votaria e, nesse caso, o peso de um único voto seria máximo. Existem algumas soluções possíveis para o paradoxo de Downs. As mais elaboradas  em geral envolvem teoria dos jogos e especulações sobre o processo de decisão das pessoas. O propósito deste texto não é, de maneira alguma, tentar resolver o paradoxo. Talvez você esteja lendo estas linhas daqui a vários anos. Pois saiba que vivemos um período eleitoral bastante conturbado e, neste momento, parece oportuno retormar o tema do valor do voto. 
+
+#Qual a probabilidade de que o seu voto altere o resultado?
+
+Uma expressão aproximada para a probabilidade de que um único voto decida uma eleição numa disputa entre dois candidatos foi derivada no trabalho de  [Owen e Grofman (1984)](http://www.socsci.uci.edu/~bgrofman/66%20Owen-Grofman-To%20vote%20or%20not%20to%20vote.pdf) e tem a seguinte forma:
+\begin{equation}
+p_{e}=\frac{2e^{-2(N-1)\left(p-\frac{1}{2}\right)}}{\sqrt{2\pi(N-1)}},
+\end{equation}
+
+onde N representa o número de eleitores e 'p' é a probabilidade de que um  eleitor qualquer vote num determinado candidato. Agora suponha uma eleição extremamente disputada em que ambos os candidatos tenham probabilidade de voto $p=0.5$. Considere ainda que o número de votos válidos na votação do próximo domingo seja exatamente o mesmo do primeiro turno, ou seja: $N=107050673$. Então, aplicando a fórmula acima nesse cenário,  a probabilidade de que a eleição seja decidida por um único voto é de aproximadamente $p_{e}=0.00007711$ ou  0.007711\%. Isso significa que, mesmo sob a hipótese pouca provável de que os candidatos tenham a mesma probabilidade de voto por parte dos eleitores, espera-se, com alguma sorte, que o seu voto seja decisivo em uma a cada 10 mil eleições.  O leitor interessado pode aplicar a fórmula acima para testar cenários mais realistas nos quais um dos candidatos tem uma probabilidade maior de voto do que a do seu concorrente. Já adianto que desvios pequenos do parâmetro 'p' em relação a 0.5 levam $p_{e}$ para valores infinitamente pequenos. Isso significa que a chance do seu voto mudar a eleição, de fato, é praticamente inexistente.  Não parece muito animador, certo? Talvez seja melhor olhar a questão por outro ângulo.
+
+#O que está em jogo?
+
+O que o presidente eleito no Domingo terá a sua disposição? O orçamento federal aprovado para o ano de 2018 é de 3,5 trilhões de reais ou aproximadamente 30000 reais para cada um dos 117 milhões de votos depositado nas urnas no primeiro turno.
+[Neste artigo](https://80000hours.org/2016/11/why-the-hour-you-spend-voting-is-the-most-socially-impactful-of-all/) sugere-se que uma medida estatística do valor de um voto pode ser obtida multiplicando-se o tamanho do orçamento da união por $p_{e}$.
+Supondo o cenário em que $p=0.5$, chegamos a um valor de aproximadamente 277 milhões de reais. Ou seja: essa é a quantidade  máxima de dinheiro público que você pode esperar que o seu voto influencie numa eleição muito acirrada.  O presidente eleito, no entanto,  não terá poder discricionário sobre o orçamento inteiro -- a maior parte dele já está comprometida com despesas obrigatórias como o salário do funcionalismo e o custeio da máquina pública. No ano de 2017, por exemplo,   [a rigidez orçamentária chegou a 93,7\%](https://epocanegocios.globo.com/Economia/noticia/2018/03/epoca-negocios-uniao-tem-93-de-gastos-obrigatorios.html). É fato também que a fatia do orçamento comprometida com os gastos obrigatórios tem aumentado progressivamente. Isso significa que o próximo presidente terá um enorme desafio a sua frente para evitar o estrangulamento completo das contas públicas -- o que aumenta, também, a responsabilidade dos eleitores que precisam sinalizar nas urnas qual o projeto eles acreditam ser mais capaz de enfrentar essa situação. Mais ainda: as políticas econômicas adotadas ao longo dos próximos anos afetarão níveis de emprego e renda da população como um todo. Ainda que no Brasil seja comum o discurso de que nada mudará seja qual for o vencedor, é altamente improvável que duas propostas de governo antagônicas entre si produzam resultados semelhantes. 
+
+Obviamente, não é apenas o voto para presidente que importa. Só nesse ano [8,8 bilhões de reais serão destinados a parlamentares em emendas individuais.](https://epocanegocios.globo.com/Economia/noticia/2018/03/epoca-negocios-uniao-tem-93-de-gastos-obrigatorios.html) As emendas parlamentares são instrumentos criados, em teoria, para aumentar a eficiência e descentralizar a alocação dos recursos federais. A ideia é que, por conhecerem melhor seus redutos eleitorais, deputados e senadores poderiam direcionar os recursos da união para as demandas mais prioritárias dessas áreas. Na prática, porém, as emendas frequentemente são usadas como moeda de troca entre parlamento e executivo. A tabela abaixo mostra os valores pagos em emendas parlamentares para deputados e senadores de Minas Gerais entre 2015 e 2018 com dados retirados do Portal da Transparência:
+
+```{r echo = FALSE}
+emendas<-c(331598175.32, 198919136.25, 143337547.91, 945864.10)
+emendas<-emendas/1000000
+ano<-c(2015, 2016, 2017, 2018)
+
+df<-as.data.frame(cbind(emendas, ano))
+p<-ggplot(data=df, aes(x=ano, y=emendas)) +
+  geom_bar(stat="identity")+xlab("Ano") + ylab("Valores Pagos (Mi)")+ggtitle("Valores pagos aos parlamentares de Minas Gerais", 
+                                                                             subtitle = "2015 a 2018")
+p + s4ggthemes::theme_veraz() + s4ggthemes::scale_fill_veraz()
+```
+
+O valor total pago em emendas para parlamentares mineiros na última legislatura foi de 675 milhões, aproximadamente 12 milhões para cada um dos 53 deputados e 3 senadores do estado. Alguns desses parlamentares foram eleitos com menos de 50 mil votos. Isso significa que um único voto para Deputado Federal em Minas Gerais é capaz de movimentar até 240 reais apenas em emendas. Nos estados menos populosos essas cifras podem ser ainda maiores. Em Roraima, por exemplo, os valores podem chegar a 4800 reais por voto. Eleições para cargos do legislativo são decididas por margens de votos muito menores que aquelas observadas em eleições para o executivo.  Neste caso a escolha do eleitor é ainda mais crítica já que os benefícios são muito mais palpáveis.  
+
+#Conclusão
+
+É verdade que o seu voto não vai decidir o próximo presidente (e nem os que virão depois dele). Porém, o vencedor de uma eleição importa. Por mais que nem sempre façamos as melhores escolhas (e nem poderíamos) o voto ainda é o melhor instrumento que a democracia oferece para que o cidadão comum possa expressar sua preferência (ou rejeição) por um determinado projeto de país. 
+
+

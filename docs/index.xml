@@ -2,85 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Veraz</title>
-    <link>https://stats4good.github.io/veraz/</link>
+    <link>/veraz/</link>
     <description>Recent content on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Quanto vale um voto?</title>
+      <link>/veraz/post/2018/10/2017-10-27-voto_orcamento/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/10/2017-10-27-voto_orcamento/</guid>
+      <description>Introdução O economista americano Anthony Downs introduziu na década de 1950 aquele que viria a ser conhecido como o paradoxo do voto. Segundo ele o ato de votar seria irracional pois os custos envolvidos excederiam os benefícios uma vez que a chance de uma eleição ser decidida por um único voto é muito baixa. Entretanto, se todas as pessoas aceitarem esse raciocínio, ninguém votaria e, nesse caso, o peso de um único voto seria máximo.</description>
+    </item>
+    
+    <item>
       <title>Gastos com combustíveis utilizando o Cartão de Pagamentos do Governo Federal</title>
-      <link>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</link>
+      <link>/veraz/post/2018/07/2018-07-13-combustivel/</link>
       <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</guid>
+      <guid>/veraz/post/2018/07/2018-07-13-combustivel/</guid>
       <description>Gastos com combustível utilizando o Cartão de Pagamentos do Governo Federal No último mês de maio vivemos uma das maiores crises de desabastecimento de combustível do Brasil, devido à paralisação de caminhoneiros por todo o território nacional. Pensando nisso decidimos analisar o comportamento dos servidores públicos no consumo de combustíveis com a utilização do Cartão de Pagamentos do Governo Federal (CPGF), também chamado de Cartão Corporativo. Os dados obtidos no Portal da Transparência correspondem aos anos de 2014 a 2017 e para analisá-los foram considerados todos os casos em que a palavra Posto apareceu no campo Nome do Favorecido.</description>
     </item>
     
     <item>
       <title>A Fome Insaciável dos Servidores Públicos</title>
-      <link>https://stats4good.github.io/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</link>
+      <link>/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</link>
       <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</guid>
+      <guid>/veraz/post/2018/06/2018-06-29-cpgf_alimentacao/</guid>
       <description>Visão Geral Atualmente o Brasil, país o qual a economia encolheu 3,8% e 3,6% em 2015 e 2016, respectivamente, e que mostra um tímido crescimento de 1% no PIB em 2017, vive uma catástrofe nas finanças públicas. Foram diversos os cortes nos últimos anos em pastas importantes como educação e saúde, devido à crise que assola a federação. Em um momento delicado no orçamento federal, é de suma importância que os agentes públicos prezem pelo gasto responsável e inteligente do dinheiro público advindo dos pagadores de impostos.</description>
     </item>
     
     <item>
       <title>Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas</title>
-      <link>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
+      <link>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
+      <guid>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
       <description>Cartão de Pagamento do Governo Federal - CPFG O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. Leia mais sobre o Cartão Corporativo.
 O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal direta, autárquica e fundacional.</description>
     </item>
     
     <item>
       <title>Análise dos Gastos do governo usando o Cartão Corporativo</title>
-      <link>https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/</link>
+      <link>/veraz/post/2018/05/2018-05-25-cartao_corporativo/</link>
       <pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/</guid>
+      <guid>/veraz/post/2018/05/2018-05-25-cartao_corporativo/</guid>
       <description>O Cartão Corporativo O cartão de Pagamento do Governo Federal (CPGF), ou cartão corporativo como é mais conhecido, é um instrumento criado em 2001 com o propósito de dar mais agilidade à administração pública. A ideia inicial era que os gestores de órgãos do governo pudessem cobrir pequenas despesas do dia-a-dia sem a necessidade de licitações ou autorizações especiais. A realidade, no entanto, se mostrou diferente - nos anos seguintes à criação do CPGF surgiram diversas denúncias de mau uso do cartão que motivaram a criação de uma Comissão Parlamentar de Inquérito (CPI) em 2008 para investigar o assunto.</description>
     </item>
     
     <item>
       <title>Transferências do Governo Federal no 1º trimestre semestre de 2018</title>
-      <link>https://stats4good.github.io/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</link>
+      <link>/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</guid>
+      <guid>/veraz/post/2018/05/2018-04-27-transferencias_primeiro_trimestre/</guid>
       <description>Transferências Conforme descrito no post sobre o Investimento em Educação no Período Eleitoral as transferências do Governo Federal podem beneficiar tanto Unidades Federativas quanto municípios. Cada transferência realizada pelo Governo Federal é relacionada a uma função que é, em termos gerais, a finalidade na qual deve ser empregado o dinheiro transferido. Exemplos de funções são: Saúde, Educação e Assistência Social. Finalizado o primeiro trimestre de 2018 você sabe o montante transferido pelo Governo Federal para o seu estado/município e para quais finalidades?</description>
     </item>
     
     <item>
       <title>Visualizando os dados do Programa Bolsa Família</title>
-      <link>https://stats4good.github.io/veraz/post/2018/04/2018-04-27-bolsa_familia/</link>
+      <link>/veraz/post/2018/04/2018-04-27-bolsa_familia/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/04/2018-04-27-bolsa_familia/</guid>
+      <guid>/veraz/post/2018/04/2018-04-27-bolsa_familia/</guid>
       <description>Programa Social: Bolsa Família O Programa Bolsa Família (PBF) é um programa de transferência de renda do Governo Federal direcionado às famílias em situações de pobreza e de extrema pobreza. O programa busca garantir a essas famílias o direito à alimentação e o acesso à educação e à saúde. O programa recebeu este nome em \(2004\) quando unificou e ampliou os seguintes programas de transferência já existentes:</description>
     </item>
     
     <item>
       <title>Investimentos em Educação no Período Eleitoral</title>
-      <link>https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/</link>
+      <link>/veraz/post/2018/04/2018-04-13-eleicao_educacao/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/04/2018-04-13-eleicao_educacao/</guid>
+      <guid>/veraz/post/2018/04/2018-04-13-eleicao_educacao/</guid>
       <description>Transferência de Recursos Federais As transferências de recursos do governo federal podem ser de três tipos, Constitucionais1, Legais2 e Voluntárias3. Elas podem beneficiar tanto munícipios, unidades federativas e o distrito federal, quanto instituições privadas (com ou sem fins lucrativos) e instituições do exterior. No portal da transparência, estes dados estão dividos em diversos níveis de agregação. Entretanto, neste post trataremos de investigar o impacto do período eleitoral referente à disputa da presidência da república em transferências para Educação Superior, que engloba graduação, pós-graduação, ensino, pesquisa e extensão, e promoção da pesquisa e do desenvolvimento tecnológico.</description>
     </item>
     
     <item>
       <title>Investimentos em Educação no Período Eleitoral</title>
-      <link>https://stats4good.github.io/veraz/post/eleicao_educacao/</link>
+      <link>/veraz/post/eleicao_educacao/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/eleicao_educacao/</guid>
+      <guid>/veraz/post/eleicao_educacao/</guid>
       <description>Transferência de Recursos Federais A transferência de recursos do governo federal, em geral, pode ser de três tipos, Constitucionais, Legais e Voluntárias. Podem ser beneficiados por estas transferências tanto munícipios, unidades federativas e o distrito federal, quanto instituições privadas (com ou sem fins lucrativos) e até instituições no exterior. No portal da transparência, estes dados estão dividos em diversos níveis de agregação. Entretanto, neste post trataremos de investigar o impacto do período eleitoral referente á disputa da presidência da república em transferências para Educação Superior, que englonba graduação, pós-graduação, ensino, pesquisa e exstensão, e promoção da pesquisa e do desenvolvimento tecnológico.</description>
     </item>
     

@@ -2,30 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Economia on Veraz</title>
-    <link>https://stats4good.github.io/veraz/tags/economia/</link>
+    <link>/veraz/tags/economia/</link>
     <description>Recent content in Economia on Veraz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://stats4good.github.io/veraz/tags/economia/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/veraz/tags/economia/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Quanto vale um voto?</title>
+      <link>/veraz/post/2018/10/2017-10-27-voto_orcamento/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/10/2017-10-27-voto_orcamento/</guid>
+      <description>Introdução O economista americano Anthony Downs introduziu na década de 1950 aquele que viria a ser conhecido como o paradoxo do voto. Segundo ele o ato de votar seria irracional pois os custos envolvidos excederiam os benefícios uma vez que a chance de uma eleição ser decidida por um único voto é muito baixa. Entretanto, se todas as pessoas aceitarem esse raciocínio, ninguém votaria e, nesse caso, o peso de um único voto seria máximo.</description>
+    </item>
+    
+    <item>
       <title>Gastos com combustíveis utilizando o Cartão de Pagamentos do Governo Federal</title>
-      <link>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</link>
+      <link>/veraz/post/2018/07/2018-07-13-combustivel/</link>
       <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/07/2018-07-13-combustivel/</guid>
+      <guid>/veraz/post/2018/07/2018-07-13-combustivel/</guid>
       <description>Gastos com combustível utilizando o Cartão de Pagamentos do Governo Federal No último mês de maio vivemos uma das maiores crises de desabastecimento de combustível do Brasil, devido à paralisação de caminhoneiros por todo o território nacional. Pensando nisso decidimos analisar o comportamento dos servidores públicos no consumo de combustíveis com a utilização do Cartão de Pagamentos do Governo Federal (CPGF), também chamado de Cartão Corporativo. Os dados obtidos no Portal da Transparência correspondem aos anos de 2014 a 2017 e para analisá-los foram considerados todos os casos em que a palavra Posto apareceu no campo Nome do Favorecido.</description>
     </item>
     
     <item>
       <title>Visualizando os gastos do Cartão de Pagamentos do Governo Federal (CPGF) para aquisições de passagens aéreas</title>
-      <link>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
+      <link>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
+      <guid>/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/</guid>
       <description>Cartão de Pagamento do Governo Federal - CPFG O Cartão de Pagamento do Governo Federal – CPGF é um meio de pagamento que proporciona à administração pública mais agilidade, controle e modernidade na gestão de recursos. O cartão foi desenvolvido para facilitar o dia-a-dia da administração pública e de seus servidores para pagamento de bens, serviços e despesas autorizadas. Leia mais sobre o Cartão Corporativo.
 O público alvo desse instrumento são as Unidades Gestoras dos órgãos da Administração Pública Federal direta, autárquica e fundacional.</description>
     </item>
