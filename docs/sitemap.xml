@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/veraz/post/2018/10/2018-10-29-orcamento_edu/</loc>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/veraz/post/2018/10/2017-10-27-voto_orcamento/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url>
@@ -55,7 +60,7 @@
   
   <url>
     <loc>/veraz/blog/</loc>
-    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,13 +144,13 @@
   
   <url>
     <loc>/veraz/tags/educa%C3%A7%C3%A3o/</loc>
-    <lastmod>2018-05-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/veraz/categories/educa%C3%A7%C3%A3o/</loc>
-    <lastmod>2018-04-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -158,6 +163,12 @@
   <url>
     <loc>/veraz/tags/extens%C3%A3o/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/gastos/</loc>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -193,7 +204,7 @@
   
   <url>
     <loc>/veraz/categories/or%C3%A7amento/</loc>
-    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -253,7 +264,7 @@
   
   <url>
     <loc>/veraz/</loc>
-    <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
