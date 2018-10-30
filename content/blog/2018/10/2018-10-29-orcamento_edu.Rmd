@@ -59,7 +59,7 @@ setkey(orcamento, ANO)
 setnames(x = funcao_ano, old = 'NOME FUNCAO', new = 'funcao')
 funcao_ano[, prop_real := real/ini]
 edu <- orcamento[funcao == 'EDUCACAO', ]
-
+edu$`NOME SUBFUNCAO`[edu$`NOME SUBFUNCAO` == 'TRANSFERENCIAS PARA A EDUCACAO BASICA'] <- 'EDUCACAO BASICA'
 fora_orca <- orcamento[
   `ORCAMENTO INICIAL (R$)` == 0 & `ORCAMENTO REALIZADO (R$)` > 0,
   ][, .(Total = sum(`ORCAMENTO REALIZADO (R$)`)), by = 'ANO']
@@ -67,14 +67,14 @@ fora_orca <- orcamento[
 
 ## Orçamento do Governo Federal
 
-  O Orçamento Anual do Governo Federal[^1] descreve de maneira detalhada os
-gastos, e receitas, previstos anualmente de acordo com diferentes _Funções_[^2]
-e _Subfunções_[^3]. Além dos gastos e receitas previstos, também são detalhados
-no orçamento os valores efetivados. Ou seja, não sempre o Governo gasta aquilo 
-que planeja no orçamento, existem variações tanto positivas quanto negativas em
-relação à este valor. Nesta postagem ilustraremos o percentual do orçamento previsto
-para a Educação que de fato foi investido entre os anos de 2014 e 2018. Também serão
-abordadas as quantias gastas em ações não previstas no orçamento inicial.
+O Orçamento Anual do Governo Federal[^1] descreve de maneira detalhada os gastos,
+e receitas, previstos anualmente de acordo com diferentes Funções[^2] e Subfunções[^3]. 
+Além dos gastos e receitas previstos, também são detalhados no orçamento os 
+valores efetivados. Ou seja, nem sempre o Governo gasta aquilo que planeja 
+inicialmente. Logo, existem variações tanto positivas quanto negativas em 
+relação a este valor. Nesta postagem mostraremos o percentual do orçamento 
+previsto para a Educação que de fato foi investido entre os anos de 2014 e 2018. 
+Também serão abordadas as quantias gastas em ações não previstas no orçamento inicial.
 
 
 [^1]: Acesse o manual técnico do orçamento atravésdeste [link](https://www1.siop.planejamento.gov.br/siopdoc/lib/exe/fetch.php/mto:pdf:mto_atual.pdf)
@@ -83,13 +83,13 @@ abordadas as quantias gastas em ações não previstas no orçamento inicial.
 
 ## Educação
 
-  Na figura abaixo, a linha azul pontilhada representa 100%. Em outras palavras,
-valores próximos da linha pontilhada tiveram um investimento efetivado próximo do
-previsto no orçamento. A linha verde representa o percentual do orçamento inicial
-efetivado para a educação, enquanto as linhas cinzas representam cada uma das outras
-Funções que aparecem no orçamento do Governo [^4]. A tendência ao longo do tempo
-mostra algo que já é de conhecimento público, a Educação não vem sendo uma prioridade
-para o governo nos últimos anos.
+Na figura abaixo, a linha azul pontilhada representa 100%. Em outras palavras,
+valores próximos da linha pontilhada tiveram um investimento efetivado próximo
+do previsto no orçamento. A linha verde representa o percentual do orçamento inicial
+efetivado para a educação, enquanto as linhas cinzas são responsáveis por evidenciar
+cada uma das outras Funções que aparecem no orçamento do Governo[^4]. A tendência ao
+longo do tempo mostra algo que já é de conhecimento público, a Educação não vem sendo
+uma prioridade para o governo nos últimos anos.
 
 ```{r plot_1, fig.width = 10}
 ggplot(data = funcao_ano, 
@@ -112,23 +112,25 @@ ggplot(data = funcao_ano,
 
 [^4]: As linhas cinzas estão sendo mostradas para dar uma ideia da variabilidade do quanto o governo prevê que vai gastar e quanto realmente gasta com diferentes áreas.
 
-  O gráfico abaixo nos ajuda a evidenciar a precarização do ensino no Brasil,
-principalmente na educação infantil, onde em 2014 se investiu menos de 10%
-do previsto nesta área. A educação básica e a educação de jovens e adultos
-são outras subfunções que não recebem a devida atenção do governo. Em
-nenhum dos últimos 5 anos estas áreas chegaram a receber nem 75% do valor
-previsto no orçamento. Já o ensino superior que, de 2014 à 2017, recebeu
-valores próximos ao total previsto, apresentou uma queda drástica no ano
-presente (menos de 75%)[^5].
+O gráfico abaixo nos ajuda a evidenciar a precarização do ensino no Brasil,
+principalmente na educação infantil, na qual, em 2014, o investimento foi inferior
+a 10% do previsto nesta área. A educação básica e a educação de jovens e adultos
+são outras subfunções que não recebem a devida atenção do governo. Nos
+últimos 5 anos o valor recebido pela primeira oscilou em torno de 75% do previsto, enquanto
+a segunda não chegou a receber nem 75% do valor esperado. Já o ensino 
+superior que, de 2014 à 2017, recebeu valores próximos ao total previsto, apresentou uma queda 
+drástica no ano presente (menos de 75%)[^5].
 
 ```{r plot2, fig.width = 10}
+niveis <- c('EDUCACAO INFANTIL', 'EDUCACAO BASICA', 'EDUCACAO DE JOVENS E ADULTOS',
+            'ENSINO PROFISSIONAL', 'ENSINO SUPERIOR')
 edu[grepl(pattern = '^ENSINO|^EDUCACAO', x = funcao),][, 
                                                        .(ini = sum(`ORCAMENTO INICIAL (R$)`), 
-                                                         real = sum(`ORCAMENTO REALIZADO (R$)`)), by = c('NOME SUBFUNCAO', 'ANO')][, 
-                                                                                                                                   prop_real := real/ini
-                                                                                                                                   ][order(prop_real, decreasing = T),][
-                                                                                                                                     grepl(pattern = 'ENSINO|EDUCACAO', x = `NOME SUBFUNCAO`),
-                                                                                                                                     ] %>% 
+                                                         real = sum(`ORCAMENTO REALIZADO (R$)`)), by = c('NOME SUBFUNCAO', 'ANO')][,                                                                                                                           prop_real := real/ini                                                                                                                               ][order(prop_real, decreasing = T),][
+                                                           grepl(pattern = 'ENSINO|EDUCACAO', x = `NOME SUBFUNCAO`),][
+                                                             , `NOME SUBFUNCAO` := factor(x = `NOME SUBFUNCAO`, 
+                                                                                          levels = niveis, ordered = T)
+                                                             ] %>% 
   ggplot(data = ., aes(x = ANO, y = prop_real, color = `NOME SUBFUNCAO`)) +
   geom_point() +
   geom_line() +
@@ -137,7 +139,8 @@ edu[grepl(pattern = '^ENSINO|^EDUCACAO', x = funcao),][,
   scale_y_continuous(labels = scales::percent) +
   geom_hline(yintercept = 1, linetype = 'dashed', color = 'blue') +
   s4ggthemes::theme_veraz() +
-  s4ggthemes::scale_color_veraz(palette = 'secondary') +
+  # s4ggthemes::scale_color_veraz(palette = 'secondary') +
+  scale_color_manual(values = grDevices::colorRampPalette(c('#969300', '#21ad14', '#000dc9'))(5)) +
   theme(axis.title.y = element_blank(), legend.position = 'bottom', legend.title = element_blank()) +
   labs(x = 'Ano', title = 'Proporção do orçamento inicial efetivado', subtitle = 'Subfunções')
 ```
@@ -146,15 +149,16 @@ edu[grepl(pattern = '^ENSINO|^EDUCACAO', x = funcao),][,
 
 ## Valores não previstos no orçamento
 
-  No período analizado, apenas o ano de 2015 o governo não gastou valores não
-previstos no orçamento. No ano de 2014 foram gastos `r format_rs(fora_orca$Total[1])`
-além do previsto, sendo todo o montante destinado para a ciência e tecnologia. Já em
-2016 este valor caiu para `r format_rs(fora_orca$Total[2])`, sendo o montante dividido
-gastos judiciais e com comércio e serviços. No ano seguinte estes gastos excedentes
+  De acordo com a figura abaixo,o único ano no qual o governo não gastou com ações
+que não estavam previstas no orçamento foi 2015. No ano de 2014 foram gastos 
+`r format_rs(fora_orca$Total[1])`
+além do previsto, sendo todo este montante destinado para a **ciência e tecnologia**. Já em
+2016 este valor caiu para `r format_rs(fora_orca$Total[2])`, destinados a
+gastos **judiciais** e com **comércio e serviços**. No ano seguinte estes gastos excedentes
 apresentaram nova queda, fechando em `r format_rs(fora_orca$Total[3])`. Sendo todo
-este valor dedicado ao comércio e serviços. Já em 2018 esta categoria de gastos voltou
+este valor dedicado a **comércio e serviços**. Já em 2018 esta categoria de gastos voltou
 a crescer, chegando ao valor de `r format_rs(fora_orca$Total[4])`, dos quais
-R$904,00 foram gastos com relaões exteriores e o restante com comércio e serviços,
+R$904,00 foram gastos com **relaões exteriores** e o restante com **comércio e serviços**,
 a exemplo dos dois anos anteriores.
 
 ```{r plot3, fig.width = 10}
@@ -173,7 +177,7 @@ orcamento[
 
 ## Conclusão
 
-  É evidente a precarização na educação no Brasil no últimos anos,
-sobretudo na educação infantil. Tal comportamento por parte Governo,
-deve ser fiscalizado por parte da população. Objetivando uma educação
-de mais qualidade para todos, bem como mais desenvolvimento para o país.
+É evidente a precarização na educação no Brasil no últimos anos, sobretudo na
+educação infantil. Tal comportamento por parte Governo, deve ser fiscalizado por
+parte da população. Objetivando uma educação de mais qualidade para todos, bem
+como mais desenvolvimento para o país.
