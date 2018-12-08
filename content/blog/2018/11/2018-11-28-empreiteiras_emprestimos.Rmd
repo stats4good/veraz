@@ -34,7 +34,7 @@ library(highcharter)
 library(widgetframe)
 ```
 
-```{r dados, results='hold'}
+```{r dados}
 #setwd("~/Dropbox/Doutorado UFMG/Stats4Good")
 dados <- readRDS('data/dados_guilherme.rds')
 dados$ValordaOperacaoemUM <- as.numeric(dados$ValordaOperacaoemUM)
@@ -104,4 +104,3 @@ No geral é possível observar que poucas empresas possuem quase todo o montante
 ## Referência
 
 ^1^ [Dados BNDES](https://www.bndes.gov.br/wps/portal/site/home/transparencia/centraldedownloads/!ut/p/z1/xVZRe6I4FP0rMw8-plwIIbBvaC1Wcdraba28-AUIyqwkFGKdzq_f4PabGR2Vne26y0vI_XLvuffmnCRGZDwZkWAv-YKpXAq20vNZ5MxDb9Qf2DcQwn0Xg39Jr0kYeGAPsfFoREaUCFWqpTGLRcrreS5qlat1so3QgaUseAdUxURdsoqLJGcdSLjQltWHlH9I5UasJEvrJlKZ5Kkx8zjHHIAiYC4gm2QecpPYQ5hC5hIn5nGaNqvNtHg1ptsU6V3QG_i2GQZd3Aef-uRqYlIMxDKinQrw7RX4g9B8sMddsEb2mz8c-XzY9Q8mYIJPRlf-4-UIuwBv_icAfs3_5wXR6R2Ytm1RdLq8adPJlg601RC1NXlvwc11s0mDXkjs_sgMPGzMdBX0-C7qMl9yvjEehKwKzcv772Qh4Nie56YopZ6H7JQRxJgHKM6y1LNtjgmhxgBaEELrnQjDbYUnaKilZFXj3nihwzK1RLnIpPFU8mqxForVqOJ1Kevmr5ZxxRErZS4RQ_xLKSvFEiabEPnn5-fI15KTQvEvynj6Bc1JUa9XiqEsF6wxFVqEsu7AgRwOGo8nttdbd9z3wccT33axb8GNc7y31KFeakGGLJMy3VuLothKGSK2oxVvJkCp_Rb-GL16cN7w1nnDm2cNf__e5gzbpH2Y1zvceydxd2PphBYrGf91Ofkixq5GrnjGK15drCttXipV1r91oAObzeZii3OxkC8XcaUtZcPthrcarc4VbxOL1EJgieQ12gb6N9RyIO-ldjGe9tPd39vg9pNuPrnrQtC3Tds8oSuMOWcQMxTrswvZJgPkcTNDTkLBySwgjrm9Qqe98fzuoT_RSNvbdPYT5mP3Evzw-j4MHgC7pvlfYO7VSf4HTHoOzGHbRXpYTN_IuH92o5T_QCykiYd4EbPqec3PdVn8o1z2z6jdN0r3BKf-1lNw2PZGemcvDj1Wy6JwsXjN9Yf-mAy-dj-hoBe7r3j1Uuhx83v2w7C1Tl2l53w2H_dxcasdyOe3uSIxWRTzce1__PgnhJ02gw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/)
-</div>
