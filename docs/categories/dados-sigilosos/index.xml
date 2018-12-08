@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dados Sigilosos on Veraz</title>
+    <link>/veraz/categories/dados-sigilosos/</link>
+    <description>Recent content in Dados Sigilosos on Veraz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Thu, 29 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/veraz/categories/dados-sigilosos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quão transparente é o Portal da Transparência</title>
+      <link>/veraz/post/2018/11/2018-11-29-transp_port/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/11/2018-11-29-transp_port/</guid>
+      <description>O Portal da Transparência é uma importante ferramenta que permite o cidadão acompanhar informações sobre como o dinheiro público é utilizado. Desde que foi lançado, em 2004, o Portal ganhou prêmios e reconhecimento dentro1 e fora2 do Brasil devido à sua relevância. Apesar disso, a quantidade enorme de dados disponíveis cria uma barreira ao acesso de tanta informação, pois são inúmeras bases de dados que são alimentadas com uma frequência diária.</description>
+    </item>
+    
+  </channel>
+</rss>

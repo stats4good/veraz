@@ -1,0 +1,145 @@
+---
+title: 'Quão transparente é o Portal da Transparência'
+author: 'Magno Tairone'
+date: '2018-11-29'
+slug: transp_port
+banner: "blog/2018/11/img/banner_transpa.png"
+summary: "Embora a ideia no Portal da Transparência é dar acesso público à informações de gastos do governo federal, muitos dos dados não são acessados de maneira fácil por um usuário comum."
+categories:
+  - Orçamento
+  - Diárias de viagens
+  - Dados sigilosos
+  - Transparência
+tags:
+  - Diárias de viagens
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r pacotes}
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(magrittr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(highcharter))
+
+# aux function
+format_rs <- function(x, ...) {
+  scales::dollar(x = x, scale = .000001, prefix = 'R$', suffix = 'M', 
+                 big.mark = '.', decimal.mark = ',')
+}
+```
+
+O Portal da Transparência é uma importante ferramenta que permite o cidadão acompanhar informações sobre como o dinheiro público é utilizado. 
+Desde que foi lançado, em 2004, o Portal ganhou prêmios e reconhecimento dentro^[1](http://www.portaltransparencia.gov.br/pagina-interna/603246-portal-premiado)^ e fora^[2](http://www.cgu.gov.br/noticias/2009/10/brasil-expoe-transparencia-em-eventos-internacionais)^ do Brasil devido à sua relevância. 
+Apesar disso, a quantidade enorme de dados disponíveis cria uma barreira ao acesso de tanta informação, pois são inúmeras bases de dados que são alimentadas com uma frequência diária. 
+Buscando aprimorar o acesso aos dados, o Ministério da Transparência e Controladoria Geral da União, responsável pelo Portal, apresentou em julho deste ano melhorias significativas na plataforma.
+
+Entretanto, alguns questionamentos ainda persistem. 
+Um que já foi feito neste blog está relacionado aos dados sigilosos 
+(veja este post [aqui](https://stats4good.github.io/veraz/post/2018/05/2018-05-25-cartao_corporativo/), 
+e este [aqui](https://stats4good.github.io/veraz/post/2018/06/2018-06-15-cpgf_compras_centralizadas/)). 
+De acordo com o próprio site do Portal, "as regras para proteção de informações variam de acordo com o assunto e com o órgão responsável pelo dado. 
+O órgão responsável define as regras de restrição de acesso, que devem ser justificadas mediante sigilo ou classificação, conforme disposto nos artigos 22, 23 e 24 da Lei nº 12.527/2011 (Lei de Acesso à Informação)"^[3](http://www.portaltransparencia.gov.br/perguntas-frequentes/sobre-o-portal)^.
+
+O artigo 23 da Lei de Acesso à Informação^[4](http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm)^ enumera oito situações em que um dado pode ser considerado sigiloso, dentre os quais, pôr em risco a defesa e a soberania nacionais ou a integridade do território nacional; 
+oferecer elevado risco à estabilidade financeira, econômica ou monetária do País; 
+e comprometer atividades de inteligência, bem como de investigação ou fiscalização em andamento, relacionadas com a prevenção ou repressão de infrações. 
+Além desta lei, o Decreto nº 7845/2012 regulamenta os procedimentos para credenciamento e tratamento de dados sigilosos.
+
+## Como vemos os dados sigilosos na prática?
+Em relação à este tipo de dado, o Portal da Transparência não é tão veraz. 
+Vamos considerar, por exemplo, os dados referentes à diárias de viagem a serviço, que são aquelas realizadas no interesse da administração, em território nacional ou estrangeiro^[5](http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Decreto/D5992.htm)^. 
+O Portal disponibiliza dados de viagem desde janeiro de 2011, organizados em tabelas mensais. 
+À cada valor de diária estão associados os órgãos Superior e Subordinado, a Unidade Gestora, o nome do servidor favorecido, a data de pagamento, entre outras informações.
+
+```{r carregando-dados}
+load("data/dados_magno.RData")
+```
+
+Após pouco mais de sete anos de dados registrados, o portal apresenta 7.429.863 registros de pagamento de viagens a serviço. 
+O valor médio pago pelo governo é de R\$787,00, enquanto que a mediana é de R\$442, sugerindo uma assimetria à direta.
+Curiosamente, 8303 dos valores pagos em diárias custaram menos que R$10,00.
+Dentre eles, o menor valor registrado é de R\$0,02 (existem 150 deles no total).
+O gráfico abaixo mostra a quantidade de vezes que cada ministério recebeu um pagamento neste valor de R\$0,02.
+
+```{r plot_1, fig.width = 10}
+highchart() %>% 
+  hc_chart(type = "pie") %>% 
+  hc_add_series_labels_values(labels = minimo$`Nome Órgão Superior`, 
+                              values = minimo$Numero, 
+                              name="Número de registros") %>% 
+  widgetframe::frameWidget()
+``` 
+
+Agora vamos olhar para os 150 maiores valores registrados ao longo do período analisado. 
+Eles somam um total de R\$869.045.940,00. 
+Veja no gráfico abaixo que a maior parte destes valores (58% dos 150, para ser exato) são dados cujo detalhamento das informações não está disponível.
+
+```{r plot_2, fig.width = 10}
+highchart() %>% 
+  hc_chart(type = "pie") %>% 
+  hc_add_series_labels_values(labels = maximo150$`Nome Órgão Superior`, 
+                              values = maximo150$Numero, 
+                              name="Número de registros")  %>% 
+  widgetframe::frameWidget()
+```
+
+Não podemos afirmar categoricamente que estes são dados sigilosos, uma vez que, em outras bases de dados do Portal, a palavra **sigiloso** aparece na descrição dos dados deste tipo. 
+Entretanto, com base na Lei de Acesso à Informação, é razoável suspeitar que estes dados sem informação são sigilosos. 
+Como mencionado anteriormente, nos dados de viagens a serviço temos diversas referências à quem recebeu o repasse, inclusive à qual instituição pública o funcionário que o recebeu está subordinado. 
+Contudo, para os dados cujo detalhamento das informações não está disponível não há nenhuma referência a não ser o valor pago e a data. 
+Não é possível saber, por exemplo, para qual ministério o valor foi destinado, além de que estes valores são muito superiores se comparados com os valores médios e medianos.
+Neste ponto, portanto, o Portal deixa de ser transparente.
+
+Ao agregar os dados por mês ao longo dos mais de sete anos analisados, observamos que o valor médio gasto pelo governo federal com viagens a serviço é de R\$67.208.216,00.
+Veja abaixo que o total mensal de gastos segue um padrão ao longo do ano, com excessão dos anos 2014 (ano da Copa do Mundo no Brasil) e 2016 (ano das Olimpíadas no Rio de Janeiro).
+
+```{r plot_3, fig.width = 10}
+highchart() %>%
+  hc_add_series(data = total.mes, 
+                mapping = hcaes(y = total, group = ano), 
+                type = "line") %>% 
+  hc_yAxis(opposite = TRUE,
+           labels = list(format = "R${value}M")) %>% 
+  hc_xAxis(categories = 1:12) %>% 
+  hc_title(text = "Total mensal gasto em diárias")  %>% 
+  widgetframe::frameWidget()
+```
+
+O gráfico abaixo mostra, para cada mês, a porcentagem de dados sem informação em relação ao total gasto naquele mês. 
+Veja que, novamente, os anos 2014 e 2016apresentam um comportamento de crescimento da proporção dos dados sem detalhes que foge do padrão dos outros anos.
+Além deles, os primeiros meses do ano de 2018 apresentam uma proporção de dados sem informação bem acima da média, que é por volta de 15% do total.
+
+
+```{r plot_4, fig.width = 10}
+highchart() %>%
+  hc_add_series(data = sigilo, 
+                mapping = hcaes(y = perc, group = ano), 
+                type = "line") %>% 
+  hc_yAxis(opposite = TRUE,
+         labels = list(format = "{value}%")) %>% 
+  hc_xAxis(categories = 1:12) %>% 
+  hc_title(text = "Porcentagem de pagamentos de diárias sem detalhes") %>% 
+  widgetframe::frameWidget()
+```
+
+O maior questionamento que fica é em relação à quão transparente o Portal de fato é. 
+Certamente, uma infinidade de dados está disponível para consulta, embora muitos deles não são obtidos de forma simples, devido também ao tamanho das bases e de sua estrutura, requerendo certo conhecimento de processamento de dados para serem analisados, conhecimento este que boa parte da população brasileira não detém. 
+O objetivo primordial do Portal da Transparência é dar ferramentas para o cidadão acompanhar as informações sobre como o dinheiro público é utilizado. 
+Entretanto, em relação aos dados sigilosos e àqueles em que não há detalhes disponíveis, fica praticamente impossível acompanhar o destino da verba. 
+É claro que não estamos propondo a quebra do sigilo destes dados, estamos sugerindo que pelo menos o órgão para qual o dado sigiloso foi destinado seja mostrado para que nós, cidadãos, possamos analisá-los.
+
+# Referências
+
+^1^: http://www.portaltransparencia.gov.br/pagina-interna/603246-portal-premiado
+
+^2^: http://www.cgu.gov.br/noticias/2009/10/brasil-expoe-transparencia-em-eventos-internacionais
+
+^3^: http://www.portaltransparencia.gov.br/perguntas-frequentes/sobre-o-portal
+
+^4^: http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm
+
+^5^: http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Decreto/D5992.htm

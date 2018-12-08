@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/veraz/post/2018/11/2018-11-29-transp_port/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/veraz/post/2018/11/2018-11-28-empreiteiras_emprestimos/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/veraz/post/2018/10/2018-10-29-orcamento_edu/</loc>
     <lastmod>2018-10-29T00:00:00+00:00</lastmod>
   </url>
@@ -60,7 +70,13 @@
   
   <url>
     <loc>/veraz/blog/</loc>
-    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/bndes/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -131,6 +147,24 @@
   </url>
   
   <url>
+    <loc>/veraz/categories/dados-sigilosos/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/di%C3%A1rias-de-viagens/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/di%C3%A1rias-de-viagens/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/tags/economia/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -157,6 +191,24 @@
   <url>
     <loc>/veraz/categories/elei%C3%A7%C3%B5es/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/empreiteiras/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/tags/empr%C3%A9stimos/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/veraz/categories/empr%C3%A9stimos/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -204,7 +256,7 @@
   
   <url>
     <loc>/veraz/categories/or%C3%A7amento/</loc>
-    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -263,8 +315,14 @@
   </url>
   
   <url>
+    <loc>/veraz/categories/transpar%C3%AAncia/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/veraz/</loc>
-    <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

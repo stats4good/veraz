@@ -1,0 +1,107 @@
+---
+title: "Grandes Empreiteiras e Grandes Empréstimos"
+author: "Guilherme Aguilar"
+date: '2018-11-28'
+slug: empreiteiras_emprestimos
+banner: "blog/2018/11/img/construcao_dinheiro.jpg"
+summary: "Descrição dos valores recebidos por grandes empreiteiras em diferentes obras no exteriores financiadas pelo Governo Brasileiro."
+categories:
+  - Empreiteiras
+  - Empréstimos
+tags:
+  - Empréstimos
+  - BNDES
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE)
+```
+
+### Sobre o BNDES e suas atuações
+
+> O Banco Nacional de Desenvolvimento Econômico e Social é uma empresa pública federal, com sede e foro em Brasília, Distrito Federal, e escritório no Rio de Janeiro, cujo principal objetivo é o financiamento de longo prazo e investimento em todos os segmentos da economia brasileira.
+
+Esta é a definição da empresa que se encontra em seu próprio site. Porém, apesar disso, nos último anos o banco foi alvo de várias notícias polêmicas em muitos canais de informação. Como por exemplo, sobre os investimentos que a empresa faz em exportação de bens e serviços brasileiros de engenharia para o exterior. Tais investimentos são realizados onde o BNDES desembolsa recursos no Brasil, em Reais, à empresa brasileira exportadora à medida que as exportações são realizadas e comprovadas. E quem paga o financiamento ao BNDES, com juros, em dólar ou euro, é o país ou empresa que importa os bens e serviços do Brasil. Obras como portos, rodovias, aeroportos, saneamento básico, plantas de geração de energia entre outros são exemplos de onde são feitos os investimentos.
+
+```{r pacotes}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plyr)
+library(data.table)
+library(treemap)
+library(highcharter)
+library(widgetframe)
+```
+
+```{r dados, results='hold'}
+#setwd("~/Dropbox/Doutorado UFMG/Stats4Good")
+dados <- readRDS('data/dados_guilherme.rds')
+dados$ValordaOperacaoemUM <- as.numeric(dados$ValordaOperacaoemUM)
+a <- select(dados,Exportador,ValordaOperacaoemUM)
+a <- a %>% 
+  group_by(Exportador) %>% 
+  summarise_each(funs(sum))
+a <- as.data.frame(a)
+```
+
+### Empréstimos sobre Exportação de Bens e Serviços
+
+No entanto, nem tudo são flores, pois muitas construtoras envolvidas na operação Lava Jato foram altamente beneficiadas por estes empréstimos, com uma ótima taxa de juros, para realizarem obras no exterior. O próprio site do BNDES disponibiliza alguns dados ^1^. Abaixo se encontra um gráfico com o número de empréstimos em exportação de bens e serviços que cada empresa brasileira obteve do ano de 1998 até 2018. O número de contratos da 'Construtora Norberto Odebrecht SA' é avassaladoramente maior, somando 500, a segunda empresa que mais obteve contratos nesse período foi a 'Construções E Comércio Camargo Correa S/A' com 74, seguida pela 'Construtora Andrade Gutierrez S/A' com 24 empréstimos. O país que mais foi beneficiados com as obras nessa categoria foi a Argentina com 440 obras, seguido pela Angola com 86. A variável "Outros" contém 10 empresas, estas possuiam apenas 1 contrato cada.  
+
+
+```{r barplot}
+g <- ggplot(dados, 
+            aes(forcats::fct_rev(forcats::fct_infreq(Exportador))))
+g + geom_bar(aes(fill = Pais)) + theme_bw() + labs(y = "Frequência", x = "Exportador", colour = "País de Destino") + ggtitle("Número total de operações que cada empresa \n obteve entre os anos de 1998 e 2018") +
+  s4ggthemes::theme_veraz() +
+  coord_flip() +
+  s4ggthemes::scale_fill_veraz(palette = 'secondary') # + theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+```
+
+O gráfico abaixo mostra a proporção da quantia que cada empresa recebeu referente aos investimentos de exportação de bens e serviços do ano de 1998 até 2018, onde é possível observar que a empresa Odebrecht obteve mais da metade do valor investido totalizando R\$911.667.6048,00, seguida por Andrade Gutierrez com R\$2.690.166.550,00, e a empresa que obteve o menor valor de investimento foi a Furnas Centrais Elétricas S/A, no valor de R\$1.500.000,00.
+
+```{r treemap, fig.keep='none'}
+treemap1 <- treemap(a, #Your data frame object
+        index=c("Exportador"),  #A list of your categorical variables
+        vSize = "ValordaOperacaoemUM",  #This is your quantitative variable
+        type="index", #Type sets the organization and color scheme of your treemap
+        palette = "Spectral",  #Select your color palette from the RColorBrewer presets or make your own.
+        title="Valores dos Empréstimos", #Customize your title
+        fontsize.title = 14 #Change the font size of the title
+)
+```
+
+```{r treemap int}
+# hchart(a, "treemap", hcaes(x = Exportador, value = ValordaOperacaoemUM, color = Exportador)) %>% 
+# # hctreemap2(data = a, group_vars = , size_var = ValordaOperacaoemUM,
+# #            color_var = Exportador, allowDrillToNode = TRUE) %>% 
+#   hc_title(text = "Figura 2: Proporção do total emprestado para cada empresa") %>% 
+#   hc_tooltip(pointFormat = "<b>{point.name}</b>:<br>
+#                               Total Recebido: {point.value:,.0f}") %>% 
+#   hc_exporting(enabled = TRUE) %>% 
+#   widgetframe::frameWidget()
+
+hctreemap(treemap1, allowDrillToNode = TRUE) %>% 
+  hc_title(text = "Figura 2: Proporção do total emprestado para cada empresa") %>% 
+    hc_tooltip(pointFormat = "<b>{point.name}</b>:<br>
+                              Total Recebido: {point.value:,.0f}") %>% 
+  hc_exporting(enabled = TRUE) %>% 
+  widgetframe::frameWidget()
+```
+  
+</br>
+
+Um outro dado interessante é sobre a exportação de bens, que possui o dobro de operações que esta representada nos gráficos acima, porém há uma coluna faltante que está relacionada aos valores de cada empréstimo. E tem a seguinte mensagem:
+"Foram excluídas da listagem as contratações que permitiam identificar o valor individual de operações, protegido por sigilo advindo de lei ao qual o BNDES está sujeito no exercício de sua atividade-fim,  a partir do quadro de desembolsos por países.  Dessa forma, foi preservado o sigilo das informações detalhadas de operações por países com reduzido número de contratações realizadas por ano."
+
+Um dos problemas que podem ocorrer é a inadimplência de alguns países, e como o BNDES é um banco público, esse prejuízo é do 'brasileiro'. O recurso para cobrir a inadimplência dos países vem das receitas do Fundo de Garantia à Exportação (FGE). Entretanto, para pagar a indenização, é preciso que o pagamento esteja previsto no Orçamento Geral da União. Como supostamente seria raro haver inadimplência nas operações de financiamento à exportação de bens e serviços de engenharia, não havia previsão orçamentária de despesas com o FGE em 2018. Tendo em vista que houveram atrasos de Moçambique e Venezuela, foi necessário utilizar um dinheiro que seria destinado ao seguro-desemprego para cobrir esses valores.
+
+### Considerações Finais
+
+No geral é possível observar que poucas empresas possuem quase todo o montante dos valores dos empréstimo e quase todas elas estão envolvidas na Operação Lava Jato. Pode ser injusto, mas comparando essas cifras de investimentos/empréstimos com o que é investido, por exemplo na educação, como pode ser visto neste [post](https://stats4good.github.io/veraz/post/2018/10/2018-10-29-orcamento_edu/), é possível observar uma enorme discrepância.
+
+## Referência
+
+^1^ [Dados BNDES](https://www.bndes.gov.br/wps/portal/site/home/transparencia/centraldedownloads/!ut/p/z1/xVZRe6I4FP0rMw8-plwIIbBvaC1Wcdraba28-AUIyqwkFGKdzq_f4PabGR2Vne26y0vI_XLvuffmnCRGZDwZkWAv-YKpXAq20vNZ5MxDb9Qf2DcQwn0Xg39Jr0kYeGAPsfFoREaUCFWqpTGLRcrreS5qlat1so3QgaUseAdUxURdsoqLJGcdSLjQltWHlH9I5UasJEvrJlKZ5Kkx8zjHHIAiYC4gm2QecpPYQ5hC5hIn5nGaNqvNtHg1ptsU6V3QG_i2GQZd3Aef-uRqYlIMxDKinQrw7RX4g9B8sMddsEb2mz8c-XzY9Q8mYIJPRlf-4-UIuwBv_icAfs3_5wXR6R2Ytm1RdLq8adPJlg601RC1NXlvwc11s0mDXkjs_sgMPGzMdBX0-C7qMl9yvjEehKwKzcv772Qh4Nie56YopZ6H7JQRxJgHKM6y1LNtjgmhxgBaEELrnQjDbYUnaKilZFXj3nihwzK1RLnIpPFU8mqxForVqOJ1Kevmr5ZxxRErZS4RQ_xLKSvFEiabEPnn5-fI15KTQvEvynj6Bc1JUa9XiqEsF6wxFVqEsu7AgRwOGo8nttdbd9z3wccT33axb8GNc7y31KFeakGGLJMy3VuLothKGSK2oxVvJkCp_Rb-GL16cN7w1nnDm2cNf__e5gzbpH2Y1zvceydxd2PphBYrGf91Ofkixq5GrnjGK15drCttXipV1r91oAObzeZii3OxkC8XcaUtZcPthrcarc4VbxOL1EJgieQ12gb6N9RyIO-ldjGe9tPd39vg9pNuPrnrQtC3Tds8oSuMOWcQMxTrswvZJgPkcTNDTkLBySwgjrm9Qqe98fzuoT_RSNvbdPYT5mP3Evzw-j4MHgC7pvlfYO7VSf4HTHoOzGHbRXpYTN_IuH92o5T_QCykiYd4EbPqec3PdVn8o1z2z6jdN0r3BKf-1lNw2PZGemcvDj1Wy6JwsXjN9Yf-mAy-dj-hoBe7r3j1Uuhx83v2w7C1Tl2l53w2H_dxcasdyOe3uSIxWRTzce1__PgnhJ02gw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/)
+</div>

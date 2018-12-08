@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Empreiteiras on Veraz</title>
+    <link>/veraz/categories/empreiteiras/</link>
+    <description>Recent content in Empreiteiras on Veraz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Wed, 28 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/veraz/categories/empreiteiras/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grandes Empreiteiras e Grandes Empréstimos</title>
+      <link>/veraz/post/2018/11/2018-11-28-empreiteiras_emprestimos/</link>
+      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/veraz/post/2018/11/2018-11-28-empreiteiras_emprestimos/</guid>
+      <description>Sobre o BNDES e suas atuações  O Banco Nacional de Desenvolvimento Econômico e Social é uma empresa pública federal, com sede e foro em Brasília, Distrito Federal, e escritório no Rio de Janeiro, cujo principal objetivo é o financiamento de longo prazo e investimento em todos os segmentos da economia brasileira.
+ Esta é a definição da empresa que se encontra em seu próprio site. Porém, apesar disso, nos último anos o banco foi alvo de várias notícias polêmicas em muitos canais de informação.</description>
+    </item>
+    
+  </channel>
+</rss>
